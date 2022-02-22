@@ -108,30 +108,159 @@ the_nodes = {
             "objective_desc": "To assess the effect of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients who have failed to 1st-line chemotherapy"
         }
     ],
-    "STUDY_CELL": [
-        {
-            "key": "SC_1"
+    "STUDY_ARM": [
+        {   "key": "ARM02",
+            "study_arm_description": "AZD6738 + Durvalumab",
+            "study_arm_name": "DURVALUMAB ADD_ON",
+            "study_arm_tyåe": "TREATMENT ARM"
         },
         {
-            "key": "SC_2"
+            "key": "ARM03",
+            "study_arm_description": "AZD6738 + Olaparib",
+            "study_arm_name": "OLAPARIB_ADDON",
+            "study_arm_type": "TREATMENT ARM"	
         },
         {
-            "key": "SC_3"
+            "key": "ARM04",
+            "study_arm_description": "AZD6738 + emerging Therapy 1",
+            "study_arm_name": "NEW1_ADDON",
+            "study_arm_type": "TREATMENT ARM"		
         },
         {
-            "key": "SC_4"
+            "key": "ARM05",
+            "study_arm_description": "AZD6738 + emerging Therapy 2",
+            "study_arm_name": "NEW2_ADDON",
+            "study_arm_type": "TREATMENT ARM"
         }
     ],
-    "STUDY_ARM": [
+    "STUDY_EPOCH": [
         {
-            "key": "SA_1",
-            "study_arm_description": "AZD6738 + Olaparib",
-            "study_arm_name": "OLAPARIB_ADDON"
+            "key": "EPO004",
+            "study_epoch_desc":	"Screening",
+            "study_epoch_name":	"SCREEN",
+            "study_epoch_type":	"Screening"
         },
         {
-            "key": "SA_2",
-            "study_arm_description": "AZD6738 + Durvalumab",  
-            "study_arm_name": "DURVALUMAB ADD_ON"
+            "key": "EPO005",
+            "study_epoch_desc":	"Run-In",
+            "study_epoch_name":	"RUN-IN",
+            "study_epoch_type":	"Run-IN"
+        },
+        {
+            "key": "EPO006",
+            "study_epoch_desc":	"Treatment Cycle 1",
+            "study_epoch_name":	"TREATMENT",
+            "study_epoch_type":	"Treatment 1"
+        },
+        {
+            "key": "EPO007",
+            "study_epoch_desc":	"Treatment Cycle 2",
+            "study_epoch_name":	"TREATMENT",
+            "study_epoch_type":	"Treatment 2"
+        },
+        {
+            "key": "EPO008",
+            "study_epoch_desc":	"Following Cycles",
+            "study_epoch_name":	"TREATMENT",
+            "study_epoch_type":	"Treatment X"
+        },
+        {
+            "key": "EPO009",
+            "study_epoch_desc":	"Follow-up",
+            "study_epoch_name":	"FOLLOW-UP",
+            "study_epoch_type":	"Follow-up"
+        }
+    ],
+    "STUDY_ELEMENT": [
+        {
+            "key": "EL004",
+            "study_element_desc": "Screening",
+            "study_element_name": "SCREENING",
+        },
+        {
+            "key": "EL005",
+            "study_element_desc": "AZD6738 + Durvalumab",
+            "study_element_name": "AZD_DRUV",
+        },
+        {
+            "key": "EL006",
+            "study_element_desc": "AZD6738 + Olaparib",
+            "study_element_name": "AZD_OLA",
+        },
+        {
+            "key": "EL007",
+            "study_element_desc": "Follow-up",
+            "study_element_name": "FOLLOW-UP",
+        }
+    ],
+
+    "RULE": [
+        {
+            "key": "RULE1",
+            "rule_desc": "6 weeks prior to start treatment"
+        },
+        {
+            "key": "RULE2",
+            "rule_desc": "Start of treatment"
+        },
+        {
+            "key": "RULE3",
+            "rule_desc": "Start of treatment"
+        },
+        {
+            "key": "RULE4",
+            "rule_desc": "End of last treatment day"
+        },
+        {
+            "key": "RULE5",
+            "rule_desc": "Start of treatment",
+        },
+        {
+            "key": "RULE6",
+            "rule_desc": "End of last treatment day",
+        },
+        {
+            "key": "RULE7",
+            "rule_desc": "End of last treatment day",
+        },
+        {
+            "key": "RULE8",
+            "rule_desc": "Last follow-up measurement",
+        }
+    ],
+    "STUDY_CELL": [
+        {
+            "key": "CEL004"
+        },
+        {
+            "key": "CEL005"
+        },
+        {
+            "key": "CEL006"
+        },
+        {
+            "key": "CEL007"
+        },
+        {
+            "key": "CEL008"
+        },
+        {
+            "key": "CEL009"
+        },
+        {
+            "key": "CEL010"
+        },
+        {
+            "key": "CEL011"
+        },
+        {
+            "key": "CEL012"
+        },
+        {
+            "key": "CEL013"
+        },
+        {
+            "key": "CEL014"
         }
     ]
 }
@@ -170,15 +299,69 @@ the_relationships = {
         {"from": "SD_1", "to": "O_3"},
     ],
     "HAS_CELL": [
-        {"from": "SD_1", "to": "SC_1"},
-        {"from": "SD_1", "to": "SC_2"},
-        {"from": "SD_1", "to": "SC_3"},
-        {"from": "SD_1", "to": "SC_4"},
+        {"from": "SD_1", "to": "CEL004"},
+        {"from": "SD_1", "to": "CEL005"},
+        {"from": "SD_1", "to": "CEL006"},
+        {"from": "SD_1", "to": "CEL007"},
+        {"from": "SD_1", "to": "CEL008"},
+        {"from": "SD_1", "to": "CEL009"},
+        {"from": "SD_1", "to": "CEL010"},
+        {"from": "SD_1", "to": "CEL011"},
+        {"from": "SD_1", "to": "CEL012"},
+        {"from": "SD_1", "to": "CEL013"},
+        {"from": "SD_1", "to": "CEL014"}
     ],
     "HAS_ARM": [
-        {"from": "SC_1", "to": "SA_1"},
-        {"from": "SC_2", "to": "SA_2"}
+        { "from": "CEL004", "to": "ARM02" },
+        { "from": "CEL005", "to": "ARM03" },
+        { "from": "CEL006", "to": "ARM02" },
+        { "from": "CEL007", "to": "ARM03" },
+        { "from": "CEL008", "to": "ARM02" },
+        { "from": "CEL009", "to": "ARM03" },
+        { "from": "CEL010", "to": "ARM02" },
+        { "from": "CEL011", "to": "ARM02" },
+        { "from": "CEL012", "to": "ARM03" },
+        { "from": "CEL013", "to": "ARM02" },
+        { "from": "CEL014", "to": "ARM03" },
     ],
+    "HAS_EPOCH": [
+        { "from": "CEL004", "to": "EPO004" },
+        { "from": "CEL005", "to": "EPO004" },
+        { "from": "CEL006", "to": "EPO005" },
+        { "from": "CEL007", "to": "EPO005" },
+        { "from": "CEL008", "to": "EPO006" },
+        { "from": "CEL009", "to": "EPO005" },
+        { "from": "CEL010", "to": "EPO007" },
+        { "from": "CEL011", "to": "EPO008" },
+        { "from": "CEL012", "to": "EPO008" },
+        { "from": "CEL013", "to": "EPO009" },
+        { "from": "CEL014", "to": "EPO009" },
+    ],
+    "HAS_ELEMENT": [
+        { "from": "CEL004", "to": "EL004" },
+        { "from": "CEL005", "to": "EL004" },
+        { "from": "CEL006", "to": "EL005" },
+        { "from": "CEL007", "to": "EL006" },
+        { "from": "CEL008", "to": "EL005" },
+        { "from": "CEL009", "to": "EL006" },
+        { "from": "CEL010", "to": "EL005" },
+        { "from": "CEL011", "to": "EL005" },
+        { "from": "CEL012", "to": "EL006" },
+        { "from": "CEL013", "to": "EL007" },
+        { "from": "CEL014", "to": "EL007" },
+    ],
+    "HAS_START_RULE": [
+        { "from": "EL004", "to": "RULE1" },
+        { "from": "EL005", "to": "RULE2" },
+        { "from": "EL005", "to": "RULE3" },
+        { "from": "EL006", "to": "RULE4" }
+    ],
+    "HAS_END_RULE": [
+        { "from": "EL004", "to": "RULE5" },
+        { "from": "EL005", "to": "RULE6" },
+        { "from": "EL005", "to": "RULE7" },
+        { "from": "EL006", "to": "RULE8" }
+    ]
 }
 
 def clear(tx):
