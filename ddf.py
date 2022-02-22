@@ -93,6 +93,46 @@ the_nodes = {
             "code_system_version": "14-12-2021",
             "decode": "Olaparib"
         }
+    ],
+    "OBJECTIVE": [
+        {
+            "key": "O_1",
+            "objective_desc": "To assess the safety of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients"
+        },
+        {
+            "key": "O_2",
+            "objective_desc": "To assess the effect of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients who have failed to 1st-line chemotherapy and are in second phase of disease"
+        },
+        {
+            "key": "O_3",
+            "objective_desc": "To assess the effect of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients who have failed to 1st-line chemotherapy"
+        }
+    ],
+    "STUDY_CELL": [
+        {
+            "key": "SC_1"
+        },
+        {
+            "key": "SC_2"
+        },
+        {
+            "key": "SC_3"
+        },
+        {
+            "key": "SC_4"
+        }
+    ],
+    "STUDY_ARM": [
+        {
+            "key": "SA_1",
+            "study_arm_description": "AZD6738 + Olaparib",
+            "study_arm_name": "OLAPARIB_ADDON"
+        },
+        {
+            "key": "SA_2",
+            "study_arm_description": "AZD6738 + Durvalumab",  
+            "study_arm_name": "DURVALUMAB ADD_ON"
+        }
     ]
 }
 
@@ -123,7 +163,22 @@ the_relationships = {
         {"from": "II_1", "to": "C_3"},
         {"from": "II_2", "to": "C_1"},
         {"from": "II_2", "to": "C_2"},
-    ]
+    ],
+    "HAS_OBJECTIVE": [
+        {"from": "SD_1", "to": "O_1"},
+        {"from": "SD_1", "to": "O_2"},
+        {"from": "SD_1", "to": "O_3"},
+    ],
+    "HAS_CELL": [
+        {"from": "SD_1", "to": "SC_1"},
+        {"from": "SD_1", "to": "SC_2"},
+        {"from": "SD_1", "to": "SC_3"},
+        {"from": "SD_1", "to": "SC_4"},
+    ],
+    "HAS_ARM": [
+        {"from": "SC_1", "to": "SA_1"},
+        {"from": "SC_2", "to": "SA_2"}
+    ],
 }
 
 def clear(tx):
