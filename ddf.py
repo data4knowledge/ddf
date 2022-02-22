@@ -51,6 +51,48 @@ the_nodes = {
             "scientific_title": "DDR-Umbrella Study of DNA-Damage Response Targeting Agents in Advanced Biliary Tract Cancer",
             "amendments": ""
         }
+    ],
+    "STUDY_DESIGN": [
+        {
+            "key": "SD_1"
+        }
+    ],
+    "INVESTIGATIONAL_INTERVENTIONS": [
+        {
+            "key": "II_1",
+            "intervention_desc": "Olaparibstring"
+        },
+        {
+            "key": "II_2",
+            "intervention_desc": "Durvalumab"
+        },
+        {
+            "key": "II_3",
+            "intervention_desc": "AZD6738"
+        }
+    ],
+    "CODE": [
+        {
+            "key": "C_1",
+            "code": "249565666",
+            "code_system": "PubChem",
+            "code_system_version": "09/02/2021",
+            "decode": "Durvalumab; Imfinzi; Anti-B7H1; Monoclonal Antibody"
+        },
+        {
+            "key": "C_2",
+            "code": "L01XC28",
+            "code_system": "ATC",
+            "code_system_version": "14-12-2021",
+            "decode": "Durvalumab"
+        },
+        {
+            "key": "C_3",
+            "code": "L01XK01",
+            "code_system": "ATC",
+            "code_system_version": "14-12-2021",
+            "decode": "Olaparib"
+        }
     ]
 }
 
@@ -68,6 +110,19 @@ the_relationships = {
     ],
     "HAS_PROTOCOL": [
         {"from": "S_1", "to": "SPR_1"},
+    ],
+    "HAS_STUDY_DESIGN": [
+        {"from": "S_1", "to": "SD_1"},
+    ],
+    "HAS_INVESTIGATIONAL_INTERVENTION": [
+        {"from": "SD_1", "to": "II_1"},
+        {"from": "SD_1", "to": "II_2"},
+        {"from": "SD_1", "to": "II_3"},
+    ],
+    "HAS_CODED": [
+        {"from": "II_1", "to": "C_3"},
+        {"from": "II_2", "to": "C_1"},
+        {"from": "II_2", "to": "C_2"},
     ]
 }
 
