@@ -6,7 +6,8 @@ the_nodes = {
             "key": "S_1",
             "study_title": "Umbrella Study of DDR (DNA-Damage Response) Targeting Agents in Advanced Biliary Tract Cancer",
             "study_version": "???",
-            "study_tag": "???"
+            "study_tag": "???",
+            "study_status": "???"
         }
     ],
     "STUDY_IDENTIFIER": [
@@ -28,6 +29,28 @@ the_nodes = {
             "id_type": "SponsorID",
             "org_code": "AZ002020202"
         }
+    ],
+    "STUDY_TYPE": [
+        {
+            "key": "ST_1",
+            "study_type_classification": "INTERVENTIONAL"
+        }
+    ],
+    "STUDY_PHASE": [
+        {
+            "key": "SP_1",
+            "study_phase_desc": "PHASE II TRIAL"
+        }
+    ],
+    "STUDY_PROTOCOL": [
+        {
+            "key": "SPR_1",
+            "brief_title": "DDR", 
+            "official_title": "Targeting Agents in ABTC",
+            "PublicTitle": "DDR-Umbrella Study of DDR (DNA-Damage Response) Targeting Agents in Advanced Biliary Tract Cancer Umbrella ABTC Study",
+            "scientific_title": "DDR-Umbrella Study of DNA-Damage Response Targeting Agents in Advanced Biliary Tract Cancer",
+            "amendments": ""
+        }
     ]
 }
 
@@ -36,6 +59,15 @@ the_relationships = {
         {"from": "S_1", "to": "SI_1"},
         {"from": "S_1", "to": "SI_2"},
         {"from": "S_1", "to": "SI_3"},
+    ],
+    "HAS_STUDY_TYPE": [
+        {"from": "S_1", "to": "ST_1"},
+    ],
+    "HAS_STUDY_PHASE": [
+        {"from": "S_1", "to": "SP_1"},
+    ],
+    "HAS_PROTOCOL": [
+        {"from": "S_1", "to": "SPR_1"},
     ]
 }
 
