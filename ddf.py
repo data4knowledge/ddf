@@ -644,7 +644,7 @@ the_relationships = {
 #WF017 ARM03   
 #WF018 ARM03   
       
-    "HAS_ENCOUNTER": [
+    "USED_IN_VISIT": [
         {"from": "WF011", "to": "VIS11" },
         {"from": "WF012", "to": "VIS11" },
         {"from": "WF012", "to": "VIS12" },
@@ -756,6 +756,9 @@ with driver.session() as session:
         query = "UNWIND $rels as data MATCH (n {key: data.from}) MATCH (m {key: data.to}) CREATE (n)-[:%s]->(m)" % (key)
         print(query)
         result = session.run(query, rels=value)
+
+# Queries To Run
+# MATCH (e:STUDY_EPOCH)-[]->(v:VISIT) RETURN e.study_epoch_name,v.name ORDER BY e.sequence_in_study, v.number
 
 driver.close()
 
