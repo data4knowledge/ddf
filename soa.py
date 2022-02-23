@@ -13,35 +13,39 @@ with driver.session() as session:
         (e:STUDY_EPOCH)-[]->(v:VISIT) WHERE pr.brief_title = '%s'
         WITH e.study_epoch_name as epoch,v.name as visit ORDER BY e.sequence_in_study, v.number
         RETURN DISTINCT epoch, visit""" % (protocol_name)
-    print(query)
+    #print(query)
     result = session.run(query)
-    print(result)
+    #print(result)
     visits = {}
+    visit_row = {}
     epoch_visits = {}
     epoch_count = 0
     for record in result:
-        print("'%s', '%s'" % (record["epoch"], record["visit"]))
+        #print("'%s', '%s'" % (record["epoch"], record["visit"]))
         if not record["epoch"] in epoch_visits:
             epoch_visits[record["epoch"]] = []    
             epoch_count += 1
         epoch_visits[record["epoch"]].append(record["visit"])
         visits[record["visit"]] = record["epoch"]
-    print(epoch_visits)
-    print(visits)
+        visit_row[record["visit"]] = ""
+    #print(epoch_visits)
+    #print(visits)
 
     # Activities
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
         -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM) WHERE pr.brief_title = '%s'
-        WITH wfi.description as activity ORDER BY v.number
-        RETURN DISTINCT activity""" % (protocol_name)
-    print(query)
+        WITH wfi.description as activity, v.name as visit ORDER BY v.number
+        RETURN DISTINCT activity, visit""" % (protocol_name)
+    #print(query)
     result = session.run(query)
-    print(result)
-    activities = []
+    #print(result)
+    activities = {}
     for record in result:
-        print("'%s'" % (record["activity"]))
-        activities.append(record["activity"])
-    print(activities)
+        #print("'%s', '%s'" % (record["activity"], record["visit"]))
+        if not record["activity"] in activities:
+            activities[record["activity"]] = visit_row.copy()
+        activities[record["activity"]][record["visit"]] = "X" 
+    #print(activities)
 
 driver.close()
 
@@ -49,7 +53,13 @@ driver.close()
 table = BeautifulTable()
 table.columns.header = [""] + list(visits.values())
 table.rows.append([""] + list(visits.keys()))
-for activity in activities:
-    table.rows.append([activity] + [''] * visits.__len__())
-table.maxwidth = 180
+for activity, data in activities.items():
+    table.rows.append([activity] + list(data.values()))
+table.maxwidth = 210
+print("")
+print("")
+print("Schedule of Assessmments for %s" % (protocol_name))
+print("")
 print(table)
+print("")
+print("")
