@@ -138,37 +138,43 @@ the_nodes = {
             "key": "EPO004",
             "study_epoch_desc":	"Screening",
             "study_epoch_name":	"SCREEN",
-            "study_epoch_type":	"Screening"
+            "study_epoch_type":	"Screening",
+            "sequence_in_study": 1
         },
         {
             "key": "EPO005",
             "study_epoch_desc":	"Run-In",
             "study_epoch_name":	"RUN-IN",
-            "study_epoch_type":	"Run-IN"
+            "study_epoch_type":	"Run-IN",
+            "sequence_in_study": 2
         },
         {
             "key": "EPO006",
             "study_epoch_desc":	"Treatment Cycle 1",
             "study_epoch_name":	"TREATMENT",
-            "study_epoch_type":	"Treatment 1"
+            "study_epoch_type":	"Treatment 1",
+            "sequence_in_study": 3
         },
         {
             "key": "EPO007",
             "study_epoch_desc":	"Treatment Cycle 2",
             "study_epoch_name":	"TREATMENT",
-            "study_epoch_type":	"Treatment 2"
+            "study_epoch_type":	"Treatment 2",
+            "sequence_in_study": 4
         },
         {
             "key": "EPO008",
             "study_epoch_desc":	"Following Cycles",
             "study_epoch_name":	"TREATMENT",
-            "study_epoch_type":	"Treatment X"
+            "study_epoch_type":	"Treatment X",
+            "sequence_in_study": 5
         },
         {
             "key": "EPO009",
             "study_epoch_desc":	"Follow-up",
             "study_epoch_name":	"FOLLOW-UP",
-            "study_epoch_type":	"Follow-up"
+            "study_epoch_type":	"Follow-up",
+            "sequence_in_study": 6
         }
     ],
     "STUDY_ELEMENT": [
@@ -228,6 +234,41 @@ the_nodes = {
             "rule_desc": "Last follow-up measurement",
         }
     ],
+    "ENCOUNTER": [
+        {
+            "key": "CEL004"
+        },
+        {
+            "key": "CEL005"
+        },
+        {
+            "key": "CEL006"
+        },
+        {
+            "key": "CEL007"
+        },
+        {
+            "key": "CEL008"
+        },
+        {
+            "key": "CEL009"
+        },
+        {
+            "key": "CEL010"
+        },
+        {
+            "key": "CEL011"
+        },
+        {
+            "key": "CEL012"
+        },
+        {
+            "key": "CEL013"
+        },
+        {
+            "key": "CEL014"
+        }
+    ],
     "STUDY_CELL": [
         {
             "key": "CEL004"
@@ -262,7 +303,80 @@ the_nodes = {
         {
             "key": "CEL014"
         }
+    ],
+    "VISIT": [
+        {    
+            "key": "VIS11",
+            "number": "001",
+            "name": "SCREENING VISIT"
+        },
+        {   
+            "key": "VIS12",
+            "number": "002",
+            "name": "RUN-IN VISIT 1"
+        },
+        {   
+            "key": "VIS13",
+            "number": "003",
+            "name": "RUN-IN VISIT 2"
+        },
+        {   
+            "key": "VIS14",
+            "number": "004",
+            "name": "RUN-IN VISIT 3"
+        },
+        {   
+            "key": "VIS15",
+            "number": "005",
+            "name": "CYCLE 1, TREATMENT DAY 1"
+        },
+        {   
+            "key": "VIS16",
+            "number": "006",
+            "name": "CYCLE 1, TREATMENT DAY 3"
+        },
+        {   
+            "key": "VIS17",
+            "number": "007",
+            "name": "CYCLE 1, TREATMENT DAY 5"
+        },
+        {   
+            "key": "VIS18",
+            "number": "008",
+            "name": "CYCLE 2, TREATMENT DAY 1"
+        },
+        {   
+            "key": "VIS19",
+            "number": "009",
+            "name": "CYCLE 2, TREATMENT DAY 3"
+        },
+        {   
+            "key": "VIS20",
+            "number": "010",
+            "name": "CYCLE X, TREATMENT DAY 1"
+        },
+        {   
+            "key": "VIS21",
+            "number": "011",
+            "name": "CYCLE X, TREATMENT DAY 4"
+        },
+        {   
+            "key": "VIS22",
+            "number": "012",
+            "name": "FU 1"
+        },
+        {   
+            "key": "VIS23",
+            "number": "013",
+            "name": "FU 2"
+        }
     ]
+    #start_rule_id uuid,
+    #end_rule_id uuid,
+    #contact_mode_id integer,
+    #env_setting_id integer,
+    #encounter_type_id integer,
+    #first_activity_id uuid,
 }
 
 the_relationships = {
@@ -361,7 +475,22 @@ the_relationships = {
         { "from": "EL005", "to": "RULE6" },
         { "from": "EL005", "to": "RULE7" },
         { "from": "EL006", "to": "RULE8" }
-    ]
+    ],
+    "HAS_VISIT": [
+        { "to": "VIS11", "from": "EPO004" },
+        { "to": "VIS12", "from": "EPO005" },
+        { "to": "VIS13", "from": "EPO005" },
+        { "to": "VIS14", "from": "EPO005" },
+        { "to": "VIS15", "from": "EPO006" },
+        { "to": "VIS16", "from": "EPO006" },
+        { "to": "VIS17", "from": "EPO006" },
+        { "to": "VIS18", "from": "EPO007" },
+        { "to": "VIS19", "from": "EPO007" },
+        { "to": "VIS20", "from": "EPO008" },
+        { "to": "VIS21", "from": "EPO008" },
+        { "to": "VIS22", "from": "EPO009" },
+        { "to": "VIS23", "from": "EPO009" }
+    ], 
 }
 
 def clear(tx):
