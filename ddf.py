@@ -8,6 +8,13 @@ the_nodes = {
             "study_version": "???",
             "study_tag": "???",
             "study_status": "???"
+        },
+        {
+            "key": "XXX3",
+            "study_title": "Real-world Evaluation of Brolucizumab for the Treatment of Neovascular (Wet) Age-related Macular Degeneration (AMD) (IRIS Study)",
+            "study_version": "???",
+            "study_tag": "???",
+            "study_status": "???"
         }
     ],
     "STUDY_IDENTIFIER": [
@@ -49,6 +56,14 @@ the_nodes = {
             "official_title": "Targeting Agents in ABTC",
             "PublicTitle": "DDR-Umbrella Study of DDR (DNA-Damage Response) Targeting Agents in Advanced Biliary Tract Cancer Umbrella ABTC Study",
             "scientific_title": "DDR-Umbrella Study of DNA-Damage Response Targeting Agents in Advanced Biliary Tract Cancer",
+            "amendments": ""
+        },
+    	{
+            "key": "PR04",
+            "brief_title": "RW evaluation of treatment with Brolucizumab", 
+            "official_title": "Real-world Evaluation of Brolucizumab for the Treatment of Neovascular (Wet) Age-related Macular Degeneration (AMD) (IRIS Study)",
+            "PublicTitle": "",
+            "scientific_title": "",
             "amendments": ""
         }
     ],
@@ -596,6 +611,7 @@ the_relationships = {
     ],
     "HAS_PROTOCOL": [
         {"from": "S_1", "to": "SPR_1"},
+        {"from": "XXX3", "to": "PR04"}
     ],
     "HAS_STUDY_DESIGN": [
         {"from": "S_1", "to": "SD_1"},
