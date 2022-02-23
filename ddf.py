@@ -488,7 +488,7 @@ the_nodes = {
             "key": "SD001",
             "name": "ALAT",
             "description": "",
-            "ecrf_link": ""
+            "ecrf_link": "https://www.dropbox.com/s/84quxhfj254k2sh/LB_LOCAL_XML.xml?dl=1"
         },
         {   
             "key": "SD002",
