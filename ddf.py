@@ -96,15 +96,15 @@ the_nodes = {
     ],
     "OBJECTIVE": [
         {
-            "key": "O_1",
+            "key": "OBJ001",
             "objective_desc": "To assess the safety of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients"
         },
         {
-            "key": "O_2",
+            "key": "OBJ002",
             "objective_desc": "To assess the effect of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients who have failed to 1st-line chemotherapy and are in second phase of disease"
         },
         {
-            "key": "O_3",
+            "key": "OBJ003",
             "objective_desc": "To assess the effect of AZD6738 and Durvalumab combination or AZD6738 and Olaparib combination in biliary tract cancer patients who have failed to 1st-line chemotherapy"
         }
     ],
@@ -428,6 +428,92 @@ the_nodes = {
             "description": "",
             "ecrf_link": ""
         }   
+    ],
+    "ENDPOINT": [
+        {
+            "key": "E001", 
+            "endpoint_desc": "Disease control rate of AZD6738 + Durvalumab cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "PRIMARY",
+            "endpoint_purpose": "EFFICACY",
+        },
+        {
+            "key": "E002", 
+            "endpoint_desc": "Disease control rate of AZD6738 + Olaparib cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "PRIMARY",
+            "endpoint_purpose": "EFFICACY",
+        },
+        {
+            "key": "E003", 
+            "endpoint_desc": "Overall response rate of AZD6738 + Durvalumab cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY",
+        },
+        {
+            "key": "E004", 
+            "endpoint_desc": "progression-free survival of AZD6738 + Durvalumab cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY",
+        },
+        {
+            "key": "E005", 
+            "endpoint_desc": "duration of response of AZD6738 + Durvalumab cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "PHARMACODYNAMIC"
+        },
+        {
+            "key": "E006", 
+            "endpoint_desc": "overall survival of response of AZD6738 + Durvalumab cohort [ Time Frame: every 12 weeks until death or up to 5 years ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY"
+        },
+        {
+            "key": "E007", 
+            "endpoint_desc": "Safety and tolerability of AZD6738 + Durvalumab cohort measured by number and grade of toxicity events [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "SAFETY"
+        },
+        {
+            "key": "E008", 
+            "endpoint_desc": "quality of life measurement of AZD6738 + Durvalumab cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY"
+        },
+        {
+            "key": "E009", 
+            "endpoint_desc": "overall response rate (ORR) of AZD6738 + Olaparib cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY"
+        },
+        {
+            "key": "E010", 
+            "endpoint_desc": "progression-free survival of AZD6738 + Olaparib cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY",
+        },
+        {
+            "key": "E011", 
+            "endpoint_desc": "duration of response of AZD6738 + Olaparib cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "PHARMACODYNAMIC"
+        },
+        {
+            "key": "E012", 
+            "endpoint_desc": "overall survival of AZD6738 + Olaparib cohort [ Time Frame: every 12 weeks until death or up to 5 years ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY"
+        },
+        {
+            "key": "E013", 
+            "endpoint_desc": "Safety and tolerability of AZD6738 + Olaparib cohort as measured by number and grade of toxicity events [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "SAFETY"
+        },
+        {
+            "key": "E014", 
+            "endpoint_desc": "quality of life measurement of AZD6738 + Olaparib cohort [ Time Frame: through study completion, an average of 1 year ]",
+            "outcome_level": "SECONDARY",
+            "endpoint_purpose": "EFFICACY"
+        }
     ]
 }
 
@@ -460,9 +546,9 @@ the_relationships = {
         {"from": "II_2", "to": "C_2"},
     ],
     "HAS_OBJECTIVE": [
-        {"from": "SD_1", "to": "O_1"},
-        {"from": "SD_1", "to": "O_2"},
-        {"from": "SD_1", "to": "O_3"},
+        {"from": "SD_1", "to": "OBJ001"},
+        {"from": "SD_1", "to": "OBJ002"},
+        {"from": "SD_1", "to": "OBJ003"},
     ],
     "HAS_CELL": [
         {"from": "SD_1", "to": "CEL004"},
@@ -618,6 +704,34 @@ the_relationships = {
         {"from": "ACT002", "to": "SD002" },
         {"from": "ACT003", "to": "SD003" },
         {"from": "ACT003", "to": "SD004" }
+    ],
+    "HAS_ENDPOINT": [
+        {"from": "OBJ001", "to": "E001" },
+        {"from": "OBJ001", "to": "E002" },
+        {"from": "OBJ001", "to": "E003" },
+        {"from": "OBJ001", "to": "E004" },
+        {"from": "OBJ001", "to": "E005" },
+        {"from": "OBJ001", "to": "E006" },
+        {"from": "OBJ001", "to": "E008" },
+        {"from": "OBJ001", "to": "E009" },
+        {"from": "OBJ001", "to": "E010" },
+        {"from": "OBJ001", "to": "E011" },
+        {"from": "OBJ001", "to": "E012" },
+        {"from": "OBJ001", "to": "E014" },
+        {"from": "OBJ002", "to": "E007" },
+        {"from": "OBJ002", "to": "E013" },
+        {"from": "OBJ003", "to": "E001" },
+        {"from": "OBJ003", "to": "E002" },
+        {"from": "OBJ003", "to": "E003" },
+        {"from": "OBJ003", "to": "E004" },
+        {"from": "OBJ003", "to": "E005" },
+        {"from": "OBJ003", "to": "E006" },
+        {"from": "OBJ003", "to": "E008" },
+        {"from": "OBJ003", "to": "E009" },
+        {"from": "OBJ003", "to": "E010" },
+        {"from": "OBJ003", "to": "E011" },
+        {"from": "OBJ003", "to": "E012" },
+        {"from": "OBJ003", "to": "E014" }
     ]
 }
 
