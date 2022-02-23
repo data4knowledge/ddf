@@ -832,11 +832,6 @@ the_relationships = {
 def clear(tx):
     tx.run("MATCH (n) DETACH DELETE n")
 
-#def print_friends(tx, name):
-#    for record in tx.run("MATCH (a:Person)-[:KNOWS]->(friend) WHERE a.name = $name "
-#                         "RETURN friend.name ORDER BY friend.name", name=name):
-#        print(record["friend.name"])
-
 driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 
 with driver.session() as session:
@@ -850,9 +845,6 @@ with driver.session() as session:
         query = "UNWIND $rels as data MATCH (n {key: data.from}) MATCH (m {key: data.to}) CREATE (n)-[:%s]->(m)" % (key)
         print(query)
         result = session.run(query, rels=value)
-
-# Queries To Run
-# MATCH (e:STUDY_EPOCH)-[]->(v:VISIT) RETURN e.study_epoch_name,v.name ORDER BY e.sequence_in_study, v.number
 
 driver.close()
 
