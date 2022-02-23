@@ -199,7 +199,6 @@ the_nodes = {
             "study_element_name": "FOLLOW-UP",
         }
     ],
-
     "RULE": [
         {
             "key": "RULE1",
@@ -232,41 +231,6 @@ the_nodes = {
         {
             "key": "RULE8",
             "rule_desc": "Last follow-up measurement",
-        }
-    ],
-    "ENCOUNTER": [
-        {
-            "key": "CEL004"
-        },
-        {
-            "key": "CEL005"
-        },
-        {
-            "key": "CEL006"
-        },
-        {
-            "key": "CEL007"
-        },
-        {
-            "key": "CEL008"
-        },
-        {
-            "key": "CEL009"
-        },
-        {
-            "key": "CEL010"
-        },
-        {
-            "key": "CEL011"
-        },
-        {
-            "key": "CEL012"
-        },
-        {
-            "key": "CEL013"
-        },
-        {
-            "key": "CEL014"
         }
     ],
     "STUDY_CELL": [
