@@ -370,13 +370,50 @@ the_nodes = {
             "number": "013",
             "name": "FU 2"
         }
-    ]
+    ],
     #start_rule_id uuid,
     #end_rule_id uuid,
     #contact_mode_id integer,
     #env_setting_id integer,
     #encounter_type_id integer,
     #first_activity_id uuid,
+    "WORKFLOW_ITEM": [
+        {   
+            "key": "WF011", 
+            "description": "Informed Consent"
+        },
+        {   
+            "key": "WF012", 
+            "description": "Hematology"
+        },
+        {   
+            "key": "WF013", 
+            "description": "Biochemsitry"
+        },
+        {   
+            "key": "WF014", 
+            "description": "Serology"
+        },
+        {   
+            "key": "WF015", 
+            "description": "Urinalysis"
+        },
+        {   
+            "key": "WF016", 
+            "description": "Pregnancy test"
+        },
+        {   
+            "key": "WF017", 
+            "description": "Brolucizumab administration"
+        },
+        {   
+            "key": "WF018", 
+            "description": "Concomitant medication"
+        }
+    ],
+    #from_point_in_time uuid NOT NULL,
+    #to_point_in_time uuid NOT NULL,
+    #worklfow_matrix_id uuid NOT NULL,
 }
 
 the_relationships = {
@@ -491,6 +528,69 @@ the_relationships = {
         { "to": "VIS22", "from": "EPO009" },
         { "to": "VIS23", "from": "EPO009" }
     ], 
+    "HAS_ACTIVITY": [
+        {"from": "WF011", "to": "ACT001" },
+        {"from": "WF012", "to": "ACT003" },
+        {"from": "WF013", "to": "ACT002" }
+    ],
+# Workflow to Arm      
+#WF011 ARM03   
+#WF012 ARM03   
+#WF013 ARM03   
+#WF014 ARM03   
+#WF015 ARM03   
+#WF016 ARM03   
+#WF017 ARM03   
+#WF018 ARM03   
+      
+    "HAS_ENCOUNTER": [
+        {"from": "WF011", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS12" },
+        {"from": "WF012", "to": "VIS14" },
+        {"from": "WF012", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS18" },
+        {"from": "WF012", "to": "VIS20" },
+        {"from": "WF012", "to": "VIS22" },
+        {"from": "WF012", "to": "VIS23" },
+        {"from": "WF013", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS12" },
+        {"from": "WF012", "to": "VIS14" },
+        {"from": "WF012", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS18" },
+        {"from": "WF012", "to": "VIS20" },
+        {"from": "WF012", "to": "VIS22" },
+        {"from": "WF012", "to": "VIS23" },
+        {"from": "WF014", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS14" },
+        {"from": "WF012", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS18" },
+        {"from": "WF012", "to": "VIS20" },
+        {"from": "WF012", "to": "VIS22" },
+        {"from": "WF012", "to": "VIS23" },
+        {"from": "WF015", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS22" },
+        {"from": "WF016", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS22" },
+        {"from": "WF017", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS18" },
+        {"from": "WF012", "to": "VIS20" },
+        {"from": "WF018", "to": "VIS11" },
+        {"from": "WF012", "to": "VIS15" },
+        {"from": "WF012", "to": "VIS18" },
+        {"from": "WF012", "to": "VIS20" },
+        {"from": "WF012", "to": "VIS22" }
+    ],
+    "HAS_PREVIOUS_WORKFLOW": [
+        {"from": "WF012", "to": "WF011"},
+        {"from": "WF013", "to": "WF012"},
+        {"from": "WF014", "to": "WF013"},
+        {"from": "WF015", "to": "WF014"},
+        {"from": "WF016", "to": "WF015"},
+        {"from": "WF017", "to": "WF016"},
+        {"from": "WF018", "to": "WF017"}
+    ]
 }
 
 def clear(tx):
