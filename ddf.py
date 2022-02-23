@@ -414,6 +414,57 @@ the_nodes = {
     #from_point_in_time uuid NOT NULL,
     #to_point_in_time uuid NOT NULL,
     #worklfow_matrix_id uuid NOT NULL,
+    "ACTIVITY": [
+        {   
+            "key": "ACT001"
+        },
+        {   
+            "key": "ACT002"
+        },
+        {   
+            "key": "ACT003"
+        }
+    ],
+    "PROCEDURE": [
+        {   
+            "key": "PROC001",
+            "description": "Remote ICF collection"
+        },
+        {   
+            "key": "PROC002",
+            "description": "Blood sample collection"
+        },
+        {   
+            "key": "PROC003",
+            "description": "Blood sample analysis"
+        }   
+    ],
+    "STUDY_DATA": [
+        {   
+            "key": "SD001",
+            "name": "ALAT",
+            "description": "",
+            "ecrf_link": ""
+        },
+        {   
+            "key": "SD002",
+            "name": "ASAT",
+            "description": "",
+            "ecrf_link": ""
+        },
+        {   
+            "key": "SD003",
+            "name": "ERY",
+            "description": "",
+            "ecrf_link": ""
+        },
+        {   
+            "key": "SD004",
+            "name": "WBC",
+            "description": "",
+            "ecrf_link": ""
+        }   
+    ]
 }
 
 the_relationships = {
@@ -583,13 +634,26 @@ the_relationships = {
         {"from": "WF012", "to": "VIS22" }
     ],
     "HAS_PREVIOUS_WORKFLOW": [
-        {"from": "WF012", "to": "WF011"},
-        {"from": "WF013", "to": "WF012"},
-        {"from": "WF014", "to": "WF013"},
-        {"from": "WF015", "to": "WF014"},
-        {"from": "WF016", "to": "WF015"},
-        {"from": "WF017", "to": "WF016"},
-        {"from": "WF018", "to": "WF017"}
+        {"from": "WF012", "to": "WF011" },
+        {"from": "WF013", "to": "WF012" },
+        {"from": "WF014", "to": "WF013" },
+        {"from": "WF015", "to": "WF014" },
+        {"from": "WF016", "to": "WF015" },
+        {"from": "WF017", "to": "WF016" },
+        {"from": "WF018", "to": "WF017" }
+    ],
+    "HAS_PROCEDURE": [
+        {"from": "ACT001", "to": "PROC001" },
+        {"from": "ACT002", "to": "PROC002" },
+        {"from": "ACT002", "to": "PROC003" },
+        {"from": "ACT003", "to": "PROC002" },
+        {"from": "ACT003", "to": "PROC003" }
+    ],
+    "HAS_STUDY_DATA": [
+        {"from": "ACT002", "to": "SD001" },
+        {"from": "ACT002", "to": "SD002" },
+        {"from": "ACT003", "to": "SD003" },
+        {"from": "ACT003", "to": "SD004" }
     ]
 }
 
