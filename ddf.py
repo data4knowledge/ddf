@@ -52,9 +52,25 @@ the_nodes = {
             "amendments": ""
         }
     ],
+    "INDICATION": [
+        {
+            "key": "TI01",
+            "indication_desc": "Bile duct cancer"
+        },
+        {
+            "key": "TI02",
+            "indication_desc": "Influenza"
+        }
+    ],
     "STUDY_DESIGN": [
         {
             "key": "SD_1"
+        }
+    ],
+    "POPULATION": [
+        {
+            "key": "P001",
+            "population_desc": "biliary tract cancer patients who have failed to 1st-line chemotherapy"
         }
     ],
     "INVESTIGATIONAL_INTERVENTIONS": [
@@ -73,25 +89,74 @@ the_nodes = {
     ],
     "CODE": [
         {
-            "key": "C_1",
-            "code": "249565666",
-            "code_system": "PubChem",
-            "code_system_version": "09/02/2021",
-            "decode": "Durvalumab; Imfinzi; Anti-B7H1; Monoclonal Antibody"
+            "key": "CD001",
+            "code": "24662006",
+            "code_system": "SNOMED-CT",
+            "code_system_version": "4.0.6.4",
+            "decode": "Influenza due to Influenza virus, type B"
         },
         {
-            "key": "C_2",
+            "key": "CD002",
+            "code": "1022000",
+            "code_system": "MEDDRA",
+            "code_system_version": "Nov18_2021",
+            "decode": "Influenza"
+        },
+        {
+            "key": "CD003",
+            "code": "J11.1",
+            "code_system": "ICD	10",
+            "code_system_version": "",
+            "decode": "Influenza due to unidentified influenza virus with other respiratory manifestations"
+        },
+        {
+            "key": "CD004",
+            "code": "C22.1",
+            "code_system": "ICD	10",
+            "code_system_version": "",
+            "decode": "Intrahepatic bile duct carcinoma"
+        },
+        {
+            "key": "CD005",
+            "code": "371970002",
+            "code_system": "SNOMED-CT",
+            "code_system_version": "4.0.6.4",
+            "decode": "Primary malignant neoplasm of biliary tract (disorder)"
+        },
+        {
+            "key": "CD006",
+            "code": "10004596",
+            "code_system": "MEDDRA",
+            "code_system_version": "Nov18_2021",
+            "decode": "Bile duct cancer recurrent"
+        },
+        {
+            "key": "CD007",
+            "code": "J07BX03",
+            "code_system": "ATC	2020",
+            "code_system_version": "",
+            "decode": "Covid-19 vaccines"
+        },
+        {
+            "key": "CD008",
             "code": "L01XC28",
             "code_system": "ATC",
             "code_system_version": "14-12-2021",
             "decode": "Durvalumab"
         },
         {
-            "key": "C_3",
+            "key": "CD009",
             "code": "L01XK01",
             "code_system": "ATC",
             "code_system_version": "14-12-2021",
             "decode": "Olaparib"
+        },
+        {
+            "key": "CD010",
+            "code": "249565666",
+            "code_system": "PubChem",
+            "code_system_version": "09/02/2021",
+            "decode": "Durvalumab; Imfinzi; Anti-B7H1; Monoclonal Antibody"
         }
     ],
     "OBJECTIVE": [
@@ -535,15 +600,17 @@ the_relationships = {
     "HAS_STUDY_DESIGN": [
         {"from": "S_1", "to": "SD_1"},
     ],
+    "HAS_POPULATION": [
+        {"from": "SD_1", "to": "P001" }
+    ],
     "HAS_INVESTIGATIONAL_INTERVENTION": [
         {"from": "SD_1", "to": "II_1"},
         {"from": "SD_1", "to": "II_2"},
         {"from": "SD_1", "to": "II_3"},
     ],
-    "HAS_CODED": [
-        {"from": "II_1", "to": "C_3"},
-        {"from": "II_2", "to": "C_1"},
-        {"from": "II_2", "to": "C_2"},
+    "HAS_INDICATION": [
+        {"from": "SD_1", "to": "TI01"},
+        {"from": "SD_1", "to": "TI02"}
     ],
     "HAS_OBJECTIVE": [
         {"from": "SD_1", "to": "OBJ001"},
@@ -732,6 +799,17 @@ the_relationships = {
         {"from": "OBJ003", "to": "E011" },
         {"from": "OBJ003", "to": "E012" },
         {"from": "OBJ003", "to": "E014" }
+    ],
+    "HAS_CODED": [
+        {"from": "TI02", "to": "CD001" },
+        {"from": "TI02", "to": "CD002" },
+        {"from": "TI02", "to": "CD003" },
+        {"from": "TI01", "to": "CD004" },
+        {"from": "TI01", "to": "CD005" },
+        {"from": "TI01", "to": "CD006" },
+        {"from": "II_2", "to": "CD008" },
+        {"from": "II_1", "to": "CD009" },
+        {"from": "II_2", "to": "CD010" },
     ]
 }
 
