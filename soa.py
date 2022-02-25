@@ -89,3 +89,4 @@ for activity, links in crf_activities.items():
             with urllib.request.urlopen(link) as f:
                 xml = f.read().decode('utf-8')
                 print(link)
+                print(xml)
