@@ -421,52 +421,144 @@ the_nodes = {
     #env_setting_id integer,
     #encounter_type_id integer,
     #first_activity_id uuid,
+    
     "WORKFLOW_ITEM": [
-        {   
-            "key": "WF011", 
-            "description": "Informed Consent"
-        },
-        {   
-            "key": "WF012", 
-            "description": "Hematology"
-        },
-        {   
-            "key": "WF013", 
-            "description": "Biochemsitry"
-        },
-        {   
-            "key": "WF014", 
-            "description": "Serology"
-        },
-        {   
-            "key": "WF015", 
-            "description": "Urinalysis"
-        },
-        {   
-            "key": "WF016", 
-            "description": "Pregnancy test"
-        },
-        {   
-            "key": "WF017", 
-            "description": "Brolucizumab administration"
-        },
-        {   
-            "key": "WF018", 
-            "description": "Concomitant medication"
-        }
+        { "key": "WF001" },
+        { "key": "WF002" },
+        { "key": "WF003" },
+        { "key": "WF004" },
+        { "key": "WF005" },
+        { "key": "WF006" },
+        { "key": "WF007" },
+        { "key": "WF008" },
+        { "key": "WF009" },
+        { "key": "WF010" },
+        { "key": "WF011" },
+        { "key": "WF012" },
+        { "key": "WF013" },
+        { "key": "WF014" },
+        { "key": "WF015" },
+        { "key": "WF016" },
+        { "key": "WF017" },
+        { "key": "WF018" },
+        { "key": "WF019" },
+        { "key": "WF020" },
+        { "key": "WF021" },
+        { "key": "WF022" },
+        { "key": "WF023" },
+        { "key": "WF024" },
+        { "key": "WF025" },
+        { "key": "WF026" },
+        { "key": "WF027" },
+        { "key": "WF028" },
+        { "key": "WF029" },
+        { "key": "WF030" },
+        { "key": "WF031" },
+        { "key": "WF032" },
+        { "key": "WF033" },
+        { "key": "WF034" },
+        { "key": "WF035" },
+        { "key": "WF036" },
+        { "key": "WF037" },
+        { "key": "WF038" },
+        { "key": "WF039" },
+        { "key": "WF040" },
+        { "key": "WF041" },
+        { "key": "WF042" },
+        { "key": "WF043" },
+        { "key": "WF044" },
+        { "key": "WF045" },
+        { "key": "WF046" },
+        { "key": "WF047" },
+        { "key": "WF048" },
+        { "key": "WF049" },
+        { "key": "WF050" },
+        { "key": "WF051" },
+        { "key": "WF052" },
+        { "key": "WF053" },
+        { "key": "WF054" },
+        { "key": "WF055" },
+        { "key": "WF056" }
     ],
     #from_point_in_time uuid NOT NULL,
     #to_point_in_time uuid NOT NULL,
     #worklfow_matrix_id uuid NOT NULL,
     "ACTIVITY": [
         {   
-            "key": "ACT001"
+            "key": "ACT001",
+            "description": "Informed consent"
         },
         {   
-            "key": "ACT002"
+            "key": "ACT002",
+            "description": "Eligibility criteria"
+        },		
+        {   
+            "key": "ACT003",
+            "description": "Demography	ACT002"
         },
         {   
-            "key": "ACT003"
+            "key": "ACT004",
+            "description": "Medical history"
+        },	
+        {   
+            "key": "ACT005",
+            "description": "Disease characteristics"
+        },
+        {   
+            "key": "ACT006",
+            "description": "Physical exam"
+        },		
+        {   
+            "key": "ACT007",
+            "description": "Height"
+        },
+        {   
+            "key": "ACT008",
+            "description": "12-lead ECG"
+        },
+        {   
+            "key": "ACT009",
+            "description": "Hematology (predose)"
+        },
+        {   
+            "key": "ACT010",
+            "description": "Chemistry (predose)"
+        },
+        {   
+            "key": "ACT011",
+            "description": "Serology"
+        },	
+        {   
+            "key": "ACT012",
+            "description": "Urinalysis"
+        },
+        {   
+            "key": "ACT013",
+            "description": "Pregnancy test"
+        },
+        {   
+            "key": "ACT014",
+            "description": "Ensure availability of medication X"
+        },
+        {   
+            "key": "ACT015",
+            "description": "Hospitalization"
+        },
+        {   
+            "key": "ACT016",
+            "description": "Weight"
+        },
+        {   
+            "key": "ACT017",
+            "description": "Vital signs"
+        },
+        {   
+            "key": "ACT018",
+            "description": "adverse events"
+        },
+        {   
+            "key": "ACT019",
+            "description": "Concomitant medications"
         }
     ],
     "PROCEDURE": [
@@ -481,7 +573,19 @@ the_nodes = {
         {   
             "key": "PROC003",
             "description": "Blood sample analysis"
-        }   
+        },
+        {   
+            "key": "PROC004",
+            "description": "Drug administration"
+        },
+        {   
+            "key": "PROC005",
+            "description": "Hospitalisation"
+        },
+        {   
+            "key": "PROC006",
+            "description": "Weight measurement"
+        }
     ],
     "STUDY_DATA": [
         {   
@@ -499,13 +603,91 @@ the_nodes = {
         {   
             "key": "SD003",
             "name": "ERY",
-            "description": "",
+            "description": "Erythrocytes",
             "ecrf_link": ""
-        },
+        },   
         {   
             "key": "SD004",
             "name": "WBC",
-            "description": "",
+            "description": "White blood cell count",
+            "ecrf_link": ""
+        },  
+        {   
+            "key": "SD005",
+            "name": "DOSDATE",
+            "description": "Date of investigational drug administration",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD006",
+            "name": "WGHT",
+            "description": "Weight",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD007",
+            "name": "AGE",
+            "description": "Age",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD008",
+            "name": "OAS",
+            "description": "Oncology Assessment Scale",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD009",
+            "name": "DPS",
+            "description": "Disease Progression Scale",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD010",
+            "name": "TSO",
+            "description": "Time since onset",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD011",
+            "name": "HGT",
+            "description": "Height",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD012",
+            "name": "QTc",
+            "description": "QTc interval",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD013",
+            "name": "ST",
+            "description": "St-segment",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD014",
+            "name": "WBC_DIP",
+            "description": "WBC dipstick",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD015",
+            "name": "HCG",
+            "description": "Serum HCG",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD016",
+            "name": "SBP",
+            "description": "Systolic blood pressure",
+            "ecrf_link": ""
+        },   
+        {   
+            "key": "SD017",
+            "name": "DBP",
+            "description": "Diastolic Blood Pressure",
             "ecrf_link": ""
         }   
     ],
@@ -712,11 +894,75 @@ the_relationships = {
         { "to": "VIS22", "from": "EPO009" },
         { "to": "VIS23", "from": "EPO009" }
     ], 
+
+
+
+
+
     "HAS_ACTIVITY": [
-        {"from": "WF011", "to": "ACT001" },
-        {"from": "WF012", "to": "ACT003" },
-        {"from": "WF013", "to": "ACT002" }
+        { "from": "WF001", "to": "ACT001" },
+        { "from": "WF002", "to": "ACT002" },
+        { "from": "WF003", "to": "ACT003" },
+        { "from": "WF004", "to": "ACT004" },
+        { "from": "WF005", "to": "ACT005" },
+        { "from": "WF006", "to": "ACT006" },
+        { "from": "WF007", "to": "ACT006" },
+        { "from": "WF008", "to": "ACT006" },
+        { "from": "WF009", "to": "ACT007" },
+        { "from": "WF010", "to": "ACT008" },
+        { "from": "WF011", "to": "ACT008" },
+        { "from": "WF012", "to": "ACT008" },
+        { "from": "WF013", "to": "ACT008" },
+        { "from": "WF014", "to": "ACT008" },
+        { "from": "WF015", "to": "ACT009" },
+        { "from": "WF016", "to": "ACT009" },
+        { "from": "WF017", "to": "ACT009" },
+        { "from": "WF018", "to": "ACT010" },
+        { "from": "WF019", "to": "ACT010" },
+        { "from": "WF020", "to": "ACT010" },
+        { "from": "WF021", "to": "ACT011" },
+        { "from": "WF022", "to": "ACT011" },
+        { "from": "WF023", "to": "ACT011" },
+        { "from": "WF024", "to": "ACT011" },
+        { "from": "WF025", "to": "ACT011" },
+        { "from": "WF026", "to": "ACT011" },
+        { "from": "WF027", "to": "ACT011" },
+        { "from": "WF028", "to": "ACT011" },
+        { "from": "WF029", "to": "ACT012" },
+        { "from": "WF030", "to": "ACT012" },
+        { "from": "WF031", "to": "ACT012" },
+        { "from": "WF032", "to": "ACT013" },
+        { "from": "WF033", "to": "ACT013" },
+        { "from": "WF034", "to": "ACT014" },
+        { "from": "WF035", "to": "ACT014" },
+        { "from": "WF036", "to": "ACT014" },
+        { "from": "WF037", "to": "ACT015" },
+        { "from": "WF038", "to": "ACT015" },
+        { "from": "WF039", "to": "ACT015" },
+        { "from": "WF040", "to": "ACT015" },
+        { "from": "WF041", "to": "ACT016" },
+        { "from": "WF042", "to": "ACT016" },
+        { "from": "WF043", "to": "ACT016" },
+        { "from": "WF044", "to": "ACT016" },
+        { "from": "WF045", "to": "ACT017" },
+        { "from": "WF046", "to": "ACT017" },
+        { "from": "WF047", "to": "ACT017" },
+        { "from": "WF048", "to": "ACT017" },
+        { "from": "WF049", "to": "ACT017" },
+        { "from": "WF050", "to": "ACT017" },
+        { "from": "WF051", "to": "ACT017" },
+        { "from": "WF052", "to": "ACT017" },
+        { "from": "WF053", "to": "ACT017" },
+        { "from": "WF054", "to": "ACT017" },
+        { "from": "WF055", "to": "ACT017" },
+        { "from": "WF056", "to": "ACT017" }
     ],
+
+
+  
+  
+
+
 # Workflow to Arm      
 #WF011 ARM03   
 #WF012 ARM03   
@@ -728,65 +974,115 @@ the_relationships = {
 #WF018 ARM03   
       
     "USED_IN_VISIT": [
-        {"from": "WF011", "to": "VIS11" },
-        {"from": "WF012", "to": "VIS11" },
-        {"from": "WF012", "to": "VIS12" },
-        {"from": "WF012", "to": "VIS14" },
-        {"from": "WF012", "to": "VIS15" },
-        {"from": "WF012", "to": "VIS18" },
-        {"from": "WF012", "to": "VIS20" },
-        {"from": "WF012", "to": "VIS22" },
-        {"from": "WF012", "to": "VIS23" },
-        {"from": "WF013", "to": "VIS11" },
-        {"from": "WF013", "to": "VIS12" },
-        {"from": "WF013", "to": "VIS14" },
-        {"from": "WF013", "to": "VIS15" },
-        {"from": "WF013", "to": "VIS18" },
-        {"from": "WF013", "to": "VIS20" },
-        {"from": "WF013", "to": "VIS22" },
-        {"from": "WF013", "to": "VIS23" },
-        {"from": "WF014", "to": "VIS11" },
-        {"from": "WF014", "to": "VIS14" },
-        {"from": "WF014", "to": "VIS15" },
-        {"from": "WF014", "to": "VIS18" },
-        {"from": "WF014", "to": "VIS20" },
-        {"from": "WF014", "to": "VIS22" },
-        {"from": "WF014", "to": "VIS23" },
-        {"from": "WF015", "to": "VIS11" },
-        {"from": "WF015", "to": "VIS15" },
-        {"from": "WF015", "to": "VIS22" },
-        {"from": "WF016", "to": "VIS11" },
-        {"from": "WF016", "to": "VIS22" },
-        {"from": "WF017", "to": "VIS15" },
-        {"from": "WF017", "to": "VIS18" },
-        {"from": "WF017", "to": "VIS20" },
-        {"from": "WF018", "to": "VIS11" },
-        {"from": "WF018", "to": "VIS15" },
-        {"from": "WF018", "to": "VIS18" },
-        {"from": "WF018", "to": "VIS20" },
-        {"from": "WF018", "to": "VIS22" }
+        { "from": "WF001", "to": "VIS11" },
+        { "from": "WF002", "to": "VIS11" },
+        { "from": "WF003", "to": "VIS11" },
+        { "from": "WF004", "to": "VIS11" },
+        { "from": "WF005", "to": "VIS11" },
+        { "from": "WF006", "to": "VIS11" },
+        { "from": "WF007", "to": "VIS13" },
+        { "from": "WF008", "to": "VIS22" },
+        { "from": "WF009", "to": "VIS11" },
+        { "from": "WF010", "to": "VIS11" },
+        { "from": "WF011", "to": "VIS12" },
+        { "from": "WF012", "to": "VIS13" },
+        { "from": "WF013", "to": "VIS14" },
+        { "from": "WF014", "to": "VIS22" },
+        { "from": "WF015", "to": "VIS11" },
+        { "from": "WF016", "to": "VIS14" },
+        { "from": "WF017", "to": "VIS22" },
+        { "from": "WF018", "to": "VIS11" },
+        { "from": "WF019", "to": "VIS14" },
+        { "from": "WF020", "to": "VIS22" },
+        { "from": "WF021", "to": "VIS11" },
+        { "from": "WF022", "to": "VIS12" },
+        { "from": "WF023", "to": "VIS13" },
+        { "from": "WF024", "to": "VIS14" },
+        { "from": "WF025", "to": "VIS15" },
+        { "from": "WF026", "to": "VIS18" },
+        { "from": "WF027", "to": "VIS20" },
+        { "from": "WF028", "to": "VIS22" },
+        { "from": "WF029", "to": "VIS11" },
+        { "from": "WF030", "to": "VIS14" },
+        { "from": "WF031", "to": "VIS22" },
+        { "from": "WF032", "to": "VIS11" },
+        { "from": "WF033", "to": "VIS14" },
+        { "from": "WF034", "to": "VIS15" },
+        { "from": "WF035", "to": "VIS18" },
+        { "from": "WF036", "to": "VIS20" },
+        { "from": "WF037", "to": "VIS12" },
+        { "from": "WF038", "to": "VIS15" },
+        { "from": "WF039", "to": "VIS18" },
+        { "from": "WF040", "to": "VIS20" },
+        { "from": "WF041", "to": "VIS01" },
+        { "from": "WF042", "to": "VIS15" },
+        { "from": "WF043", "to": "VIS18" },
+        { "from": "WF044", "to": "VIS22" },
+        { "from": "WF045", "to": "VIS11" },
+        { "from": "WF046", "to": "VIS12" },
+        { "from": "WF047", "to": "VIS13" },
+        { "from": "WF048", "to": "VIS14" },
+        { "from": "WF049", "to": "VIS15" },
+        { "from": "WF050", "to": "VIS16" },
+        { "from": "WF051", "to": "VIS17" },
+        { "from": "WF052", "to": "VIS18" },
+        { "from": "WF053", "to": "VIS19" },
+        { "from": "WF054", "to": "VIS20" },
+        { "from": "WF055", "to": "VIS21" },
+        { "from": "WF056", "to": "VIS22" }
     ],
+
+    # One or the other!!!!
     "HAS_PREVIOUS_WORKFLOW": [
-        {"from": "WF012", "to": "WF011" },
-        {"from": "WF013", "to": "WF012" },
-        {"from": "WF014", "to": "WF013" },
-        {"from": "WF015", "to": "WF014" },
-        {"from": "WF016", "to": "WF015" },
-        {"from": "WF017", "to": "WF016" },
-        {"from": "WF018", "to": "WF017" }
     ],
+    "HAS_PREVIOUS_ACTIVITY": [
+        { "from": "ACT002", "to": "ACT001" },
+        { "from": "ACT003", "to": "ACT002" },
+        { "from": "ACT004", "to": "ACT003" },
+        { "from": "ACT005", "to": "ACT004" },
+        { "from": "ACT006", "to": "ACT005" },
+        { "from": "ACT007", "to": "ACT006" },
+        { "from": "ACT008", "to": "ACT007" },
+        { "from": "ACT009", "to": "ACT008" },
+        { "from": "ACT010", "to": "ACT009" },
+        { "from": "ACT011", "to": "ACT010" },
+        { "from": "ACT012", "to": "ACT011" },
+        { "from": "ACT013", "to": "ACT012" },
+        { "from": "ACT014", "to": "ACT013" },
+        { "from": "ACT015", "to": "ACT014" },
+        { "from": "ACT016", "to": "ACT015" },
+        { "from": "ACT017", "to": "ACT016" },
+        { "from": "ACT018", "to": "ACT017" },
+        { "from": "ACT019", "to": "ACT018" }
+    ],
+
     "HAS_PROCEDURE": [
-        {"from": "ACT001", "to": "PROC001" },
-        {"from": "ACT002", "to": "PROC002" },
-        {"from": "ACT002", "to": "PROC003" },
-        {"from": "ACT003", "to": "PROC002" },
-        {"from": "ACT003", "to": "PROC003" }
+        { "from": "ACT001", "to": "PROC001" },
+        { "from": "ACT009", "to": "PROC002" },
+        { "from": "ACT009", "to": "PROC003" },
+        { "from": "ACT010", "to": "PROC002" },
+        { "from": "ACT010", "to": "PROC003" },
+        { "from": "ACT015", "to": "PROC005" },
+        { "from": "ACT016", "to": "PROC006" }
     ],
     "HAS_STUDY_DATA": [
-        {"from": "ACT002", "to": "SD001" },
-        {"from": "ACT002", "to": "SD002" },
-        {"from": "ACT003", "to": "SD003" },
-        {"from": "ACT003", "to": "SD004" }
+        {"from": "ACT003", "to": "SD007" },
+        {"from": "ACT005", "to": "SD008" },
+        {"from": "ACT005", "to": "SD010" },
+        {"from": "ACT005", "to": "SD010" },
+        {"from": "ACT007", "to": "SD011" },
+        {"from": "ACT008", "to": "SD012" },
+        {"from": "ACT008", "to": "SD013" },
+        {"from": "ACT009", "to": "SD003" },
+        {"from": "ACT009", "to": "SD004" },
+        {"from": "ACT010", "to": "SD001" },
+        {"from": "ACT010", "to": "SD002" },
+        {"from": "ACT012", "to": "SD014" },
+        {"from": "ACT013", "to": "SD015" },
+        {"from": "ACT014", "to": "SD005" },
+        {"from": "ACT016", "to": "SD006" },
+        {"from": "ACT017", "to": "SD016" },
+        {"from": "ACT017", "to": "SD017" }
     ],
     "HAS_ENDPOINT": [
         {"from": "OBJ001", "to": "E001" },
@@ -849,3 +1145,4 @@ with driver.session() as session:
 driver.close()
 
 
+" },
