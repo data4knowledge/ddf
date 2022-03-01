@@ -1176,8 +1176,6 @@ the_relationships = {
         { "from": "WF055", "to": "VIS21" },
         { "from": "WF056", "to": "VIS22" }
     ],
-
-    # One or the other!!!!
     "HAS_PREVIOUS_WORKFLOW": [
     ],
     "HAS_PREVIOUS_ACTIVITY": [
@@ -1200,7 +1198,6 @@ the_relationships = {
         { "from": "ACT018", "to": "ACT017" },
         { "from": "ACT019", "to": "ACT018" }
     ],
-
     "HAS_PROCEDURE": [
         { "from": "ACT001", "to": "PROC001" },
         { "from": "ACT009", "to": "PROC002" },
