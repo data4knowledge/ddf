@@ -2,7 +2,7 @@
   {
     "nodes": [
       {
-        "identity": -25,
+        "identity": -69,
         "labels": [
           "STUDY_TYPE"
         ],
@@ -13,7 +13,7 @@
         }
       },
       {
-        "identity": -44,
+        "identity": -88,
         "labels": [
           "POPULATION"
         ],
@@ -24,7 +24,7 @@
         }
       },
       {
-        "identity": -40,
+        "identity": -84,
         "labels": [
           "PROCEDURE"
         ],
@@ -35,7 +35,7 @@
         }
       },
       {
-        "identity": -33,
+        "identity": -77,
         "labels": [
           "STUDY_ARM"
         ],
@@ -46,7 +46,7 @@
         }
       },
       {
-        "identity": -41,
+        "identity": -85,
         "labels": [
           "STUDY_DATA"
         ],
@@ -57,7 +57,7 @@
         }
       },
       {
-        "identity": -43,
+        "identity": -87,
         "labels": [
           "INDICATION"
         ],
@@ -68,7 +68,7 @@
         }
       },
       {
-        "identity": -29,
+        "identity": -73,
         "labels": [
           "INVESTIGATIONAL_INTERVENTIONS"
         ],
@@ -79,7 +79,7 @@
         }
       },
       {
-        "identity": -23,
+        "identity": -67,
         "labels": [
           "STUDY"
         ],
@@ -90,7 +90,7 @@
         }
       },
       {
-        "identity": -24,
+        "identity": -68,
         "labels": [
           "STUDY_IDENTIFIER"
         ],
@@ -101,7 +101,7 @@
         }
       },
       {
-        "identity": -27,
+        "identity": -71,
         "labels": [
           "STUDY_PROTOCOL"
         ],
@@ -112,7 +112,7 @@
         }
       },
       {
-        "identity": -32,
+        "identity": -76,
         "labels": [
           "STUDY_CELL"
         ],
@@ -123,7 +123,7 @@
         }
       },
       {
-        "identity": -26,
+        "identity": -70,
         "labels": [
           "STUDY_PHASE"
         ],
@@ -134,7 +134,7 @@
         }
       },
       {
-        "identity": -30,
+        "identity": -74,
         "labels": [
           "CODE"
         ],
@@ -145,7 +145,7 @@
         }
       },
       {
-        "identity": -34,
+        "identity": -78,
         "labels": [
           "STUDY_EPOCH"
         ],
@@ -156,7 +156,7 @@
         }
       },
       {
-        "identity": -37,
+        "identity": -81,
         "labels": [
           "VISIT"
         ],
@@ -167,7 +167,7 @@
         }
       },
       {
-        "identity": -31,
+        "identity": -75,
         "labels": [
           "OBJECTIVE"
         ],
@@ -178,7 +178,7 @@
         }
       },
       {
-        "identity": -42,
+        "identity": -86,
         "labels": [
           "ENDPOINT"
         ],
@@ -189,7 +189,7 @@
         }
       },
       {
-        "identity": -35,
+        "identity": -79,
         "labels": [
           "STUDY_ELEMENT"
         ],
@@ -200,7 +200,7 @@
         }
       },
       {
-        "identity": -36,
+        "identity": -80,
         "labels": [
           "RULE"
         ],
@@ -211,7 +211,7 @@
         }
       },
       {
-        "identity": -28,
+        "identity": -72,
         "labels": [
           "STUDY_DESIGN"
         ],
@@ -222,7 +222,7 @@
         }
       },
       {
-        "identity": -38,
+        "identity": -82,
         "labels": [
           "WORKFLOW_ITEM"
         ],
@@ -233,7 +233,7 @@
         }
       },
       {
-        "identity": -39,
+        "identity": -83,
         "labels": [
           "ACTIVITY"
         ],
@@ -246,234 +246,234 @@
     ],
     "relationships": [
       {
-        "identity": -25,
-        "start": -23,
-        "end": -24,
+        "identity": -77,
+        "start": -67,
+        "end": -68,
         "type": "HAS_IDENTIFIER",
         "properties": {
 
         }
       },
       {
-        "identity": -45,
-        "start": -39,
-        "end": -41,
+        "identity": -97,
+        "start": -83,
+        "end": -85,
         "type": "HAS_STUDY_DATA",
         "properties": {
 
         }
       },
       {
-        "identity": -34,
-        "start": -28,
-        "end": -32,
+        "identity": -86,
+        "start": -72,
+        "end": -76,
         "type": "HAS_CELL",
         "properties": {
 
         }
       },
       {
-        "identity": -44,
-        "start": -39,
-        "end": -40,
+        "identity": -96,
+        "start": -83,
+        "end": -84,
         "type": "HAS_PROCEDURE",
         "properties": {
 
         }
       },
       {
-        "identity": -27,
-        "start": -23,
-        "end": -26,
+        "identity": -79,
+        "start": -67,
+        "end": -70,
         "type": "HAS_STUDY_PHASE",
         "properties": {
 
         }
       },
       {
-        "identity": -50,
-        "start": -39,
-        "end": -39,
+        "identity": -102,
+        "start": -83,
+        "end": -83,
         "type": "HAS_PREVIOUS_ACTIVITY",
         "properties": {
 
         }
       },
       {
-        "identity": -47,
-        "start": -38,
-        "end": -37,
+        "identity": -99,
+        "start": -82,
+        "end": -81,
         "type": "USED_IN_VISIT",
         "properties": {
 
         }
       },
       {
-        "identity": -30,
-        "start": -28,
-        "end": -29,
+        "identity": -82,
+        "start": -72,
+        "end": -73,
         "type": "HAS_INVESTIGATIONAL_INTERVENTION",
         "properties": {
 
         }
       },
       {
-        "identity": -42,
-        "start": -34,
-        "end": -37,
+        "identity": -94,
+        "start": -78,
+        "end": -81,
         "type": "HAS_VISIT",
         "properties": {
 
         }
       },
       {
-        "identity": -48,
-        "start": -28,
-        "end": -43,
+        "identity": -100,
+        "start": -72,
+        "end": -87,
         "type": "HAS_INDICATION",
         "properties": {
 
         }
       },
       {
-        "identity": -28,
-        "start": -23,
-        "end": -27,
+        "identity": -80,
+        "start": -67,
+        "end": -71,
         "type": "HAS_PROTOCOL",
         "properties": {
 
         }
       },
       {
-        "identity": -31,
-        "start": -29,
-        "end": -30,
+        "identity": -83,
+        "start": -73,
+        "end": -74,
         "type": "HAS_CODED",
         "properties": {
 
         }
       },
       {
-        "identity": -32,
-        "start": -43,
-        "end": -30,
+        "identity": -84,
+        "start": -87,
+        "end": -74,
         "type": "HAS_CODED",
         "properties": {
 
         }
       },
       {
-        "identity": -36,
-        "start": -32,
-        "end": -35,
+        "identity": -88,
+        "start": -76,
+        "end": -79,
         "type": "HAS_ELEMENT",
         "properties": {
 
         }
       },
       {
-        "identity": -46,
-        "start": -31,
-        "end": -42,
+        "identity": -98,
+        "start": -75,
+        "end": -86,
         "type": "HAS_ENDPOINT",
         "properties": {
 
         }
       },
       {
-        "identity": -29,
-        "start": -23,
-        "end": -28,
+        "identity": -81,
+        "start": -67,
+        "end": -72,
         "type": "HAS_STUDY_DESIGN",
         "properties": {
 
         }
       },
       {
-        "identity": -26,
-        "start": -23,
-        "end": -25,
+        "identity": -78,
+        "start": -67,
+        "end": -69,
         "type": "HAS_STUDY_TYPE",
         "properties": {
 
         }
       },
       {
-        "identity": -38,
-        "start": -37,
-        "end": -36,
+        "identity": -90,
+        "start": -81,
+        "end": -80,
         "type": "HAS_START_RULE",
         "properties": {
 
         }
       },
       {
-        "identity": -37,
-        "start": -35,
-        "end": -36,
+        "identity": -89,
+        "start": -79,
+        "end": -80,
         "type": "HAS_START_RULE",
         "properties": {
 
         }
       },
       {
-        "identity": -43,
-        "start": -38,
-        "end": -39,
+        "identity": -95,
+        "start": -82,
+        "end": -83,
         "type": "HAS_ACTIVITY",
         "properties": {
 
         }
       },
       {
-        "identity": -39,
-        "start": -35,
-        "end": -36,
+        "identity": -92,
+        "start": -81,
+        "end": -80,
         "type": "HAS_END_RULE",
         "properties": {
 
         }
       },
       {
-        "identity": -40,
-        "start": -37,
-        "end": -36,
+        "identity": -91,
+        "start": -79,
+        "end": -80,
         "type": "HAS_END_RULE",
         "properties": {
 
         }
       },
       {
-        "identity": -41,
-        "start": -32,
-        "end": -34,
+        "identity": -93,
+        "start": -76,
+        "end": -78,
         "type": "HAS_EPOCH",
         "properties": {
 
         }
       },
       {
-        "identity": -49,
-        "start": -28,
-        "end": -44,
+        "identity": -101,
+        "start": -72,
+        "end": -88,
         "type": "HAS_POPULATION",
         "properties": {
 
         }
       },
       {
-        "identity": -33,
-        "start": -28,
-        "end": -31,
+        "identity": -85,
+        "start": -72,
+        "end": -75,
         "type": "HAS_OBJECTIVE",
         "properties": {
 
         }
       },
       {
-        "identity": -35,
-        "start": -32,
-        "end": -33,
+        "identity": -87,
+        "start": -76,
+        "end": -77,
         "type": "HAS_ARM",
         "properties": {
 

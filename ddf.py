@@ -1,3 +1,5 @@
+# Program to inject a DDF study design into Neo4j
+
 from neo4j import GraphDatabase
 
 the_nodes = {

@@ -1,3 +1,8 @@
+# Code for generating an SoA from a DDF graph database
+# Code has been quickly put together to get the desired outputs rather than
+# making the code as elegant. It might be possible to merge the queries or 
+# have them return more easily consumed results
+
 from neo4j import GraphDatabase
 from beautifultable import BeautifulTable
 
