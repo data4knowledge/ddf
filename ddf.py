@@ -311,6 +311,102 @@ the_nodes = {
         {
             "key": "RULE8",
             "rule_desc": "Last follow-up measurement",
+        },
+        {
+            "key": "RULE09",
+            "rule_desc": "-D5"
+        },
+        {
+            "key": "RULE10",
+            "rule_desc": "-D3"
+        },
+        {
+            "key": "RULE11",
+            "rule_desc": "-D1"
+        },
+        {
+            "key": "RULE12",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE13",
+            "rule_desc": "D3"
+        },
+        {
+            "key": "RULE14",
+            "rule_desc": "D5"
+        },
+        {
+            "key": "RULE15",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE16",
+            "rule_desc": "D3"
+        },
+        {
+            "key": "RULE17",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE18",
+            "rule_desc": "D4"
+        },
+        {
+            "key": "RULE19",
+            "rule_desc": "W2"
+        },
+        {
+            "key": "RULE20",
+            "rule_desc": "W4"
+        },
+        {
+            "key": "RULE21",
+            "rule_desc": "-D5"
+        },
+        {
+            "key": "RULE22",
+            "rule_desc": "-D3"
+        },
+        {
+            "key": "RULE23",
+            "rule_desc": "-D1"
+        },
+        {
+            "key": "RULE24",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE25",
+            "rule_desc": "D3"
+        },
+        {
+            "key": "RULE26",
+            "rule_desc": "D5"
+        },
+        {
+            "key": "RULE27",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE28",
+            "rule_desc": "D3"
+        },
+        {
+            "key": "RULE29",
+            "rule_desc": "D1"
+        },
+        {
+            "key": "RULE30",
+            "rule_desc": "D4"
+        },
+        {
+            "key": "RULE31",
+            "rule_desc": "W2"
+        },
+        {
+            "key": "RULE32",
+            "rule_desc": "W4"
         }
     ],
     "STUDY_CELL": [
@@ -352,74 +448,109 @@ the_nodes = {
         {    
             "key": "VIS11",
             "number": "001",
-            "name": "SCREENING VISIT"
+            "name": "SCREENING VISIT",
+            "contact_mode": "IN PERSON",
+            "env_setting": "CLINIC",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS12",
             "number": "002",
-            "name": "RUN-IN VISIT 1"
+            "name": "RUN-IN VISIT 1",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS13",
             "number": "003",
-            "name": "RUN-IN VISIT 2"
+            "name": "RUN-IN VISIT 2",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS14",
             "number": "004",
-            "name": "RUN-IN VISIT 3"
+            "name": "RUN-IN VISIT 3",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS15",
             "number": "005",
-            "name": "CYCLE 1, TREATMENT DAY 1"
+            "name": "CYCLE 1, TREATMENT DAY 1",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS16",
             "number": "006",
-            "name": "CYCLE 1, TREATMENT DAY 3"
+            "name": "CYCLE 1, TREATMENT DAY 3",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS17",
             "number": "007",
-            "name": "CYCLE 1, TREATMENT DAY 5"
+            "name": "CYCLE 1, TREATMENT DAY 5",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS18",
             "number": "008",
-            "name": "CYCLE 2, TREATMENT DAY 1"
+            "name": "CYCLE 2, TREATMENT DAY 1",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS19",
             "number": "009",
-            "name": "CYCLE 2, TREATMENT DAY 3"
+            "name": "CYCLE 2, TREATMENT DAY 3",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS20",
             "number": "010",
-            "name": "CYCLE X, TREATMENT DAY 1"
+            "name": "CYCLE X, TREATMENT DAY 1",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS21",
             "number": "011",
-            "name": "CYCLE X, TREATMENT DAY 4"
+            "name": "CYCLE X, TREATMENT DAY 4",
+            "contact_mode": "IN PERSON",
+            "env_setting": "HOSPITAL",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS22",
             "number": "012",
-            "name": "FU 1"
+            "name": "FU 1",
+            "contact_mode": "IN PERSON",
+            "env_setting": "CLINIC",
+            "encounter_type": "PLANNED VISIT"
         },
         {   
             "key": "VIS23",
             "number": "013",
-            "name": "FU 2"
+            "name": "FU 2",
+            "contact_mode": "REMOTE AUDIO",
+            "encounter_type": "VIRTUAL VISIT"
         }
     ],
     #start_rule_id uuid,
     #end_rule_id uuid,
-    #contact_mode_id integer,
-    #env_setting_id integer,
-    #encounter_type_id integer,
     #first_activity_id uuid,
     
     "WORKFLOW_ITEM": [
@@ -494,7 +625,7 @@ the_nodes = {
         },		
         {   
             "key": "ACT003",
-            "description": "Demography	ACT002"
+            "description": "Demography"
         },
         {   
             "key": "ACT004",
@@ -871,13 +1002,37 @@ the_relationships = {
         { "from": "EL004", "to": "RULE1" },
         { "from": "EL005", "to": "RULE2" },
         { "from": "EL005", "to": "RULE3" },
-        { "from": "EL006", "to": "RULE4" }
+        { "from": "EL006", "to": "RULE4" },
+        { "from": "VIS12", "to": "RULE09" },
+        { "from": "VIS13", "to": "RULE10" },
+        { "from": "VIS14", "to": "RULE11" },
+        { "from": "VIS15", "to": "RULE12" },
+        { "from": "VIS16", "to": "RULE13" },
+        { "from": "VIS17", "to": "RULE14" },
+        { "from": "VIS18", "to": "RULE15" },
+        { "from": "VIS19", "to": "RULE16" },
+        { "from": "VIS20", "to": "RULE17" },
+        { "from": "VIS21", "to": "RULE18" },
+        { "from": "VIS22", "to": "RULE19" },
+        { "from": "VIS23", "to": "RULE20" }
     ],
     "HAS_END_RULE": [
         { "from": "EL004", "to": "RULE5" },
         { "from": "EL005", "to": "RULE6" },
         { "from": "EL005", "to": "RULE7" },
-        { "from": "EL006", "to": "RULE8" }
+        { "from": "EL006", "to": "RULE8" },
+        { "from": "VIS12", "to": "RULE21" },
+        { "from": "VIS13", "to": "RULE22" },
+        { "from": "VIS14", "to": "RULE23" },
+        { "from": "VIS15", "to": "RULE24" },
+        { "from": "VIS16", "to": "RULE25" },
+        { "from": "VIS17", "to": "RULE26" },
+        { "from": "VIS18", "to": "RULE27" },
+        { "from": "VIS19", "to": "RULE28" },
+        { "from": "VIS20", "to": "RULE29" },
+        { "from": "VIS21", "to": "RULE30" },
+        { "from": "VIS22", "to": "RULE31" },
+        { "from": "VIS23", "to": "RULE32" }
     ],
     "HAS_VISIT": [
         { "to": "VIS11", "from": "EPO004" },
@@ -894,11 +1049,6 @@ the_relationships = {
         { "to": "VIS22", "from": "EPO009" },
         { "to": "VIS23", "from": "EPO009" }
     ], 
-
-
-
-
-
     "HAS_ACTIVITY": [
         { "from": "WF001", "to": "ACT001" },
         { "from": "WF002", "to": "ACT002" },
@@ -957,11 +1107,6 @@ the_relationships = {
         { "from": "WF055", "to": "ACT017" },
         { "from": "WF056", "to": "ACT017" }
     ],
-
-
-  
-  
-
 
 # Workflow to Arm      
 #WF011 ARM03   
@@ -1143,6 +1288,3 @@ with driver.session() as session:
         result = session.run(query, rels=value)
 
 driver.close()
-
-
-" },

@@ -8,6 +8,13 @@ with driver.session() as session:
     # Choose a protocol from DB
     protocol_name = "DDR"
 
+    # Data
+    visits = {}
+    visit_row = {}
+    visit_rule = {}
+    epoch_visits = {}
+    epoch_count = 0
+
     # Epochs and Visits
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->
         (e:STUDY_EPOCH)-[]->(v:VISIT) WHERE pr.brief_title = '%s'
@@ -16,10 +23,6 @@ with driver.session() as session:
     #print(query)
     result = session.run(query)
     #print(result)
-    visits = {}
-    visit_row = {}
-    epoch_visits = {}
-    epoch_count = 0
     for record in result:
         #print("'%s', '%s'" % (record["epoch"], record["visit"]))
         if not record["epoch"] in epoch_visits:
@@ -31,10 +34,26 @@ with driver.session() as session:
     #print(epoch_visits)
     #print(visits)
 
+    # Visit Rules
+    query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
+        -[]->(v:VISIT) WHERE pr.brief_title = '%s'
+        WITH v ORDER BY v.number
+        MATCH (v)-[:HAS_START_RULE]->(sr:RULE)
+        MATCH (v)-[:HAS_END_RULE]->(er:RULE)
+        RETURN v.name as visit,sr.rule_desc as start_rule,er.rule_desc as end_rule""" % (protocol_name)
+    result = session.run(query)
+    for visit in visits.keys():
+        visit_rule[visit] = ""
+    for record in result:
+        if record["start_rule"] == record["end_rule"]:
+            visit_rule[record["visit"]] = "%s" % (record["start_rule"])
+        else:
+            visit_rule[record["visit"]] = "%s to %s" % (record["start_rule"], record["end_rule"])
+
     # Activities
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
-        -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM) WHERE pr.brief_title = '%s'
-        WITH wfi.description as activity, v.name as visit ORDER BY v.number
+        -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY) WHERE pr.brief_title = '%s'
+        WITH a.description as activity, v.name as visit ORDER BY v.number
         RETURN DISTINCT activity, visit""" % (protocol_name)
     #print(query)
     result = session.run(query)
@@ -69,6 +88,7 @@ driver.close()
 table = BeautifulTable()
 table.columns.header = [""] + list(visits.values())
 table.rows.append([""] + list(visits.keys()))
+table.rows.append([""] + list(visit_rule.values()))
 for activity, data in activities.items():
     table.rows.append([activity] + list(data.values()))
 table.maxwidth = 210
@@ -89,4 +109,4 @@ for activity, links in crf_activities.items():
             with urllib.request.urlopen(link) as f:
                 xml = f.read().decode('utf-8')
                 print(link)
-                print(xml)
+                #print(xml)
