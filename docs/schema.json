@@ -1,0 +1,484 @@
+﻿[
+  {
+    "nodes": [
+      {
+        "identity": -25,
+        "labels": [
+          "STUDY_TYPE"
+        ],
+        "properties": {
+"name": "STUDY_TYPE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -44,
+        "labels": [
+          "POPULATION"
+        ],
+        "properties": {
+"name": "POPULATION",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -40,
+        "labels": [
+          "PROCEDURE"
+        ],
+        "properties": {
+"name": "PROCEDURE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -33,
+        "labels": [
+          "STUDY_ARM"
+        ],
+        "properties": {
+"name": "STUDY_ARM",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -41,
+        "labels": [
+          "STUDY_DATA"
+        ],
+        "properties": {
+"name": "STUDY_DATA",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -43,
+        "labels": [
+          "INDICATION"
+        ],
+        "properties": {
+"name": "INDICATION",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -29,
+        "labels": [
+          "INVESTIGATIONAL_INTERVENTIONS"
+        ],
+        "properties": {
+"name": "INVESTIGATIONAL_INTERVENTIONS",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -23,
+        "labels": [
+          "STUDY"
+        ],
+        "properties": {
+"name": "STUDY",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -24,
+        "labels": [
+          "STUDY_IDENTIFIER"
+        ],
+        "properties": {
+"name": "STUDY_IDENTIFIER",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -27,
+        "labels": [
+          "STUDY_PROTOCOL"
+        ],
+        "properties": {
+"name": "STUDY_PROTOCOL",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -32,
+        "labels": [
+          "STUDY_CELL"
+        ],
+        "properties": {
+"name": "STUDY_CELL",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -26,
+        "labels": [
+          "STUDY_PHASE"
+        ],
+        "properties": {
+"name": "STUDY_PHASE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -30,
+        "labels": [
+          "CODE"
+        ],
+        "properties": {
+"name": "CODE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -34,
+        "labels": [
+          "STUDY_EPOCH"
+        ],
+        "properties": {
+"name": "STUDY_EPOCH",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -37,
+        "labels": [
+          "VISIT"
+        ],
+        "properties": {
+"name": "VISIT",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -31,
+        "labels": [
+          "OBJECTIVE"
+        ],
+        "properties": {
+"name": "OBJECTIVE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -42,
+        "labels": [
+          "ENDPOINT"
+        ],
+        "properties": {
+"name": "ENDPOINT",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -35,
+        "labels": [
+          "STUDY_ELEMENT"
+        ],
+        "properties": {
+"name": "STUDY_ELEMENT",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -36,
+        "labels": [
+          "RULE"
+        ],
+        "properties": {
+"name": "RULE",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -28,
+        "labels": [
+          "STUDY_DESIGN"
+        ],
+        "properties": {
+"name": "STUDY_DESIGN",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -38,
+        "labels": [
+          "WORKFLOW_ITEM"
+        ],
+        "properties": {
+"name": "WORKFLOW_ITEM",
+"indexes": [],
+"constraints": []
+        }
+      },
+      {
+        "identity": -39,
+        "labels": [
+          "ACTIVITY"
+        ],
+        "properties": {
+"name": "ACTIVITY",
+"indexes": [],
+"constraints": []
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "identity": -25,
+        "start": -23,
+        "end": -24,
+        "type": "HAS_IDENTIFIER",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -45,
+        "start": -39,
+        "end": -41,
+        "type": "HAS_STUDY_DATA",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -34,
+        "start": -28,
+        "end": -32,
+        "type": "HAS_CELL",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -44,
+        "start": -39,
+        "end": -40,
+        "type": "HAS_PROCEDURE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -27,
+        "start": -23,
+        "end": -26,
+        "type": "HAS_STUDY_PHASE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -50,
+        "start": -39,
+        "end": -39,
+        "type": "HAS_PREVIOUS_ACTIVITY",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -47,
+        "start": -38,
+        "end": -37,
+        "type": "USED_IN_VISIT",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -30,
+        "start": -28,
+        "end": -29,
+        "type": "HAS_INVESTIGATIONAL_INTERVENTION",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -42,
+        "start": -34,
+        "end": -37,
+        "type": "HAS_VISIT",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -48,
+        "start": -28,
+        "end": -43,
+        "type": "HAS_INDICATION",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -28,
+        "start": -23,
+        "end": -27,
+        "type": "HAS_PROTOCOL",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -31,
+        "start": -29,
+        "end": -30,
+        "type": "HAS_CODED",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -32,
+        "start": -43,
+        "end": -30,
+        "type": "HAS_CODED",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -36,
+        "start": -32,
+        "end": -35,
+        "type": "HAS_ELEMENT",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -46,
+        "start": -31,
+        "end": -42,
+        "type": "HAS_ENDPOINT",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -29,
+        "start": -23,
+        "end": -28,
+        "type": "HAS_STUDY_DESIGN",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -26,
+        "start": -23,
+        "end": -25,
+        "type": "HAS_STUDY_TYPE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -38,
+        "start": -37,
+        "end": -36,
+        "type": "HAS_START_RULE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -37,
+        "start": -35,
+        "end": -36,
+        "type": "HAS_START_RULE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -43,
+        "start": -38,
+        "end": -39,
+        "type": "HAS_ACTIVITY",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -39,
+        "start": -35,
+        "end": -36,
+        "type": "HAS_END_RULE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -40,
+        "start": -37,
+        "end": -36,
+        "type": "HAS_END_RULE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -41,
+        "start": -32,
+        "end": -34,
+        "type": "HAS_EPOCH",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -49,
+        "start": -28,
+        "end": -44,
+        "type": "HAS_POPULATION",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -33,
+        "start": -28,
+        "end": -31,
+        "type": "HAS_OBJECTIVE",
+        "properties": {
+
+        }
+      },
+      {
+        "identity": -35,
+        "start": -32,
+        "end": -33,
+        "type": "HAS_ARM",
+        "properties": {
+
+        }
+      }
+    ]
+  }
+]
