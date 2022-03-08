@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ODM FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T10:47:22">
+	<Study OID="DDF_S_001">
+		<GlobalVariables>
+			<StudyName>Study Name Here</StudyName>
+			<StudyDescription>Study Description Here</StudyDescription>
+			<ProtocolName>Protocol Name Here</ProtocolName>
+		</GlobalVariables>
+		<BasicDefinitions>
+			<ns0:MeasurementUnit xmlns:ns0="http://www.cdisc.org/ns/odm/v1.3" OID="0001_MU_INCHES" Name="Inches">
+				<ns0:Symbol>
+					<ns0:TranslatedText xml:lang="en">in</ns0:TranslatedText>
+					<ns0:TranslatedText xml:lang="fr">pouce</ns0:TranslatedText>
+					<ns0:TranslatedText xml:lang="de">Zoll</ns0:TranslatedText>
+				</ns0:Symbol>
+			</ns0:MeasurementUnit>
+			<ns1:MeasurementUnit xmlns:ns1="http://www.cdisc.org/ns/odm/v1.3" OID="0001_MU_POUNDS" Name="Pounds">
+				<ns1:Symbol>
+					<ns1:TranslatedText xml:lang="en">lbs</ns1:TranslatedText>
+					<ns1:TranslatedText xml:lang="fr">livres</ns1:TranslatedText>
+					<ns1:TranslatedText xml:lang="de">Pfund</ns1:TranslatedText>
+				</ns1:Symbol>
+			</ns1:MeasurementUnit>
+			<ns2:MeasurementUnit xmlns:ns2="http://www.cdisc.org/ns/odm/v1.3" OID="0001_MU_MMHG" Name="mm Hg">
+				<ns2:Symbol>
+					<ns2:TranslatedText xml:lang="en">mm Hg</ns2:TranslatedText>
+					<ns2:TranslatedText xml:lang="fr">mm Hg</ns2:TranslatedText>
+					<ns2:TranslatedText xml:lang="de">mm Hg</ns2:TranslatedText>
+				</ns2:Symbol>
+			</ns2:MeasurementUnit>
+			</BasicDefinitions><MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><Protocol><StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></Protocol><StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="0001_F_BASELINE" Mandatory="Yes" OrderNumber="1"/></StudyEventDef><ns3:FormDef xmlns:ns3="http://www.cdisc.org/ns/odm/v1.3" OID="0001_F_BASELINE" Name="Baseline Visit Form" Repeating="No">
+				<ns3:ItemGroupRef ItemGroupOID="0001_IG_COMMON" Mandatory="Yes" OrderNumber="1"/>
+				<ns3:ItemGroupRef ItemGroupOID="0001_IG_DM" Mandatory="Yes" OrderNumber="2"/>
+				<ns3:ItemGroupRef ItemGroupOID="0001_IG_SH" Mandatory="Yes" OrderNumber="3"/>
+				<ns3:ItemGroupRef ItemGroupOID="0001_IG_DH" Mandatory="Yes" OrderNumber="4"/>
+				<ns3:ItemGroupRef ItemGroupOID="0001_IG_PE_BASE" Mandatory="Yes" OrderNumber="5"/>
+			</ns3:FormDef>
+
+			<ns4:ItemGroupDef xmlns:ns4="http://www.cdisc.org/ns/odm/v1.3" OID="0001_IG_COMMON" Repeating="No" SASDatasetName="COMMON" Name="Common" Domain="DM">
+				<ns4:ItemRef ItemOID="0001_I_SITE" Mandatory="Yes" OrderNumber="1"/>
+				<ns4:ItemRef ItemOID="0001_I_SUBJECTID" Mandatory="Yes" OrderNumber="2"/>
+				<ns4:ItemRef ItemOID="0001_I_VISIT" Mandatory="Yes" OrderNumber="3"/>
+			</ns4:ItemGroupDef>
+			
+			<ns5:ItemGroupDef xmlns:ns5="http://www.cdisc.org/ns/odm/v1.3" OID="0001_IG_DM" Repeating="No" SASDatasetName="DEMOG" Name="Demographics" Domain="DM">
+				<ns5:ItemRef ItemOID="0001_I_BRTHDT" Mandatory="Yes" OrderNumber="1"/>
+				<ns5:ItemRef ItemOID="0001_I_SEX" Mandatory="Yes" OrderNumber="2"/>
+				<ns5:ItemRef ItemOID="0001_I_RACE" Mandatory="Yes" OrderNumber="3"/>
+			</ns5:ItemGroupDef>
+			
+			<ns6:ItemGroupDef xmlns:ns6="http://www.cdisc.org/ns/odm/v1.3" OID="0001_IG_SH" Repeating="No" SASDatasetName="SMOKE" Name="Smoking History" Domain="SU">
+				<ns6:ItemRef ItemOID="0001_I_SMOKING" Mandatory="Yes" OrderNumber="1"/>
+			</ns6:ItemGroupDef>
+			
+			<ns7:ItemGroupDef xmlns:ns7="http://www.cdisc.org/ns/odm/v1.3" OID="0001_IG_DH" Repeating="No" SASDatasetName="DRINK" Name="Drinking History" Domain="SU">
+				<ns7:ItemRef ItemOID="0001_I_DRINKING" Mandatory="Yes" OrderNumber="1"/>
+			</ns7:ItemGroupDef>
+			
+			<ns8:ItemGroupDef xmlns:ns8="http://www.cdisc.org/ns/odm/v1.3" OID="0001_IG_PE_BASE" Repeating="No" SASDatasetName="PHYEXBAS" Name="Physical Exam" Domain="VS">
+				<ns8:ItemRef ItemOID="0001_I_HEIGHT" Mandatory="Yes" OrderNumber="1"/>
+				<ns8:ItemRef ItemOID="0001_I_WEIGHT" Mandatory="Yes" OrderNumber="2"/>
+				<ns8:ItemRef ItemOID="0001_I_SYSBP" Mandatory="Yes" OrderNumber="3"/>
+				<ns8:ItemRef ItemOID="0001_I_DIABP" Mandatory="Yes" OrderNumber="4"/>
+			</ns8:ItemGroupDef>
+			
+			<ns9:ItemDef xmlns:ns9="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_SITE" Name="Site Number" DataType="text" Length="3" SDSVarName="SITEID" SASFieldName="SITEID">
+				<ns9:Question>
+					<ns9:TranslatedText xml:lang="en">Site #</ns9:TranslatedText>
+					<ns9:TranslatedText xml:lang="fr">Emplacement #</ns9:TranslatedText>
+				</ns9:Question>
+			</ns9:ItemDef>
+
+			<ns10:ItemDef xmlns:ns10="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_SUBJECTID" Name="Subject ID" DataType="text" Length="11" SDSVarName="USUBJID" SASFieldName="USUBJID">
+				<ns10:Question>
+					<ns10:TranslatedText xml:lang="en">Subject ID #</ns10:TranslatedText>
+					<ns10:TranslatedText xml:lang="de">ID des Patienten #</ns10:TranslatedText>
+					<ns10:TranslatedText xml:lang="fr">Sujet Identification #</ns10:TranslatedText>
+				</ns10:Question>
+			</ns10:ItemDef>
+
+			<ns11:ItemDef xmlns:ns11="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_VISIT" Name="Visit Date" DataType="date" SDSVarName="RFSTDTC" SASFieldName="VISITDAT">
+      		<ns11:Question>
+					<ns11:TranslatedText xml:lang="en">Visit Date</ns11:TranslatedText>
+					<ns11:TranslatedText xml:lang="fr">Date de Visite</ns11:TranslatedText>
+					<ns11:TranslatedText xml:lang="de">Besuchsdatum</ns11:TranslatedText>
+				</ns11:Question>
+			</ns11:ItemDef>
+
+     		<ns12:ItemDef xmlns:ns12="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_BRTHDT" Name="Date of Birth" DataType="date" SDSVarName="BRTHDTC" SASFieldName="DOB">
+				<ns12:Question>
+					<ns12:TranslatedText xml:lang="en">Date of Birth</ns12:TranslatedText>
+					<ns12:TranslatedText xml:lang="fr">Date de Naissance</ns12:TranslatedText>
+					<ns12:TranslatedText xml:lang="de">Geburtsdatum</ns12:TranslatedText>
+				</ns12:Question>
+			</ns12:ItemDef>
+
+			<ns13:ItemDef xmlns:ns13="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_SEX" Name="DM - Sex" DataType="text" SDSVarName="SEX" Length="1" SASFieldName="GENDER">
+				<ns13:Question>
+					<ns13:TranslatedText xml:lang="en">Sex</ns13:TranslatedText>
+					<ns13:TranslatedText xml:lang="fr">Genre</ns13:TranslatedText>
+					<ns13:TranslatedText xml:lang="de">Geschlecht</ns13:TranslatedText>
+				</ns13:Question>
+				<ns13:CodeListRef CodeListOID="0001_CL_SEX"/>
+			</ns13:ItemDef>
+
+			<ns14:ItemDef xmlns:ns14="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_RACE" Name="DM - Race" DataType="text" SDSVarName="RACE" Length="20" SASFieldName="RACE">
+				<ns14:Question>
+					<ns14:TranslatedText xml:lang="en">Race</ns14:TranslatedText>
+					<ns14:TranslatedText xml:lang="fr">Appartenance ethnique</ns14:TranslatedText>
+					<ns14:TranslatedText xml:lang="de">Ethnischer Ursprung</ns14:TranslatedText>
+				</ns14:Question>
+				<ns14:CodeListRef CodeListOID="0001_CL_RACE"/>
+			</ns14:ItemDef>
+
+			<ns15:ItemDef xmlns:ns15="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_SMOKING" Name="Smoking" DataType="text" SDSVarName="SUDOSE" Length="20" SASFieldName="SMOKES">
+				<ns15:Question>
+					<ns15:TranslatedText xml:lang="en">Number of cigarettes per day</ns15:TranslatedText>
+					<ns15:TranslatedText xml:lang="fr">Nombre de cigarettes par jour</ns15:TranslatedText>
+					<ns15:TranslatedText xml:lang="de">Zahl der Zigaretten pro Tag</ns15:TranslatedText>
+				</ns15:Question>
+				<ns15:CodeListRef CodeListOID="0001_CL_SMOKING"/>
+			</ns15:ItemDef>
+
+			<ns16:ItemDef xmlns:ns16="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_DRINKING" Name="Drinking" DataType="text" SDSVarName="SUDOSE" Length="20" SASFieldName="DRINKS">
+				<ns16:Question>
+					<ns16:TranslatedText xml:lang="en">Number of alcoholic drinks per day</ns16:TranslatedText>
+					<ns16:TranslatedText xml:lang="fr">Nombre de boissons alcoolique par jour</ns16:TranslatedText>
+					<ns16:TranslatedText xml:lang="de">Zahl der alkoholische GetrÃ¤nke pro Tag</ns16:TranslatedText>
+				</ns16:Question>
+				<ns16:CodeListRef CodeListOID="0001_CL_DRINKING"/>
+			</ns16:ItemDef>
+	
+			<ns17:ItemDef xmlns:ns17="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_HEIGHT" Name="Height" DataType="integer" SDSVarName="VSORRES" Length="3" SASFieldName="HEIGHT">
+				<ns17:Question>
+					<ns17:TranslatedText xml:lang="en">Height</ns17:TranslatedText>
+					<ns17:TranslatedText xml:lang="fr">Taille</ns17:TranslatedText>
+					<ns17:TranslatedText xml:lang="de">GrÃ¶Ãe</ns17:TranslatedText>
+				</ns17:Question>
+				<ns17:MeasurementUnitRef MeasurementUnitOID="0001_MU_INCHES"/>
+			</ns17:ItemDef>
+
+			<ns18:ItemDef xmlns:ns18="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_WEIGHT" Name="Weight" DataType="integer" SDSVarName="VSORRES" Length="3" SASFieldName="WEIGHT">
+				<ns18:Question>
+					<ns18:TranslatedText xml:lang="en">Weight</ns18:TranslatedText>
+					<ns18:TranslatedText xml:lang="fr">Poids</ns18:TranslatedText>
+					<ns18:TranslatedText xml:lang="de">Gewicht</ns18:TranslatedText>
+				</ns18:Question>
+				<ns18:MeasurementUnitRef MeasurementUnitOID="0001_MU_POUNDS"/>
+			</ns18:ItemDef>
+
+			<ns19:ItemDef xmlns:ns19="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_SYSBP" Name="Systolic BP" DataType="integer" SDSVarName="VSORRES" Length="3" SASFieldName="SYSTL">
+				<ns19:Question>
+					<ns19:TranslatedText xml:lang="en">Systolic BP</ns19:TranslatedText>
+					<ns19:TranslatedText xml:lang="fr">Tension artÃ©rielle systolique</ns19:TranslatedText>
+					<ns19:TranslatedText xml:lang="de">Systolischer Blutdruck</ns19:TranslatedText>
+				</ns19:Question>
+				<ns19:MeasurementUnitRef MeasurementUnitOID="0001_MU_MMHG"/>
+			</ns19:ItemDef>
+
+			<ns20:ItemDef xmlns:ns20="http://www.cdisc.org/ns/odm/v1.3" OID="0001_I_DIABP" Name="Diastolic BP" DataType="integer" SDSVarName="VSORRES" Length="3" SASFieldName="DIASYSTL">
+				<ns20:Question>
+					<ns20:TranslatedText xml:lang="en">Diastolic BP</ns20:TranslatedText>
+					<ns20:TranslatedText xml:lang="fr">Tension artÃ©rielle diastolique</ns20:TranslatedText>
+					<ns20:TranslatedText xml:lang="de">Diastolischer Blutdruck</ns20:TranslatedText>
+				</ns20:Question>
+				<ns20:MeasurementUnitRef MeasurementUnitOID="0001_MU_MMHG"/>
+			</ns20:ItemDef>
+	
+			<ns21:CodeList xmlns:ns21="http://www.cdisc.org/ns/odm/v1.3" OID="0001_CL_SEX" Name="Sex" DataType="text" SASFormatName="$SEX">
+				<ns21:CodeListItem CodedValue="M">
+					<ns21:Decode>
+						<ns21:TranslatedText xml:lang="en">Male</ns21:TranslatedText>
+						<ns21:TranslatedText xml:lang="fr">Masculin</ns21:TranslatedText>
+						<ns21:TranslatedText xml:lang="de">MÃ¤nnlich</ns21:TranslatedText>
+					</ns21:Decode>
+				</ns21:CodeListItem>
+				<ns21:CodeListItem CodedValue="F">
+					<ns21:Decode>
+						<ns21:TranslatedText xml:lang="en">Female</ns21:TranslatedText>
+						<ns21:TranslatedText xml:lang="fe">FÃ©minin</ns21:TranslatedText>
+						<ns21:TranslatedText xml:lang="de">Weiblich</ns21:TranslatedText>
+					</ns21:Decode>
+				</ns21:CodeListItem>
+			</ns21:CodeList>
+			
+			<ns22:CodeList xmlns:ns22="http://www.cdisc.org/ns/odm/v1.3" OID="0001_CL_RACE" Name="Race" DataType="text" SASFormatName="$RACE">
+				<ns22:CodeListItem CodedValue="CAUCASIAN">
+					<ns22:Decode>
+						<ns22:TranslatedText xml:lang="en">Caucasian</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="fr">Caucasien</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="de">Kaukasisch</ns22:TranslatedText>
+					</ns22:Decode>
+				</ns22:CodeListItem>
+				<ns22:CodeListItem CodedValue="BLACK">
+					<ns22:Decode>
+						<ns22:TranslatedText xml:lang="en">Black</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="fr">Noire</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="de">Schwarz</ns22:TranslatedText>
+					</ns22:Decode>
+				</ns22:CodeListItem>
+				<ns22:CodeListItem CodedValue="ASIAN">
+					<ns22:Decode>
+						<ns22:TranslatedText xml:lang="en">Asian</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="fr">Asiate</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="de">Asiatisch</ns22:TranslatedText>
+					</ns22:Decode>
+				</ns22:CodeListItem>
+				<ns22:CodeListItem CodedValue="OTHER">
+					<ns22:Decode>
+						<ns22:TranslatedText xml:lang="en">Other</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="fr">Autre</ns22:TranslatedText>
+						<ns22:TranslatedText xml:lang="de">Sonstige</ns22:TranslatedText>
+					</ns22:Decode>
+				</ns22:CodeListItem>
+			</ns22:CodeList>
+			
+			<ns23:CodeList xmlns:ns23="http://www.cdisc.org/ns/odm/v1.3" OID="0001_CL_SMOKING" Name="Smoking" DataType="text" SASFormatName="$SMOKE">
+				<ns23:CodeListItem CodedValue="LT10">
+					<ns23:Decode>
+						<ns23:TranslatedText xml:lang="en">Less Than 10 cigarettes per day</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="fr">Moins que 10 cigarettes par jour</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="de">Weniger als 10 Zigaretten pro Tag</ns23:TranslatedText>
+					</ns23:Decode>
+				</ns23:CodeListItem>
+				<ns23:CodeListItem CodedValue="10TO20">
+					<ns23:Decode>
+						<ns23:TranslatedText xml:lang="en">10 to 20 cigarettes per day</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="fr">10 Ã  20 cigarettes par jour</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="de">10 bis 20 Zigaretten pro Tag</ns23:TranslatedText>
+					</ns23:Decode>
+				</ns23:CodeListItem>
+				<ns23:CodeListItem CodedValue="GT20">
+					<ns23:Decode>
+						<ns23:TranslatedText xml:lang="en">Greater Than 20 cigarettes per day</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="fr">Plus de 20 cigarettes par jour</ns23:TranslatedText>
+						<ns23:TranslatedText xml:lang="de">Mehr als 20 Zigaretten pro Tag</ns23:TranslatedText>
+					</ns23:Decode>
+				</ns23:CodeListItem>
+			</ns23:CodeList>
+			
+			<ns24:CodeList xmlns:ns24="http://www.cdisc.org/ns/odm/v1.3" OID="0001_CL_DRINKING" Name="Drinking" DataType="text" SASFormatName="$DRINK">
+				<ns24:CodeListItem CodedValue="LT1">
+					<ns24:Decode>
+						<ns24:TranslatedText xml:lang="en">Less Than 1 drink per day</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="fr">Moins que une boisson par jour</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="de">Weniger als ein GetrÃ¤nk pro Tag</ns24:TranslatedText>
+					</ns24:Decode>
+				</ns24:CodeListItem>
+				<ns24:CodeListItem CodedValue="1TO2">
+					<ns24:Decode>
+						<ns24:TranslatedText xml:lang="en">1 to 2 drinks per day</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="fr">1 Ã  2 boissons par jour</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="de">1 bis 2 GetrÃ¤nke pro Tag</ns24:TranslatedText>
+					</ns24:Decode>
+				</ns24:CodeListItem>
+				<ns24:CodeListItem CodedValue="GT2">
+					<ns24:Decode>
+						<ns24:TranslatedText xml:lang="en">Greater Than 2 drinks per day</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="fr">Plus que 2 boissons par jour</ns24:TranslatedText>
+						<ns24:TranslatedText xml:lang="de">Mehr als 2 GetrÃ¤nke pro Tag</ns24:TranslatedText>
+					</ns24:Decode>
+				</ns24:CodeListItem>
+			</ns24:CodeList>
+			
+			</MetaDataVersion></Study></ODM>
