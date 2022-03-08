@@ -1286,6 +1286,12 @@
 			</xsl:attribute>
 			<xsl:value-of select="$RadioText"/><br/>
 	 	</input>
+		<label>
+		 	<xsl:attribute name="for">
+				<xsl:value-of select="$RadioName"/>
+			</xsl:attribute>
+			<xsl:value-of select="$RadioText"/>
+		</label><br/>
 	</xsl:template>
 
 	<!--

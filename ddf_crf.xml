@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T13:49:08"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions><odm:MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
+<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T15:32:00"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions><odm:MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
 				<odm:Symbol>
 					<odm:TranslatedText>mmHg</odm:TranslatedText>
 				</odm:Symbol>
@@ -14,20 +14,25 @@
 					<odm:TranslatedText>breaths/min</odm:TranslatedText>
 				</odm:Symbol>
 			</odm:MeasurementUnit>
-		</odm:BasicDefinitions><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="002_VS_HORIZONTAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="003_EG_CENTRAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_6" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="LB_LOCAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_8" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_9" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
+		<odm:MeasurementUnit OID="mu.years" Name="YEARS">
+				<odm:Symbol>
+					<odm:TranslatedText>Years</odm:TranslatedText>
+				</odm:Symbol>
+			</odm:MeasurementUnit>
+		</odm:BasicDefinitions><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="002_VS_HORIZONTAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DM" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_6" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_7" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="LB_LOCAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="003_EG_CENTRAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">VS - Implementation Options: HorizontalGeneric</odm:TranslatedText>
 				</odm:Description>
 				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37h" Mandatory="Yes" OrderNumber="1"/>
 				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37" Mandatory="Yes" OrderNumber="2"/>
 			</odm:FormDef>
-			<odm:FormDef OID="DDF_F_2" Name="Ensure availability of medication X" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Weight" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="003_EG_CENTRAL" Name="12-lead ECG" Repeating="No">
+			<odm:FormDef OID="DDF_F_2" Name="Ensure availability of medication X" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DM" Name="Form DM - Demographics" Repeating="No">
 				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">DM - Demographics</odm:TranslatedText>
 				</odm:Description>
-				<odm:ItemGroupRef ItemGroupOID="003_CDASH_2-1_IG_16" Mandatory="Yes" OrderNumber="1"/>
+				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_2" Mandatory="Yes" OrderNumber="1"/>
 			</odm:FormDef>
-			<odm:FormDef OID="DDF_F_5" Name="Pregnancy test" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_6" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_7_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="LB_LOCAL" Name="Form LB - Local Processing" Repeating="No">
+			<odm:FormDef OID="DDF_F_5" Name="Pregnancy test" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_6" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_7_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_7" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_8_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="LB_LOCAL" Name="Form LB - Local Processing" Repeating="No">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">LB - Local Processing</odm:TranslatedText>
 				</odm:Description>
@@ -35,7 +40,13 @@
 				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_22_D" Mandatory="No" OrderNumber="2"/>
 				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_22_D1" Mandatory="No" OrderNumber="3"/>
 			</odm:FormDef>
-			<odm:FormDef OID="DDF_F_8" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_9_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_9" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_10_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_10" Name="Demography" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_11_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_11" Name="Height" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_12_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_12" Name="Disease characteristics" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_13_IG" OrderNumber="1"/></odm:FormDef><odm:ItemGroupDef OID="002_CDASH_2-1_IG_37h" Name="VS - Horizontal Header" Repeating="No" Domain="VS">
+			<odm:FormDef OID="003_EG_CENTRAL" Name="12-lead ECG" Repeating="No">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemGroupRef ItemGroupOID="003_CDASH_2-1_IG_16" Mandatory="Yes" OrderNumber="1"/>
+			</odm:FormDef>
+			<odm:FormDef OID="DDF_F_10" Name="Height" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_11_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_11" Name="Disease characteristics" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_12_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_12" Name="Weight" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_13_IG" OrderNumber="1"/></odm:FormDef><odm:ItemGroupDef OID="002_CDASH_2-1_IG_37h" Name="VS - Horizontal Header" Repeating="No" Domain="VS">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">VS - Vital Signs</odm:TranslatedText>
 				</odm:Description>
@@ -65,17 +76,19 @@
 				<odm:ItemRef ItemOID="002_IT.TEMP_VSORRESU" Mandatory="No" OrderNumber="17"/>
 				<odm:ItemRef ItemOID="002_IT.TEMP_VSLOC" Mandatory="No" OrderNumber="18"/>
 			</odm:ItemGroupDef>
-			<odm:ItemGroupDef OID="DDF_F_3_IG" Name="Ensure availability of medication X" Repeating="No"><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_4_IG" Name="Weight" Repeating="No"><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="003_CDASH_2-1_IG_16" Name="EG - Central Reading" Repeating="No" Domain="EG">
+			<odm:ItemGroupDef OID="DDF_F_3_IG" Name="Ensure availability of medication X" Repeating="No"><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_4_IG" Name="Hematology (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="CDASH_2-1_IG_2" Name="DM - Demographics" Repeating="No" Domain="DM">
 				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">DM - Demographics</odm:TranslatedText>
 				</odm:Description>
-				<odm:ItemRef ItemOID="003_IT.EGPERF" Mandatory="Yes" OrderNumber="1"/>
-				<odm:ItemRef ItemOID="003_IT.EGREFID" Mandatory="No" OrderNumber="2"/>
-				<odm:ItemRef ItemOID="003_IT.EGMETHOD" Mandatory="No" OrderNumber="3"/>
-				<odm:ItemRef ItemOID="003_IT.EGPOS" Mandatory="No" OrderNumber="4"/>
-				<odm:ItemRef ItemOID="003_IT.EGDAT" Mandatory="No" OrderNumber="5"/>
+				<odm:ItemRef ItemOID="IT.BRTHDAT" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="IT.AGE" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="IT.AGEU" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="IT.SEX" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="IT.ETHNIC" Mandatory="No" OrderNumber="5"/>
+				<odm:ItemRef ItemOID="IT.RACE" Mandatory="No" OrderNumber="6"/>
+				<odm:ItemRef ItemOID="IT.RACEOTH" Mandatory="No" OrderNumber="7"/>
 			</odm:ItemGroupDef>
-			<odm:ItemGroupDef OID="DDF_F_6_IG" Name="Pregnancy test" Repeating="No"><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_7_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_7_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="CDASH_2-1_IG_22" Name="LB - Local Processing" Repeating="No" Domain="LB">
+			<odm:ItemGroupDef OID="DDF_F_6_IG" Name="Pregnancy test" Repeating="No"><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_7_IG" Name="Urinalysis" Repeating="No"><odm:ItemRef ItemOID="DDF_F_7_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_8_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_8_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="CDASH_2-1_IG_22" Name="LB - Local Processing" Repeating="No" Domain="LB">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">LB - Labs</odm:TranslatedText>
 				</odm:Description>
@@ -105,7 +118,17 @@
 				<odm:ItemRef ItemOID="IT.LBORNRHI_CA" Mandatory="No" OrderNumber="4"/>
 				<odm:ItemRef ItemOID="IT.LBCLSIG_CA" Mandatory="No" OrderNumber="5"/>
 			</odm:ItemGroupDef>
-			<odm:ItemGroupDef OID="DDF_F_9_IG" Name="Hematology (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_9_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_10_IG" Name="Urinalysis" Repeating="No"><odm:ItemRef ItemOID="DDF_F_10_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_11_IG" Name="Demography" Repeating="No"><odm:ItemRef ItemOID="DDF_F_11_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_12_IG" Name="Height" Repeating="No"><odm:ItemRef ItemOID="DDF_F_12_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_13_IG" Name="Disease characteristics" Repeating="No"><odm:ItemRef ItemOID="DDF_F_13_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemDef OID="002_IT.VSPERF" Name="VSPERF" DataType="text" Length="1">
+			<odm:ItemGroupDef OID="003_CDASH_2-1_IG_16" Name="EG - Central Reading" Repeating="No" Domain="EG">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="003_IT.EGPERF" Mandatory="Yes" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="003_IT.EGREFID" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="003_IT.EGMETHOD" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="003_IT.EGPOS" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="003_IT.EGDAT" Mandatory="No" OrderNumber="5"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="DDF_F_11_IG" Name="Height" Repeating="No"><odm:ItemRef ItemOID="DDF_F_11_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_12_IG" Name="Disease characteristics" Repeating="No"><odm:ItemRef ItemOID="DDF_F_12_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_13_IG" Name="Weight" Repeating="No"><odm:ItemRef ItemOID="DDF_F_13_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemDef OID="002_IT.VSPERF" Name="VSPERF" DataType="text" Length="1">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSPERF</odm:TranslatedText>
 				</odm:Description>
@@ -396,82 +419,110 @@
 				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
 				<odm:Alias Name="TEMP_VSLOC" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="DDF_F_3_IG_I" Name="Ensure availability of medication X" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Ensure availability of medication X</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_4_IG_I" Name="Weight" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Weight</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="003_IT.EGPERF" Name="EGPERF" DataType="text" Length="8">
+			<odm:ItemDef OID="DDF_F_3_IG_I" Name="Ensure availability of medication X" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Ensure availability of medication X</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_4_IG_I" Name="Hematology (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Hematology (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="IT.BRTHDAT" Name="BRTHDAT" DataType="date">
 				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EGPERF</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">BRTHDAT</odm:TranslatedText>
 				</odm:Description>
 				<odm:Question>
-					<odm:TranslatedText xml:lang="en">Was an ECG performed?</odm:TranslatedText>
+					<odm:TranslatedText>What is the subject's date of birth?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Birth Date</odm:TranslatedText>
 				</odm:Question>
-				<odm:CodeListRef CodeListOID="003_CL.C66742.NY.NY"/>
-				<odm:Alias Context="prompt" Name="ECG Performed"/>
-				<odm:Alias Context="completionInstructions" Name="Indicate whether or not an ECG or specific ECG test was done."/>
-				<odm:Alias Context="implementationNotes" Name="This may be implemented for an entire ECG, or a specific ECG test basis. General prompt question to be used as a data management tool to verify that missing results are confirmed missing."/>
-				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTMIG variable EGSTAT. If the CDASH field EGPERF= &quot;N&quot;, the value of EGSTAT will be &quot;NOT DONE&quot;. If EGPERF = &quot;Y&quot;, EGSTAT should be null. A combination of SDTMIG variables (e.g., EGCAT and EGSCAT, EGTPT) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable EGTESTCD would be populated as EGALL and an appropriate test name (EGTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
-				<odm:Alias Name="EGPERF" Context="CDASH"/>
+				<odm:Alias Context="prompt" Name="Birth Date"/>
+				<odm:Alias Context="completionInstructions" Name="Record the date of birth to the level of precision known (e.g., day/month/year, year, month/year, etc.) in this format (DD-MON-YYYY)."/>
+				<odm:Alias Context="implementationNotes" Name="BRTHDAT is the collected field used for recording the full birth date. The sponsor may choose to database the date of birth as a single variable (BRTHDAT), or as separate variables for each component of the date/time (BRTHYY, BRTHMO, BRTHDD, BRTHTIM). The sponsor may choose a method based on database considerations, or for regulatory reasons. It is expected that what is collected for BRTHDAT (complete date or whichever components are collected) is reported in the SDTMIG variable BRTHDTC in the ISO 8601 format. If data are collected in a manner resulting in a reduced precision level, then the AGE (SDTM expected variable), if not collected on the CRF, should be derived using a documented algorithm that describes how the age was determined and/or imputed for those birth dates collected with reduced precision."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable BRTHDTC in ISO 8601 format."/>
+				<odm:Alias Name="BRTHDAT" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="003_IT.EGREFID" Name="EGREFID" DataType="text" Length="8">
+			<odm:ItemDef OID="IT.AGE" Name="AGE" DataType="integer" Length="3">
 				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EGREFID</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">AGE</odm:TranslatedText>
 				</odm:Description>
 				<odm:Question>
-					<odm:TranslatedText>What was the (ECG) [reference identifier/accession
-    number]?</odm:TranslatedText>
-					<odm:TranslatedText xml:lang="en">ECG Reference Identifier/Accession Number</odm:TranslatedText>
+					<odm:TranslatedText>What is the subject's age?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Age</odm:TranslatedText>
 				</odm:Question>
-				<odm:Alias Context="prompt" Name="(ECG) [Reference Identifier/Accession Number]"/>
-				<odm:Alias Context="completionInstructions" Name="Record the identifier number assigned."/>
-				<odm:Alias Context="implementationNotes" Name="This can be used to confirm that the appropriate data record is present in the electronic transfer if this reference ID happens to be available to the site at the time of collection. It can also be used to link the clinical significance assessment to the proper record in the electronic data. (e.g., UUID for external waveform file, session number automatically generated by electronic equipment)."/>
-				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. May be used to create RELREC to link this record with a record in another domain."/>
-				<odm:Alias Name="EGREFID" Context="CDASH"/>
-			</odm:ItemDef>
-			<odm:ItemDef OID="003_IT.EGMETHOD" Name="EGMETHOD" DataType="text" Length="8">
-				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EGMETHOD</odm:TranslatedText>
-				</odm:Description>
-				<odm:Question>
-					<odm:TranslatedText>What was the method used for the ECG?</odm:TranslatedText>
-					<odm:TranslatedText xml:lang="en">Method</odm:TranslatedText>
-				</odm:Question>
-				<odm:CodeListRef CodeListOID="003_CL.C71151.EGMETHOD.CENTRAL"/>
-				<odm:Alias Context="prompt" Name="Method"/>
-				<odm:Alias Context="completionInstructions" Name="Record the method used for the ECG."/>
-				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One possible condition is the method used to collect or calculate the ECG data. If the protocol requires this type of information, then this question may be included to confirm that the method used matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Method of ECG is provided as part of the electronic data.   * Method of ECG is not pertinent to the protocol.   * The protocol specifies only one possible method for collecting ECG measurements and the sponsor does not feel there is significant risk of the sites performing the ECG using the incorrect method."/>
+				<odm:Alias Context="prompt" Name="Age"/>
+				<odm:Alias Context="completionInstructions" Name="Record age of the subject."/>
+				<odm:Alias Context="implementationNotes" Name="If Age is collected, it should be collected as a number and, to be correctly interpreted, the age value should be associated to a variable for the Age Unit. It may be necessary to know when the age was collected as an age may need to be recalculated for analysis, such as deriving age at a reference start time (RFSTDTC for SDTM). BRTHDTC may not be available in all cases (due to subject privacy concerns).If AGE is collected, then it is recommended that the date of collection also be recorded, either separately or by association to the date of the visit."/>
 				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
-				<odm:Alias Name="EGMETHOD" Context="CDASH"/>
+				<odm:Alias Name="AGE" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="003_IT.EGPOS" Name="EGPOS" DataType="text" Length="8">
+			<odm:ItemDef OID="IT.AGEU" Name="AGEU" DataType="float">
 				<odm:Description>
-					<odm:TranslatedText xml:lang="en">EGPOS</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">AGEU</odm:TranslatedText>
 				</odm:Description>
 				<odm:Question>
-					<odm:TranslatedText>What was the position of the subject during the ECG
-    measurement?</odm:TranslatedText>
-					<odm:TranslatedText xml:lang="en">Position</odm:TranslatedText>
+					<odm:TranslatedText>What is the age unit used?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Age Unit</odm:TranslatedText>
 				</odm:Question>
-				<odm:CodeListRef CodeListOID="003_CL.C71148.POSITION.CENTRAL"/>
-				<odm:Alias Context="prompt" Name="Position"/>
-				<odm:Alias Context="completionInstructions" Name="Record the position of the subject during the ECG."/>
-				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One common condition is the subject's position. If the protocol requires this type of information, then this question may be included to confirm that the subject's position matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Position of the Subject is provided as part of the electronic data.   * Position of the Subject is not pertinent to the protocol.   * The protocol specifies only one possible position and the sponsor does not feel there is significant risk of the sites performing the ECG with the subject in the wrong position."/>
+				<odm:MeasurementUnitRef MeasurementUnitOID="mu.years"/>
+				<odm:Alias Context="prompt" Name="Age Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record the appropriate age unit (e.g., YEARS, MONTHS, WEEKS, etc.)."/>
+				<odm:Alias Context="implementationNotes" Name="If Age is captured on the CRF, the age unit must be known to make the age value meaningful. The age unit might be collected on the CRF, in those cases where the protocol allows for any age group, or it may be preprinted on the CRF (typically with the unit of &quot;years&quot;)."/>
 				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
-				<odm:Alias Name="EGPOS" Context="CDASH"/>
+				<odm:Alias Name="AGEU" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="003_IT.EGDAT" Name="EGDAT" DataType="date">
+			<odm:ItemDef OID="IT.SEX" Name="SEX" DataType="text" Length="15">
 				<odm:Description>
-					<odm:TranslatedText>EGDAT</odm:TranslatedText>
-					<odm:TranslatedText xml:lang="en">ECG Date</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">SEX</odm:TranslatedText>
 				</odm:Description>
 				<odm:Question>
-					<odm:TranslatedText>What was the date of the ECG?</odm:TranslatedText>
-					<odm:TranslatedText xml:lang="en">Date</odm:TranslatedText>
+					<odm:TranslatedText>What is the sex of the subject?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Sex</odm:TranslatedText>
 				</odm:Question>
-				<odm:Alias Context="prompt" Name="ECG Date"/>
-				<odm:Alias Context="completionInstructions" Name="Record the date the ECG was done using this format (DD-MON-YYYY)."/>
-				<odm:Alias Context="implementationNotes" Name="A complete date is expected. The date of collection may be determined from the date of visit (VISDAT) and if so, a separate assessment date field is not required."/>
-				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable EGDTC in ISO 8601 format."/>
-				<odm:Alias Name="EGDAT" Context="CDASH"/>
+				<odm:CodeListRef CodeListOID="CL.C66731.SEX"/>
+				<odm:Alias Context="prompt" Name="Sex"/>
+				<odm:Alias Context="completionInstructions" Name="Record the appropriate sex (e.g., F (female), M (male)."/>
+				<odm:Alias Context="implementationNotes" Name="Collect the subject's sex or gender, as reported by the investigator. This is a phenotypic assessment and not a genotypic assessment."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="SEX" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="DDF_F_6_IG_I" Name="Pregnancy test" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Pregnancy test</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_7_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="IT.LBNAM" Name="LBNAM" DataType="text" Length="24">
+			<odm:ItemDef OID="IT.ETHNIC" Name="ETHNIC" DataType="text" Length="23">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">ETHNIC</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>Do you consider yourself Hispanic/Latino or not Hispanic/Latino?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Ethnicity</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C66790.ETHNIC"/>
+				<odm:Alias Context="prompt" Name="Ethnicity"/>
+				<odm:Alias Context="completionInstructions" Name="Study participants should self-report ethnicity, with ethnicity being asked about before race."/>
+				<odm:Alias Context="implementationNotes" Name="For use when values are being collected using the exact non-extensible ETHNIC codelist (C66790) values. Sponsors should refer to the FDA's Collection of Race and Ethnicity Data in Clinical Trials guidance regarding the collection of ethnicity (http://www.fda.gov/)."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="ETHNIC" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.RACE" Name="RACE" DataType="text" Length="25" SDSVarName="RACE">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">RACE</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>Which of the following five racial designations best describes you?
+    (More than one choice is acceptable.)</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Race</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C74457.RACE"/>
+				<odm:Alias Context="prompt" Name="Race"/>
+				<odm:Alias Context="completionInstructions" Name="Study participants should self-report race, with race being asked about after ethnicity."/>
+				<odm:Alias Context="implementationNotes" Name="Use RACE when the 5 designations for race used by the FDA are collected (American Indian or Alaska Native; Asian; Black or African American; Native Hawaiian or Other Pacific Islander ; White).* Sponsors should refer to the FDA Guidance. See SDTMIG v3.2 Section 5, DM Domain.   *For studies where data are collected outside the US, the recommended categories are the same except for Black instead of Black or African American. If multiple races are collected, an alternate sponsor-defined variable structure would be required. Sponsors may record multiple self-reported races for a subject by appending a suffix to denote multiple collected races (e.g. RACE1, RACE2) and populate RACE with the value MULTIPLE."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="RACE" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.RACEOTH" Name="RACEOTH" DataType="text" Length="100">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">RACEOTH</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the other race?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Specify Other Race</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Specify Other Race"/>
+				<odm:Alias Context="completionInstructions" Name="If none of the pre-printed values for RACE are applicable or if another, unprinted selection should be added to those pre-printed values, record the value in this free text field."/>
+				<odm:Alias Context="implementationNotes" Name="When creating the DM form, it is suggested that the 5 standard race categories be included. Sponsors may choose to include another value of Specify, Other with a free-text field for extending the list of values. The RACEOTH variable contains the free text added by the site. The value(s) added in the optional variable might or might not &quot;collapse up&quot; into one of the 5 categories specified by the FDA Guidance. See SDTMIG v3.2, Section 5 -DM Domain for examples of reporting this implementation."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPDM dataset as the value of SUPPDM.QVAL where SUPPDM.QNAM = &quot;RACEOTH&quot; and SUPP.QLABEL=&quot;RACE OTHER&quot;. See SDTMIG v3.2 Section 5, DM Domain. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<odm:Alias Name="RACEOTH" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="DDF_F_6_IG_I" Name="Pregnancy test" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Pregnancy test</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_7_IG_I" Name="Urinalysis" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Urinalysis</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_8_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="IT.LBNAM" Name="LBNAM" DataType="text" Length="24">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">LBNAM</odm:TranslatedText>
 				</odm:Description>
@@ -685,7 +736,82 @@
 				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPLB dataset as the value of SUPPLB.QVAL where SUPPLB.QNAM =&quot;LBCLSIG&quot; and SUPPLB.QLABEL=&quot;Clinically Significant&quot;. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
 				<odm:Alias Name="LBCLSIG" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="DDF_F_9_IG_I" Name="Hematology (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Hematology (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_10_IG_I" Name="Urinalysis" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Urinalysis</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_11_IG_I" Name="Demography" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Demography</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_12_IG_I" Name="Height" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Height</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_13_IG_I" Name="Disease characteristics" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Disease characteristics</odm:TranslatedText></odm:Question></odm:ItemDef><odm:CodeList OID="002_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+			<odm:ItemDef OID="003_IT.EGPERF" Name="EGPERF" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGPERF</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was an ECG performed?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="ECG Performed"/>
+				<odm:Alias Context="completionInstructions" Name="Indicate whether or not an ECG or specific ECG test was done."/>
+				<odm:Alias Context="implementationNotes" Name="This may be implemented for an entire ECG, or a specific ECG test basis. General prompt question to be used as a data management tool to verify that missing results are confirmed missing."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTMIG variable EGSTAT. If the CDASH field EGPERF= &quot;N&quot;, the value of EGSTAT will be &quot;NOT DONE&quot;. If EGPERF = &quot;Y&quot;, EGSTAT should be null. A combination of SDTMIG variables (e.g., EGCAT and EGSCAT, EGTPT) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable EGTESTCD would be populated as EGALL and an appropriate test name (EGTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
+				<odm:Alias Name="EGPERF" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGREFID" Name="EGREFID" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGREFID</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the (ECG) [reference identifier/accession
+    number]?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">ECG Reference Identifier/Accession Number</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="(ECG) [Reference Identifier/Accession Number]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the identifier number assigned."/>
+				<odm:Alias Context="implementationNotes" Name="This can be used to confirm that the appropriate data record is present in the electronic transfer if this reference ID happens to be available to the site at the time of collection. It can also be used to link the clinical significance assessment to the proper record in the electronic data. (e.g., UUID for external waveform file, session number automatically generated by electronic equipment)."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. May be used to create RELREC to link this record with a record in another domain."/>
+				<odm:Alias Name="EGREFID" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGMETHOD" Name="EGMETHOD" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGMETHOD</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the method used for the ECG?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Method</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C71151.EGMETHOD.CENTRAL"/>
+				<odm:Alias Context="prompt" Name="Method"/>
+				<odm:Alias Context="completionInstructions" Name="Record the method used for the ECG."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One possible condition is the method used to collect or calculate the ECG data. If the protocol requires this type of information, then this question may be included to confirm that the method used matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Method of ECG is provided as part of the electronic data.   * Method of ECG is not pertinent to the protocol.   * The protocol specifies only one possible method for collecting ECG measurements and the sponsor does not feel there is significant risk of the sites performing the ECG using the incorrect method."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="EGMETHOD" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGPOS" Name="EGPOS" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGPOS</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the position of the subject during the ECG
+    measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Position</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C71148.POSITION.CENTRAL"/>
+				<odm:Alias Context="prompt" Name="Position"/>
+				<odm:Alias Context="completionInstructions" Name="Record the position of the subject during the ECG."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One common condition is the subject's position. If the protocol requires this type of information, then this question may be included to confirm that the subject's position matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Position of the Subject is provided as part of the electronic data.   * Position of the Subject is not pertinent to the protocol.   * The protocol specifies only one possible position and the sponsor does not feel there is significant risk of the sites performing the ECG with the subject in the wrong position."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="EGPOS" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGDAT" Name="EGDAT" DataType="date">
+				<odm:Description>
+					<odm:TranslatedText>EGDAT</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">ECG Date</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the date of the ECG?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Date</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="ECG Date"/>
+				<odm:Alias Context="completionInstructions" Name="Record the date the ECG was done using this format (DD-MON-YYYY)."/>
+				<odm:Alias Context="implementationNotes" Name="A complete date is expected. The date of collection may be determined from the date of visit (VISDAT) and if so, a separate assessment date field is not required."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable EGDTC in ISO 8601 format."/>
+				<odm:Alias Name="EGDAT" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="DDF_F_11_IG_I" Name="Height" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Height</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_12_IG_I" Name="Disease characteristics" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Disease characteristics</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_13_IG_I" Name="Weight" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Weight</odm:TranslatedText></odm:Question></odm:ItemDef><odm:CodeList OID="002_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
 				<odm:Description>
 					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
 				</odm:Description>
@@ -860,60 +986,98 @@
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>
-		<odm:CodeList OID="003_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+		<odm:CodeList OID="CL.C66731.SEX" Name="Sex" DataType="text">
 				<odm:Description>
-					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
+					<odm:TranslatedText>The assemblage of physical properties or qualities by which male is distinguished from female; the physical difference between male and female; the distinguishing peculiarity of male or female. (NCI)</odm:TranslatedText>
 				</odm:Description>
-				<odm:CodeListItem CodedValue="N" OrderNumber="1">
+				<odm:CodeListItem CodedValue="F" OrderNumber="1">
 					<odm:Decode>
-						<odm:TranslatedText>No</odm:TranslatedText>
+						<odm:TranslatedText>Female</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
+				<odm:CodeListItem CodedValue="M" OrderNumber="2">
 					<odm:Decode>
-						<odm:TranslatedText>Yes</odm:TranslatedText>
+						<odm:TranslatedText>Male</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="U" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Unknown</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="UNDIFFERENTIATED" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Undifferentiated</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>
-			<odm:CodeList OID="003_CL.C71151.EGMETHOD.CENTRAL" Name="ECG Test Method - Central Reading" DataType="text">
-				<odm:CodeListItem CodedValue="12 LEAD STANDARD" OrderNumber="1">
+			<odm:CodeList OID="CL.C66790.ETHNIC" Name="Ethnic Group" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>A social group characterized by a distinctive social and cultural tradition maintained from generation to generation, a common history and origin and a sense of identification with the group; members of the group have distinctive features in their way of life, shared experiences and often a common genetic heritage; these features may be reflected in their experience of health and disease. (NCI)</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="HISPANIC OR LATINO" OrderNumber="1">
 					<odm:Decode>
-						<odm:TranslatedText>12 LEAD STANDARD</odm:TranslatedText>
+						<odm:TranslatedText>Hispanic or Latino</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="HOLTER CONTINUOUS ECG RECORDING" OrderNumber="2">
+				<odm:CodeListItem CodedValue="NOT HISPANIC OR LATINO" OrderNumber="2">
 					<odm:Decode>
-						<odm:TranslatedText>HOLTER CONTINUOUS ECG RECORDING</odm:TranslatedText>
+						<odm:TranslatedText>Not Hispanic or Latino</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="NOT REPORTED" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Not Reported</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="UNKNOWN" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Unknown</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>
-			<odm:CodeList OID="003_CL.C71148.POSITION.CENTRAL" Name="Position - Central Reading" DataType="text">
+			<odm:CodeList OID="CL.C74457.RACE" Name="Race" DataType="text">
 				<odm:Description>
-					<odm:TranslatedText>Terminology codelist used with Body Position within CDISC.</odm:TranslatedText>
+					<odm:TranslatedText>Terminology codelist used to identify the race of an individual within the Clinical Data Interchange Standards Consortium Study Data Tabulation Model.</odm:TranslatedText>
 				</odm:Description>
-				<odm:CodeListItem CodedValue="SITTING" OrderNumber="1">
+				<odm:CodeListItem CodedValue="AMERICAN INDIAN OR ALASKA NATIVE" OrderNumber="1">
 					<odm:Decode>
-						<odm:TranslatedText>Sitting</odm:TranslatedText>
+						<odm:TranslatedText>American Indian or Alaska Native</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="STANDING" OrderNumber="2">
+				<odm:CodeListItem CodedValue="ASIAN" OrderNumber="2">
 					<odm:Decode>
-						<odm:TranslatedText>Standing</odm:TranslatedText>
+						<odm:TranslatedText>Asian</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="SUPINE" OrderNumber="3">
+				<odm:CodeListItem CodedValue="BLACK OR AFRICAN AMERICAN" OrderNumber="3">
 					<odm:Decode>
-						<odm:TranslatedText>Supine</odm:TranslatedText>
+						<odm:TranslatedText>Black or African American</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="SEMI-RECUMBENT" OrderNumber="4">
+				<odm:CodeListItem CodedValue="NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER" OrderNumber="4">
 					<odm:Decode>
-						<odm:TranslatedText>Semi-Recumbent</odm:TranslatedText>
+						<odm:TranslatedText>Native Hawaiian or Other Pacific Islander</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
-				<odm:CodeListItem CodedValue="SEMI-FOWLERS" OrderNumber="5">
+				<odm:CodeListItem CodedValue="WHITE" OrderNumber="5">
 					<odm:Decode>
-						<odm:TranslatedText>Semi-Fowler's</odm:TranslatedText>
+						<odm:TranslatedText>White</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="NOT REPORTED" OrderNumber="6">
+					<odm:Decode>
+						<odm:TranslatedText>Not Reported</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="UNKNOWN" OrderNumber="7">
+					<odm:Decode>
+						<odm:TranslatedText>Unknown</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="OTHER" OrderNumber="8">
+					<odm:Decode>
+						<odm:TranslatedText>Other</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>
@@ -973,6 +1137,63 @@
 				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
 					<odm:Decode>
 						<odm:TranslatedText>Yes</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+		<odm:CodeList OID="003_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="N" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>No</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Yes</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="003_CL.C71151.EGMETHOD.CENTRAL" Name="ECG Test Method - Central Reading" DataType="text">
+				<odm:CodeListItem CodedValue="12 LEAD STANDARD" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>12 LEAD STANDARD</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="HOLTER CONTINUOUS ECG RECORDING" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>HOLTER CONTINUOUS ECG RECORDING</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="003_CL.C71148.POSITION.CENTRAL" Name="Position - Central Reading" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used with Body Position within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="SITTING" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Sitting</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="STANDING" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Standing</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SUPINE" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Supine</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SEMI-RECUMBENT" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Semi-Recumbent</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SEMI-FOWLERS" OrderNumber="5">
+					<odm:Decode>
+						<odm:TranslatedText>Semi-Fowler's</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>

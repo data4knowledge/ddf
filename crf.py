@@ -13,11 +13,18 @@ ElementTree.register_namespace('odm', odm_namespace)
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
     forms = None
     if match:
+        print("    Matching Form")
         forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
     else:
+        print("    Not Matching Form")
         forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef")
     if not forms:
+        if not match:
+            print(xml_doc)
+        print("    Form: Missing")
         return None
+    else:
+        print("    Form:", forms[0])
     form = forms[0]
     the_forms.append(form)
     form_ref = ElementTree.SubElement(study_event_def, "FormRef")
@@ -160,9 +167,10 @@ for activity, links in crf_activities.items():
         else:
             print("    CRF link detected")
             with urllib.request.urlopen(link) as f:
-                xml = f.read() #.decode('utf-8')
+                xml = f.read() 
                 parser = ElementTree.XMLParser(recover=True)
                 xml_doc = ElementTree.fromstring(xml, parser)
+                print("    XML:", xml_doc)
                 result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists, False)
         if result == None:
             print("    Blank form needed")
