@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T13:33:56"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions><odm:MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
+<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T13:39:47"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions><odm:MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
 				<odm:Symbol>
 					<odm:TranslatedText>mmHg</odm:TranslatedText>
 				</odm:Symbol>
@@ -14,14 +14,22 @@
 					<odm:TranslatedText>breaths/min</odm:TranslatedText>
 				</odm:Symbol>
 			</odm:MeasurementUnit>
-		</odm:BasicDefinitions><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="002_VS_HORIZONTAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_4" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="003_EG_CENTRAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_7" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_8" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_9" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
+		</odm:BasicDefinitions><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="002_VS_HORIZONTAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="LB_LOCAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="003_EG_CENTRAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_7" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_8" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_9" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">VS - Implementation Options: HorizontalGeneric</odm:TranslatedText>
 				</odm:Description>
 				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37h" Mandatory="Yes" OrderNumber="1"/>
 				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37" Mandatory="Yes" OrderNumber="2"/>
 			</odm:FormDef>
-			<odm:FormDef OID="DDF_F_2" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_4" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_5_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_5" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="003_EG_CENTRAL" Name="12-lead ECG" Repeating="No">
+			<odm:FormDef OID="DDF_F_2" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="LB_LOCAL" Name="Form LB - Local Processing" Repeating="No">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LB - Local Processing</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_22" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_22_D" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemGroupRef ItemGroupOID="CDASH_2-1_IG_22_D1" Mandatory="No" OrderNumber="3"/>
+			</odm:FormDef>
+			<odm:FormDef OID="DDF_F_5" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="003_EG_CENTRAL" Name="12-lead ECG" Repeating="No">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
 				</odm:Description>
@@ -57,7 +65,37 @@
 				<odm:ItemRef ItemOID="002_IT.TEMP_VSORRESU" Mandatory="No" OrderNumber="17"/>
 				<odm:ItemRef ItemOID="002_IT.TEMP_VSLOC" Mandatory="No" OrderNumber="18"/>
 			</odm:ItemGroupDef>
-			<odm:ItemGroupDef OID="DDF_F_3_IG" Name="Urinalysis" Repeating="No"><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_4_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_5_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_5_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_6_IG" Name="Hematology (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="003_CDASH_2-1_IG_16" Name="EG - Central Reading" Repeating="No" Domain="EG">
+			<odm:ItemGroupDef OID="DDF_F_3_IG" Name="Urinalysis" Repeating="No"><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_4_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="CDASH_2-1_IG_22" Name="LB - Local Processing" Repeating="No" Domain="LB">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LB - Labs</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="IT.LBNAM" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="IT.LBPERF" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="IT.LBDAT" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="IT.LBTIM" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="IT.LBFAST" Mandatory="No" OrderNumber="5"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="CDASH_2-1_IG_22_D" Name="LB - Local Processing - Details" Repeating="No" Domain="LB">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LB - Labs</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="IT.LBORRES_ALP" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="IT.LBORRESU_ALP" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="IT.LBORNRLO_ALP" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="IT.LBORNRHI_ALP" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="IT.LBCLSIG_ALP" Mandatory="No" OrderNumber="5"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="CDASH_2-1_IG_22_D1" Name="LB - Local Processing - Details" Repeating="No" Domain="LB">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LB - Labs</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="IT.LBORRES_CA" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="IT.LBORRESU_CA" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="IT.LBORNRLO_CA" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="IT.LBORNRHI_CA" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="IT.LBCLSIG_CA" Mandatory="No" OrderNumber="5"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="DDF_F_6_IG" Name="Hematology (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="003_CDASH_2-1_IG_16" Name="EG - Central Reading" Repeating="No" Domain="EG">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
 				</odm:Description>
@@ -358,7 +396,221 @@
 				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
 				<odm:Alias Name="TEMP_VSLOC" Context="CDASH"/>
 			</odm:ItemDef>
-			<odm:ItemDef OID="DDF_F_3_IG_I" Name="Urinalysis" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Urinalysis</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_4_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_5_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_6_IG_I" Name="Hematology (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Hematology (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="003_IT.EGPERF" Name="EGPERF" DataType="text" Length="8">
+			<odm:ItemDef OID="DDF_F_3_IG_I" Name="Urinalysis" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Urinalysis</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_4_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="IT.LBNAM" Name="LBNAM" DataType="text" Length="24">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBNAM</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the name of the laboratory used?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Laboratory Name</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Laboratory Name"/>
+				<odm:Alias Context="completionInstructions" Name="Record the laboratory name."/>
+				<odm:Alias Context="implementationNotes" Name="Recommended to collect on the CRF if lab names was not collected at the site/study level or if multiple labs are used by a site."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBNAM" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBPERF" Name="LBPERF" DataType="text" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBPERF</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was the sample collected?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="Lab Performed; Sample Collected"/>
+				<odm:Alias Context="completionInstructions" Name="Indicate whether or not lab specimen was collected or measurement performed."/>
+				<odm:Alias Context="implementationNotes" Name="This may be implemented for an Lab entire panel, or on a specific lab test basis. General prompt question to be used as a data management tool to verify that missing results are confirmed missing."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTMIG variable LBSTAT. If the CDASH variable LBPERF = &quot;N&quot;, the value of LBSTAT will be &quot;NOT DONE&quot;. If LBPERF = &quot;Y&quot;, LBSTAT should be null. A combination of SDTMIG variables ( e.g., LBCAT and LBSCAT, LBTPT ) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable LBTESTCD would be populated as LBALL and an appropriate test name (LBTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
+				<odm:Alias Name="LBPERF" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBDAT" Name="LBDAT" DataType="date">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBDAT</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the date of the lab specimen collection?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Collection Date</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Collection Date"/>
+				<odm:Alias Context="completionInstructions" Name="Record the date when specimen collection was done using this format (DD-MON-YYYY)."/>
+				<odm:Alias Context="implementationNotes" Name="A complete date is expected. The date of collection may be determined from the date of visit (VISDAT) and if so, a separate assessment date field is not required. The SDTMIG LBDTC variable contains either a date/time when a specimen is collected at a point in time or the start date/time, when a specimen is collected over time."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable LBDTC in ISO 8601 format."/>
+				<odm:Alias Name="LBDAT" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBTIM" Name="LBTIM" DataType="time">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBTIM</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the (start) time of the lab specimen collection?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Collection Time</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[Start] Collection Time"/>
+				<odm:Alias Context="completionInstructions" Name="Record time of collection (as complete as possible)."/>
+				<odm:Alias Context="implementationNotes" Name="May be required when multiple assessments are done on 1 day or when the timing in relationship to study treatment is required for analysis or a specimen is collected over an extended time period."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable LBDTC in ISO 8601 format."/>
+				<odm:Alias Name="LBTIM" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBFAST" Name="LBFAST" DataType="text" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBFAST</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was the subject fasting?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="Fasting"/>
+				<odm:Alias Context="completionInstructions" Name="Record whether the subject was fasting prior to the test being performed."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether the subject was fasting. This may not be relevant for all tests."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBFAST" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORRES_ALP" Name="ALP_LBORRES" DataType="text" Length="24">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBTEST</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lab test name?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Alkaline Phosphatase</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[Laboratory Test Name]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the name of the Lab measurement or finding, if not preprinted on the CRF. If collected on the CRF, the sponsor may provide additional instructions to ensure the data is entered as intended."/>
+				<odm:Alias Context="implementationNotes" Name="Required to identify which test the result is for. It is recommended that the test names be preprinted on the CRF rather than collected in a field that requires the site to enter text. If the form is laid out as a grid, then words such as &quot;Test&quot; can be included as the column header."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. The SDTMIG variable LBTESTCD may be determined from the value collected in LBTEST. The SDTMIG variables LBTESTCD and LBTEST are required in the SDTM submission datasets. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="ALPU_LBORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORRESU_ALP" Name="ALP_LBORRESU" DataType="text" Length="24">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBTEST</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lab test name?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Alkaline Phosphatase Units</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="LBTEST_ALP"/>
+				<odm:Alias Context="prompt" Name="[Laboratory Test Name]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the name of the Lab measurement or finding, if not preprinted on the CRF. If collected on the CRF, the sponsor may provide additional instructions to ensure the data is entered as intended."/>
+				<odm:Alias Context="implementationNotes" Name="Required to identify which test the result is for. It is recommended that the test names be preprinted on the CRF rather than collected in a field that requires the site to enter text. If the form is laid out as a grid, then words such as &quot;Test&quot; can be included as the column header."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. The SDTMIG variable LBTESTCD may be determined from the value collected in LBTEST. The SDTMIG variables LBTESTCD and LBTEST are required in the SDTM submission datasets. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="ALPU_LBORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORNRLO_ALP" Name="ALP_LBORNRLO" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBORNRLO</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lower limit of the reference range for this lab test?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Normal Range Lower Limit</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Normal Range Lower Limit"/>
+				<odm:Alias Context="completionInstructions" Name="Record the lower limit of the reference range of the lab test."/>
+				<odm:Alias Context="implementationNotes" Name="LBORNRLO and LBORNRHI should be populated only for continuous results; LBSTNRC should be populated only for non-continuous results. These data may be obtained from the lab or the electronic equipment. These data could be determined from a site or lab specific set of normal ranges stored in a look up table. See the SDTMIG for details on mapping and selecting the proper variable name."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBORNRLO" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORNRHI_ALP" Name="ALP_LBORNRHI" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBORNRHI</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the high limit of the reference range for this lab
+    test?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Normal Range Upper Limit</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Normal Range Upper Limit"/>
+				<odm:Alias Context="completionInstructions" Name="Record the upper limit of the reference range of the lab test."/>
+				<odm:Alias Context="implementationNotes" Name="LBORNRLO and LBORNRHI should be populated only for continuous results; LBSTNRC should be populated only for non-continuous results. These data may be obtained from the lab or the electronic equipment. These data could be determined from a site or lab specific set of normal ranges stored in a look up table. See the SDTMIG for details on mapping and selecting the proper variable name."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBORNRHI" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBCLSIG_ALP" Name="ALP_LBCLSIG" DataType="text" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBCLSIG</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was this result clinically significant?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="Clinically Significant"/>
+				<odm:Alias Context="completionInstructions" Name="Record whether laboratory test results were clinically significant."/>
+				<odm:Alias Context="implementationNotes" Name="Key data collected in this scenario."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPLB dataset as the value of SUPPLB.QVAL where SUPPLB.QNAM =&quot;LBCLSIG&quot; and SUPPLB.QLABEL=&quot;Clinically Significant&quot;. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<odm:Alias Name="LBCLSIG" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORRES_CA" Name="CA_LBORRES" DataType="text" Length="24">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBTEST</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lab test name?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Calcium</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[Laboratory Test Name]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the name of the Lab measurement or finding, if not preprinted on the CRF. If collected on the CRF, the sponsor may provide additional instructions to ensure the data is entered as intended."/>
+				<odm:Alias Context="implementationNotes" Name="Required to identify which test the result is for. It is recommended that the test names be preprinted on the CRF rather than collected in a field that requires the site to enter text. If the form is laid out as a grid, then words such as &quot;Test&quot; can be included as the column header."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. The SDTMIG variable LBTESTCD may be determined from the value collected in LBTEST. The SDTMIG variables LBTESTCD and LBTEST are required in the SDTM submission datasets. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="CA_LBORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORRESU_CA" Name="CA_LBORRESU" DataType="text" Length="24">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBTEST</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lab test name?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Calcium Units</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="LBTEST_CA"/>
+				<odm:Alias Context="prompt" Name="[Laboratory Test Name]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the name of the Lab measurement or finding, if not preprinted on the CRF. If collected on the CRF, the sponsor may provide additional instructions to ensure the data is entered as intended."/>
+				<odm:Alias Context="implementationNotes" Name="Required to identify which test the result is for. It is recommended that the test names be preprinted on the CRF rather than collected in a field that requires the site to enter text. If the form is laid out as a grid, then words such as &quot;Test&quot; can be included as the column header."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. The SDTMIG variable LBTESTCD may be determined from the value collected in LBTEST. The SDTMIG variables LBTESTCD and LBTEST are required in the SDTM submission datasets. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="CA_LBORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORNRLO_CA" Name="CA_LBORNRLO" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBORNRLO</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the lower limit of the reference range for this lab test?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Normal Range Lower Limit</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Normal Range Lower Limit"/>
+				<odm:Alias Context="completionInstructions" Name="Record the lower limit of the reference range of the lab test."/>
+				<odm:Alias Context="implementationNotes" Name="LBORNRLO and LBORNRHI should be populated only for continuous results; LBSTNRC should be populated only for non-continuous results. These data may be obtained from the lab or the electronic equipment. These data could be determined from a site or lab specific set of normal ranges stored in a look up table. See the SDTMIG for details on mapping and selecting the proper variable name."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBORNRLO" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBORNRHI_CA" Name="CA_LBORNRHI" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBORNRHI</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the high limit of the reference range for this lab
+    test?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Normal Range Upper Limit</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="Normal Range Upper Limit"/>
+				<odm:Alias Context="completionInstructions" Name="Record the upper limit of the reference range of the lab test."/>
+				<odm:Alias Context="implementationNotes" Name="LBORNRLO and LBORNRHI should be populated only for continuous results; LBSTNRC should be populated only for non-continuous results. These data may be obtained from the lab or the electronic equipment. These data could be determined from a site or lab specific set of normal ranges stored in a look up table. See the SDTMIG for details on mapping and selecting the proper variable name."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="LBORNRHI" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="IT.LBCLSIG_CA" Name="CA_LBCLSIG" DataType="text" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">LBCLSIG</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was this result clinically significant?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="Clinically Significant"/>
+				<odm:Alias Context="completionInstructions" Name="Record whether laboratory test results were clinically significant."/>
+				<odm:Alias Context="implementationNotes" Name="Key data collected in this scenario."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. This information could be submitted in a SUPPLB dataset as the value of SUPPLB.QVAL where SUPPLB.QNAM =&quot;LBCLSIG&quot; and SUPPLB.QLABEL=&quot;Clinically Significant&quot;. Refer to the current SDTM and SDTMIG for instructions on placement of non-standard variables in SDTM domains."/>
+				<odm:Alias Name="LBCLSIG" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="DDF_F_6_IG_I" Name="Hematology (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Hematology (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="003_IT.EGPERF" Name="EGPERF" DataType="text" Length="8">
 				<odm:Description>
 					<odm:TranslatedText xml:lang="en">EGPERF</odm:TranslatedText>
 				</odm:Description>
@@ -605,6 +857,65 @@
 				<odm:CodeListItem CodedValue="ORAL CAVITY" OrderNumber="4">
 					<odm:Decode>
 						<odm:TranslatedText>Oral Cavity</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+		<odm:CodeList OID="LBTEST_ALP" Name="LBEST_Alkaline Phosphatase" DataType="text">
+				<odm:CodeListItem CodedValue="IU/L" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>IU/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="U/L" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>U/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="ukat/L" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>ukat/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="umol/s/L" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>umol/s/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="LBTEST_CA" Name="LBEST_Calcium" DataType="text">
+				<odm:CodeListItem CodedValue="mg/dL" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>mg/dL</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="mEq/L" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>mEq/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="mg/L" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>mg/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="mmol/L" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>mmol/L</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="N" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>No</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Yes</odm:TranslatedText>
 					</odm:Decode>
 				</odm:CodeListItem>
 			</odm:CodeList>

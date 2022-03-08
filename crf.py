@@ -10,10 +10,12 @@ exported_at = datetime.datetime.now().replace(microsecond=0).isoformat()
 odm_namespace = "http://www.cdisc.org/ns/odm/v1.3"
 ElementTree.register_namespace('odm', odm_namespace)
 
-def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
-    print(form_name)
-    forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
-    print(forms)
+def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
+    forms = None
+    if match:
+        forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
+    else:
+        forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef")
     if not forms:
         return None
     form = forms[0]
@@ -26,25 +28,25 @@ def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups
     item_group_refs = form.findall('{http://www.cdisc.org/ns/odm/v1.3}ItemGroupRef')
     for item_groupref in item_group_refs:
         oid = item_groupref.attrib['ItemGroupOID']
-        item_groups = xml_doc.findall("//{http://www.cdisc.org/ns/odm/v1.3}ItemGroupDef[@OID='%s']" % (oid)) 
+        item_groups = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}ItemGroupDef[@OID='%s']" % (oid)) 
         item_group = item_groups[0]
         the_item_groups.append(item_group)
         item_refs = item_group.findall('{http://www.cdisc.org/ns/odm/v1.3}ItemRef')
         for item_ref in item_refs:
             oid = item_ref.attrib['ItemOID']
-            items = xml_doc.findall("//{http://www.cdisc.org/ns/odm/v1.3}ItemDef[@OID='%s']" % (oid)) 
+            items = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}ItemDef[@OID='%s']" % (oid)) 
             item = items[0]
             the_items.append(item)
             code_list_refs = item.findall('{http://www.cdisc.org/ns/odm/v1.3}CodeListRef')
             for code_list_ref in code_list_refs:
                 oid = code_list_ref.attrib['CodeListOID']
-                code_lists = xml_doc.findall("//{http://www.cdisc.org/ns/odm/v1.3}CodeList[@OID='%s']" % (oid)) 
+                code_lists = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}CodeList[@OID='%s']" % (oid)) 
                 code_list = code_lists[0]
                 the_code_lists.append(code_list)
             measurement_unit_refs = item.findall('{http://www.cdisc.org/ns/odm/v1.3}MeasurementUnitRef')
             for measurement_unit_ref in measurement_unit_refs:
                 oid = measurement_unit_ref.attrib['MeasurementUnitOID']
-                measurement_units = xml_doc.findall("//{http://www.cdisc.org/ns/odm/v1.3}MeasurementUnit[@OID='%s']" % (oid)) 
+                measurement_units = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}MeasurementUnit[@OID='%s']" % (oid)) 
                 if measurement_units:
                     measurement_unit = measurement_units[0]
                     basic_definitions.append(measurement_unit)
@@ -161,7 +163,7 @@ for activity, links in crf_activities.items():
                 xml = f.read() #.decode('utf-8')
                 parser = ElementTree.XMLParser(recover=True)
                 xml_doc = ElementTree.fromstring(xml, parser)
-                result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
+                result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists, False)
         if result == None:
             print("    Blank form needed")
             xml_doc = ElementTree.parse('blank.xml')
