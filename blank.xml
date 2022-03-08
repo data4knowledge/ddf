@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     
+     FileOID="0002_BLANK" 
+     FileType="Snapshot" 
+     Granularity="Metadata" 
+     CreationDateTime="2005-01-01T12:00:00+01:00">
+	
+	<Study OID="0002_BLANK">
+		<GlobalVariables>
+			<StudyName>Blank</StudyName>
+			<StudyDescription>Blank Form</StudyDescription>
+			<ProtocolName>Blank</ProtocolName>
+		</GlobalVariables>
+		<BasicDefinitions/>
+		<MetaDataVersion OID="0002_BLANK" Name="Simple blank form">		
+			<Protocol/>
+			<FormDef OID="0002_F_BLANK" Name="BLANK" Repeating="No">
+				<ItemGroupRef ItemGroupOID="0002_IG_BLANK"      Mandatory="Yes" OrderNumber="1"/>
+			</FormDef>
+			<ItemGroupDef OID="0002_IG_BLANK" 
+			              Repeating="No" 
+			              Name="BLANK">
+				<ItemRef ItemOID="0002_I_BLANK" Mandatory="Yes" OrderNumber="1"/>
+			</ItemGroupDef>
+			<ItemDef OID="0002_I_BLANK" 
+			         Name="Blank" 
+			         DataType="text">
+				<Question>
+					<TranslatedText xml:lang="en">Empty Item</TranslatedText>
+				</Question>
+			</ItemDef>
+		</MetaDataVersion>
+	</Study>
+</ODM>
