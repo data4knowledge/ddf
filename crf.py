@@ -11,7 +11,9 @@ odm_namespace = "http://www.cdisc.org/ns/odm/v1.3"
 ElementTree.register_namespace('odm', odm_namespace)
 
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
-    forms = xml_doc.findall("//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
+    print(form_name)
+    forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
+    print(forms)
     if not forms:
         return None
     form = forms[0]
@@ -46,6 +48,7 @@ def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups
                 if measurement_units:
                     measurement_unit = measurement_units[0]
                     basic_definitions.append(measurement_unit)
+    return form
 
 def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
@@ -63,8 +66,9 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     item_group = ElementTree.Element("{%s}ItemGroupDef" % (odm_namespace))
     item_group.set("OID", "DDF_F_%s_IG" % (len(the_forms) + 1)) 
     item_group.set("Name", form_name) 
-    item_group.set("Repeating", "No") 
-    item_ref = ElementTree.SubElement(form, "{%s}ItemRef" % (odm_namespace))
+    item_group.set("Repeating", "No")
+    the_item_groups.append(item_group)
+    item_ref = ElementTree.SubElement(item_group, "{%s}ItemRef" % (odm_namespace))
     item_ref.set("ItemOID", "DDF_F_%s_IG_I" % (len(the_forms) + 1)) 
     item_ref.set("Mandatory", "Yes")
     item_ref.set("OrderNumber", "1")
@@ -73,8 +77,11 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     item.set("Name", form_name) 
     item.set("Datatype", "Text") 
     question = ElementTree.SubElement(item, "{%s}Question" % (odm_namespace))
-    translated_text = ElementTree.SubElement(question, "{%s}Question" % (odm_namespace))
+    translated_text = ElementTree.SubElement(question, "{%s}TranslatedText" % (odm_namespace))
+    translated_text.attrib["{http://www.w3.org/XML/1998/namespace}lang"] = "en"
     translated_text.text = "Placeholder for activity %s" % (form_name)
+    the_items.append(item)
+    return form
 
 driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 with driver.session() as session:
@@ -133,6 +140,8 @@ the_item_groups = []
 the_items = []
 the_code_lists = []
 
+lib = ["001_ODM_TEST.xml", "002_VS.xml", "003_ECG.xml"]
+
 # Go and find the forms. Either use the CRF link or, if not present, use a standard file of forms, see if we have a match
 for activity, links in crf_activities.items():
     print(activity)
@@ -140,12 +149,18 @@ for activity, links in crf_activities.items():
         result = None
         if link == "":
             print("    No CRF link")
-            xml_doc = ElementTree.parse('odm.xml')
-            result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
+            for file in lib:
+                xml_doc = ElementTree.parse("lib/%s" % (file))
+                print("    XML Doc", xml_doc)
+                result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
+                if result != None:
+                    break
         else:
             print("    CRF link detected")
             with urllib.request.urlopen(link) as f:
-                xml_doc = ElementTree.parse('odm.xml')
+                xml = f.read() #.decode('utf-8')
+                parser = ElementTree.XMLParser(recover=True)
+                xml_doc = ElementTree.fromstring(xml, parser)
                 result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
         if result == None:
             print("    Blank form needed")
@@ -164,13 +179,12 @@ for item in the_items:
 for code_list in the_code_lists:
     metadata_version.append(code_list)
 
-
 # Write out the XML merged file
-tree = ElementTree.ElementTree(odm)
-tree.write("ddf_crf.xml", xml_declaration=True, encoding='utf-8', method="xml")
+the_odm = ElementTree.ElementTree(odm)
+the_odm.write("ddf_crf.xml", xml_declaration=True, encoding='utf-8', method="xml")
 
 # Transform the XML into an HTML rendering
 xslt = ElementTree.parse("crf.xsl")
 transform = ElementTree.XSLT(xslt)
-newdom = transform(odm)
-newdom.write("ddf_crf.html", xml_declaration=True, encoding='utf-8', method="html")
+the_crf = transform(odm)
+the_crf.write("ddf_crf.html", xml_declaration=True, encoding='utf-8', method="html")

@@ -1,2 +1,668 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T12:11:03"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions/><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="DDF_F_1" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_4" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_6" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_7" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_8" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_9" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="DDF_F_1" Name="Vital signs" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_2_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_2_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_2" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_4" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_5_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_5_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_5" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_6" Name="12-lead ECG" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_7_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_7_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_7" Name="Weight" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_8_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_8_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_8" Name="Ensure availability of medication X" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_9_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_9_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_9" Name="Pregnancy test" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_10_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_10_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_10" Name="Height" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_11_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_11_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_11" Name="Demography" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_12_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_12_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_12" Name="Disease characteristics" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_13_IG" OrderNumber="1"/><odm:ItemRef ItemOID="DDF_F_13_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:FormDef></odm:MetaDataVersion></odm:Study></odm:ODM>
+<odm:ODM xmlns:odm="http://www.cdisc.org/ns/odm/v1.3" FileOID="DDF_ODM_001" FileType="Snapshot" Granularity="Metadata" CreationDateTime="2022-03-08T13:33:56"><odm:Study OID="DDF_S_001"><odm:GlobalVariables><odm:StudyName>Study Name Here</odm:StudyName><odm:StudyDescription>Study Description Here</odm:StudyDescription><odm:ProtocolName>Protocol Name Here</odm:ProtocolName></odm:GlobalVariables><odm:BasicDefinitions><odm:MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
+				<odm:Symbol>
+					<odm:TranslatedText>mmHg</odm:TranslatedText>
+				</odm:Symbol>
+			</odm:MeasurementUnit>
+			<odm:MeasurementUnit OID="002_mu.beats/min" Name="Beats per Minute">
+				<odm:Symbol>
+					<odm:TranslatedText xml:lang="en">beats/min</odm:TranslatedText>
+				</odm:Symbol>
+			</odm:MeasurementUnit>
+			<odm:MeasurementUnit OID="002_mu.breaths/min" Name="Breaths per Minute">
+				<odm:Symbol>
+					<odm:TranslatedText>breaths/min</odm:TranslatedText>
+				</odm:Symbol>
+			</odm:MeasurementUnit>
+		</odm:BasicDefinitions><odm:MetaDataVersion OID="DDF_MDV_001" Name="DDF Metadata"><odm:Protocol><odm:StudyEventRef StudyEventOID="DDF_SE_001" Mandatory="Yes" OrderNumber="1"/></odm:Protocol><odm:StudyEventDef OID="DDF_SE_001" Name="CRF Book" Repeating="No" Type="Scheduled"><FormRef FormOID="002_VS_HORIZONTAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_2" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_3" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_4" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_5" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="003_EG_CENTRAL" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_7" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_8" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_9" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_10" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_11" Mandatory="Yes" OrderNumber="1"/><FormRef FormOID="DDF_F_12" Mandatory="Yes" OrderNumber="1"/></odm:StudyEventDef><odm:FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">VS - Implementation Options: HorizontalGeneric</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37h" Mandatory="Yes" OrderNumber="1"/>
+				<odm:ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37" Mandatory="Yes" OrderNumber="2"/>
+			</odm:FormDef>
+			<odm:FormDef OID="DDF_F_2" Name="Urinalysis" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_3_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_3" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_4_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_4" Name="Chemistry (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_5_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_5" Name="Hematology (predose)" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_6_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="003_EG_CENTRAL" Name="12-lead ECG" Repeating="No">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemGroupRef ItemGroupOID="003_CDASH_2-1_IG_16" Mandatory="Yes" OrderNumber="1"/>
+			</odm:FormDef>
+			<odm:FormDef OID="DDF_F_7" Name="Weight" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_8_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_8" Name="Ensure availability of medication X" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_9_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_9" Name="Pregnancy test" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_10_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_10" Name="Height" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_11_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_11" Name="Demography" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_12_IG" OrderNumber="1"/></odm:FormDef><odm:FormDef OID="DDF_F_12" Name="Disease characteristics" Repeating="No"><odm:ItemGroupRef ItemGroupOID="DDF_F_13_IG" OrderNumber="1"/></odm:FormDef><odm:ItemGroupDef OID="002_CDASH_2-1_IG_37h" Name="VS - Horizontal Header" Repeating="No" Domain="VS">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">VS - Vital Signs</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="002_IT.VSPERF" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="002_IT.VSDAT" Mandatory="No" OrderNumber="2"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="002_CDASH_2-1_IG_37" Name="VS - Implementation Options: HorizontalGeneric" Repeating="No" Domain="VS">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">VS - Vital Signs</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="002_IT.SYSBP_VSORRES" Mandatory="No" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="002_IT.SYSBP_VSORRESU" Mandatory="Yes" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="002_IT.DIABP_VSORRES" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="002_IT.DIABP_VSORRESU" Mandatory="Yes" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="002_IT.BP_VSPOS" Mandatory="No" OrderNumber="5"/>
+				<odm:ItemRef ItemOID="002_IT.BP_VSLOC" Mandatory="No" OrderNumber="6"/>
+				<odm:ItemRef ItemOID="002_IT.HEIGHT_VSORRES" Mandatory="No" OrderNumber="7"/>
+				<odm:ItemRef ItemOID="002_IT.HEIGHT_VSORRESU" Mandatory="No" OrderNumber="8"/>
+				<odm:ItemRef ItemOID="002_IT.WEIGHT_VSORRES" Mandatory="No" OrderNumber="9"/>
+				<odm:ItemRef ItemOID="002_IT.WEIGHT_VSORRESU" Mandatory="No" OrderNumber="10"/>
+				<odm:ItemRef ItemOID="002_IT.PULSE_VSORRES" Mandatory="No" OrderNumber="11"/>
+				<odm:ItemRef ItemOID="002_IT.PULSE_VSORRESU" Mandatory="Yes" OrderNumber="12"/>
+				<odm:ItemRef ItemOID="002_IT.PULSE_VSLOC" Mandatory="Yes" OrderNumber="13"/>
+				<odm:ItemRef ItemOID="002_IT.RESP_VSORRES" Mandatory="No" OrderNumber="14"/>
+				<odm:ItemRef ItemOID="002_IT.RESP_VSORRESU" Mandatory="Yes" OrderNumber="15"/>
+				<odm:ItemRef ItemOID="002_IT.TEMP_VSORRES" Mandatory="No" OrderNumber="16"/>
+				<odm:ItemRef ItemOID="002_IT.TEMP_VSORRESU" Mandatory="No" OrderNumber="17"/>
+				<odm:ItemRef ItemOID="002_IT.TEMP_VSLOC" Mandatory="No" OrderNumber="18"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="DDF_F_3_IG" Name="Urinalysis" Repeating="No"><odm:ItemRef ItemOID="DDF_F_3_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_4_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_4_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_5_IG" Name="Chemistry (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_5_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_6_IG" Name="Hematology (predose)" Repeating="No"><odm:ItemRef ItemOID="DDF_F_6_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="003_CDASH_2-1_IG_16" Name="EG - Central Reading" Repeating="No" Domain="EG">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EG - ECG Central Reading</odm:TranslatedText>
+				</odm:Description>
+				<odm:ItemRef ItemOID="003_IT.EGPERF" Mandatory="Yes" OrderNumber="1"/>
+				<odm:ItemRef ItemOID="003_IT.EGREFID" Mandatory="No" OrderNumber="2"/>
+				<odm:ItemRef ItemOID="003_IT.EGMETHOD" Mandatory="No" OrderNumber="3"/>
+				<odm:ItemRef ItemOID="003_IT.EGPOS" Mandatory="No" OrderNumber="4"/>
+				<odm:ItemRef ItemOID="003_IT.EGDAT" Mandatory="No" OrderNumber="5"/>
+			</odm:ItemGroupDef>
+			<odm:ItemGroupDef OID="DDF_F_8_IG" Name="Weight" Repeating="No"><odm:ItemRef ItemOID="DDF_F_8_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_9_IG" Name="Ensure availability of medication X" Repeating="No"><odm:ItemRef ItemOID="DDF_F_9_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_10_IG" Name="Pregnancy test" Repeating="No"><odm:ItemRef ItemOID="DDF_F_10_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_11_IG" Name="Height" Repeating="No"><odm:ItemRef ItemOID="DDF_F_11_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_12_IG" Name="Demography" Repeating="No"><odm:ItemRef ItemOID="DDF_F_12_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemGroupDef OID="DDF_F_13_IG" Name="Disease characteristics" Repeating="No"><odm:ItemRef ItemOID="DDF_F_13_IG_I" Mandatory="Yes" OrderNumber="1"/></odm:ItemGroupDef><odm:ItemDef OID="002_IT.VSPERF" Name="VSPERF" DataType="text" Length="1">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSPERF</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Were vital signs performed?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="Vital Signs Performed ; [VSTEST] Performed"/>
+				<odm:Alias Context="completionInstructions" Name="Indicate if the vital signs were collected. If yes, include the appropriate details where indicated on the CRF."/>
+				<odm:Alias Context="implementationNotes" Name="This general prompt question is used as a data management tool to verify that missing results are confirmed missing. This may be implemented for all tests collected on the same horizontal record or for each specific test. When mapped to SDTM, the value of VSPERF would apply to all tests on the same record. Use the CDASH variable [VSTESTCD]_VSPERF when implemented on a specific test basis."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTM variable VSSTAT. If VSPERF=&quot;N&quot;, the value of VSSTAT will be &quot;NOT DONE&quot;. If VSPERF=&quot;Y&quot;, VSSTAT should be null. A combination of SDTMIG variables (e.g., VSCAT and VSSCAT, VSTPT) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable VSTESTCD would be populated as VSALL and an appropriate test name (VSTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
+				<odm:Alias Name="VSPERF" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.VSDAT" Name="VSDAT" DataType="date">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSDAT</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the date of the measurement(s)?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Date</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] Date"/>
+				<odm:Alias Context="completionInstructions" Name="Record date of measurements using this format (DD-MON-YYYY)."/>
+				<odm:Alias Context="implementationNotes" Name="A single date may be collected for all the vital sign measurements when they are performed on the same date. The date of each measurement can also be collected for each measurement using a CDASH variable [VSTESTCD]_VSDAT. The date of the measurements may be determined from a collected date of visit and in such cases a separate measurement date field is not required."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable VSDTC in ISO 8601 format."/>
+				<odm:Alias Name="VSDAT" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.SYSBP_VSORRES" Name="SYSBP_VSORRES" DataType="float" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the Systolic Blood Pressure measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Systolic Blood Pressure</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="SYSBP_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.SYSBP_VSORRESU" Name="SYSBP_VSORRESU" DataType="float" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the Systolic Blood Pressure measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Systolic Blood Pressure Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:MeasurementUnitRef MeasurementUnitOID="002_mu.mmHg"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="SYSBP_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.DIABP_VSORRES" Name="DIABP_VSORRES" DataType="float" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the Diastolic Blood Pressure measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Diastolic Blood Pressure</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="DIABP_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.DIABP_VSORRESU" Name="DIABP_VSORRESU" DataType="float" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the Diastolic Blood Pressure measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Diastolic Blood Pressure Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:MeasurementUnitRef MeasurementUnitOID="002_mu.mmHg"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="DIABP_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.BP_VSPOS" Name="BP_VSPOS" DataType="text" Length="20">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSPOS</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the position of the subject during the blood pressure measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Blood Pressure Position</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C71148.POSITION.BP"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Position"/>
+				<odm:Alias Context="completionInstructions" Name="Record the position of subject at time of test (e.g. SITTING)."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for vital signs as specified in the protocol were properly met. One common condition is the subject's position. If the protocol requires this type of information, then a CDASH variable [VSTESTCD]_VSPOS may be created for each VSTESTCD and added to the CRF, if needed."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="BP_VSPOS" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.BP_VSLOC" Name="BP_VSLOC" DataType="text" Length="20">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the anatomical location where the blood pressure measurement was taken?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Blood Pressure Location</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C74456.LOC.BP"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="BP_VSLOC" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.HEIGHT_VSORRES" Name="HEIGHT_VSORRES" DataType="text" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the height measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Height</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="HEIGHT_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.HEIGHT_VSORRESU" Name="HEIGHT_VSORRESU" DataType="text" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the height measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Height Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C66770.VSRESU.HGT"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="HEIGHT_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.WEIGHT_VSORRES" Name="WEIGHT_VSORRES" DataType="text" Length="3" SDSVarName="WEIGHT">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the weight measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Weight</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="WEIGHT_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.WEIGHT_VSORRESU" Name="WEIGHT_VSORRESU" DataType="text" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the weight measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Weight Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C66770.VSRESU.WGT"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="WEIGHT_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.PULSE_VSORRES" Name="PULSE_VSORRES" DataType="float" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the pulse measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Pulse</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="PULSE_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.PULSE_VSORRESU" Name="PULSE_VSORRESU" DataType="float" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the pulse measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Pulse Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:MeasurementUnitRef MeasurementUnitOID="002_mu.beats/min"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="PULSE_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.PULSE_VSLOC" Name="PULSE_VSLOC" DataType="text" Length="20">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the anatomical location where the pulse measurement was taken?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Pulse Location</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C74456.LOC.PULSE"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="PULSE_VSLOC" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.RESP_VSORRES" Name="RESP_VSORRES" DataType="float" Length="3">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the respiratory rate measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Respiratory Rate</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="RESP_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.RESP_VSORRESU" Name="RESP_VSORRESU" DataType="float" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the Respiratory Rate Unit measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Respiratory Rate Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:MeasurementUnitRef MeasurementUnitOID="002_mu.breaths/min"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="RESP_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.TEMP_VSORRES" Name="TEMP_VSORRES" DataType="text" Length="5">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the result of the temperature measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Temperature</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<odm:Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<odm:Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<odm:Alias Name="TEMP_VSORRES" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.TEMP_VSORRESU" Name="TEMP_VSORRESU" DataType="text" Length="4">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the unit of the Temperature Unit measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Temperature Unit</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C66770.VSRESU.TEMP"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="TEMP_VSORRESU" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="002_IT.TEMP_VSLOC" Name="TEMP_VSLOC" DataType="text" Length="11">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the anatomical location where the temperature was taken?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Temperature Location</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="002_CL.C74456.LOC.TEMP"/>
+				<odm:Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<odm:Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<odm:Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="TEMP_VSLOC" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="DDF_F_3_IG_I" Name="Urinalysis" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Urinalysis</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_4_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_5_IG_I" Name="Chemistry (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Chemistry (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_6_IG_I" Name="Hematology (predose)" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Hematology (predose)</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="003_IT.EGPERF" Name="EGPERF" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGPERF</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText xml:lang="en">Was an ECG performed?</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C66742.NY.NY"/>
+				<odm:Alias Context="prompt" Name="ECG Performed"/>
+				<odm:Alias Context="completionInstructions" Name="Indicate whether or not an ECG or specific ECG test was done."/>
+				<odm:Alias Context="implementationNotes" Name="This may be implemented for an entire ECG, or a specific ECG test basis. General prompt question to be used as a data management tool to verify that missing results are confirmed missing."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTMIG variable EGSTAT. If the CDASH field EGPERF= &quot;N&quot;, the value of EGSTAT will be &quot;NOT DONE&quot;. If EGPERF = &quot;Y&quot;, EGSTAT should be null. A combination of SDTMIG variables (e.g., EGCAT and EGSCAT, EGTPT) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable EGTESTCD would be populated as EGALL and an appropriate test name (EGTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
+				<odm:Alias Name="EGPERF" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGREFID" Name="EGREFID" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGREFID</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the (ECG) [reference identifier/accession
+    number]?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">ECG Reference Identifier/Accession Number</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="(ECG) [Reference Identifier/Accession Number]"/>
+				<odm:Alias Context="completionInstructions" Name="Record the identifier number assigned."/>
+				<odm:Alias Context="implementationNotes" Name="This can be used to confirm that the appropriate data record is present in the electronic transfer if this reference ID happens to be available to the site at the time of collection. It can also be used to link the clinical significance assessment to the proper record in the electronic data. (e.g., UUID for external waveform file, session number automatically generated by electronic equipment)."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. May be used to create RELREC to link this record with a record in another domain."/>
+				<odm:Alias Name="EGREFID" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGMETHOD" Name="EGMETHOD" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGMETHOD</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the method used for the ECG?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Method</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C71151.EGMETHOD.CENTRAL"/>
+				<odm:Alias Context="prompt" Name="Method"/>
+				<odm:Alias Context="completionInstructions" Name="Record the method used for the ECG."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One possible condition is the method used to collect or calculate the ECG data. If the protocol requires this type of information, then this question may be included to confirm that the method used matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Method of ECG is provided as part of the electronic data.   * Method of ECG is not pertinent to the protocol.   * The protocol specifies only one possible method for collecting ECG measurements and the sponsor does not feel there is significant risk of the sites performing the ECG using the incorrect method."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="EGMETHOD" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGPOS" Name="EGPOS" DataType="text" Length="8">
+				<odm:Description>
+					<odm:TranslatedText xml:lang="en">EGPOS</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the position of the subject during the ECG
+    measurement?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Position</odm:TranslatedText>
+				</odm:Question>
+				<odm:CodeListRef CodeListOID="003_CL.C71148.POSITION.CENTRAL"/>
+				<odm:Alias Context="prompt" Name="Position"/>
+				<odm:Alias Context="completionInstructions" Name="Record the position of the subject during the ECG."/>
+				<odm:Alias Context="implementationNotes" Name="Results may be affected by whether conditions for ECG as specified in the protocol were properly met. One common condition is the subject's position. If the protocol requires this type of information, then this question may be included to confirm that the subject's position matches the protocol. The following are examples of when it is not necessary to collect these data on the CRF:   * Position of the Subject is provided as part of the electronic data.   * Position of the Subject is not pertinent to the protocol.   * The protocol specifies only one possible position and the sponsor does not feel there is significant risk of the sites performing the ECG with the subject in the wrong position."/>
+				<odm:Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<odm:Alias Name="EGPOS" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="003_IT.EGDAT" Name="EGDAT" DataType="date">
+				<odm:Description>
+					<odm:TranslatedText>EGDAT</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">ECG Date</odm:TranslatedText>
+				</odm:Description>
+				<odm:Question>
+					<odm:TranslatedText>What was the date of the ECG?</odm:TranslatedText>
+					<odm:TranslatedText xml:lang="en">Date</odm:TranslatedText>
+				</odm:Question>
+				<odm:Alias Context="prompt" Name="ECG Date"/>
+				<odm:Alias Context="completionInstructions" Name="Record the date the ECG was done using this format (DD-MON-YYYY)."/>
+				<odm:Alias Context="implementationNotes" Name="A complete date is expected. The date of collection may be determined from the date of visit (VISDAT) and if so, a separate assessment date field is not required."/>
+				<odm:Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable EGDTC in ISO 8601 format."/>
+				<odm:Alias Name="EGDAT" Context="CDASH"/>
+			</odm:ItemDef>
+			<odm:ItemDef OID="DDF_F_8_IG_I" Name="Weight" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Weight</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_9_IG_I" Name="Ensure availability of medication X" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Ensure availability of medication X</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_10_IG_I" Name="Pregnancy test" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Pregnancy test</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_11_IG_I" Name="Height" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Height</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_12_IG_I" Name="Demography" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Demography</odm:TranslatedText></odm:Question></odm:ItemDef><odm:ItemDef OID="DDF_F_13_IG_I" Name="Disease characteristics" Datatype="Text"><odm:Question><odm:TranslatedText xml:lang="en">Placeholder for activity Disease characteristics</odm:TranslatedText></odm:Question></odm:ItemDef><odm:CodeList OID="002_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="N" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>No</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Yes</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C71148.POSITION.BP" Name="Position Blood Pressure " DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used with Body Position within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="PRONE" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Prone</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SEMI-RECUMBENT" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Semi-Recumbent</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SITTING" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Sitting</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="STANDING" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Standing</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SUPINE" OrderNumber="5">
+					<odm:Decode>
+						<odm:TranslatedText>Supine</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C74456.LOC.BP" Name="Anatomical Location Blood Pressure" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used for anatomical location within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="BRACHIAL ARTERY" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Brachial Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="FINGER" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Finger</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="PERIPHERAL ARTERY" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Peripheral Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="RADIAL ARTERY" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Radial Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C66770.VSRESU.HGT" Name="Units for Vital Signs Results Height" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="cm" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Centimeter</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="in" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Inch</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C66770.VSRESU.WGT" Name="Units for Vital Signs Results Weight" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="kg" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Kilogram</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="LB" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Pound</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C74456.LOC.PULSE" Name="Anatomical Location Pulse" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used for anatomical location within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="BRACHIAL ARTERY" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Brachial Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="CAROTID ARTERY" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Carotid Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="CEREBRAL ARTERY" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Cerebral Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="DORSALIS PEDIS ARTERY" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Dorsalis Pedis Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="FEMORAL ARTERY" OrderNumber="5">
+					<odm:Decode>
+						<odm:TranslatedText>Femoral Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="PERIPHERAL ARTERY" OrderNumber="6">
+					<odm:Decode>
+						<odm:TranslatedText>Peripheral Artery</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C66770.VSRESU.TEMP" Name="Units for Vital Signs Results Tempature" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="C" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Celsius</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="F" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Fahrenheit</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="002_CL.C74456.LOC.TEMP" Name="Anatomical Location Temperature" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used for anatomical location within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="AXILLA" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Axilla</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="EAR" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Ear</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="FOREHEAD" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Forehead</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="ORAL CAVITY" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Oral Cavity</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+		<odm:CodeList OID="003_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="N" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>No</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="Y" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Yes</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="003_CL.C71151.EGMETHOD.CENTRAL" Name="ECG Test Method - Central Reading" DataType="text">
+				<odm:CodeListItem CodedValue="12 LEAD STANDARD" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>12 LEAD STANDARD</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="HOLTER CONTINUOUS ECG RECORDING" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>HOLTER CONTINUOUS ECG RECORDING</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+			<odm:CodeList OID="003_CL.C71148.POSITION.CENTRAL" Name="Position - Central Reading" DataType="text">
+				<odm:Description>
+					<odm:TranslatedText>Terminology codelist used with Body Position within CDISC.</odm:TranslatedText>
+				</odm:Description>
+				<odm:CodeListItem CodedValue="SITTING" OrderNumber="1">
+					<odm:Decode>
+						<odm:TranslatedText>Sitting</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="STANDING" OrderNumber="2">
+					<odm:Decode>
+						<odm:TranslatedText>Standing</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SUPINE" OrderNumber="3">
+					<odm:Decode>
+						<odm:TranslatedText>Supine</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SEMI-RECUMBENT" OrderNumber="4">
+					<odm:Decode>
+						<odm:TranslatedText>Semi-Recumbent</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+				<odm:CodeListItem CodedValue="SEMI-FOWLERS" OrderNumber="5">
+					<odm:Decode>
+						<odm:TranslatedText>Semi-Fowler's</odm:TranslatedText>
+					</odm:Decode>
+				</odm:CodeListItem>
+			</odm:CodeList>
+		</odm:MetaDataVersion></odm:Study></odm:ODM>
