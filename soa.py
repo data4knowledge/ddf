@@ -71,20 +71,6 @@ with driver.session() as session:
     #print(activity_order)
     #print(activities.keys())
 
-    # CRF Link
-    query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
-        -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY)-[]->(data:STUDY_DATA) WHERE pr.brief_title = '%s'
-        WITH wfi.description as activity, data.ecrf_link as link
-        RETURN DISTINCT activity, link""" % (protocol_name)
-    result = session.run(query)
-    crf_activities = {}
-    for record in result:
-        print("'%s', '%s'" % (record["activity"], record["link"]))
-        if not record["activity"] in crf_activities:
-            crf_activities[record["activity"]] = []
-        crf_activities[record["activity"]].append(record["link"])
-    #print(crf_activities)
-
 driver.close()
 
 # Display the SoA
@@ -104,14 +90,3 @@ print("")
 print(table)
 print("")
 print("")
-
-# Display the CRF
-import urllib.request
-
-for activity, links in crf_activities.items():
-    for link in links:
-        if link != "":
-            with urllib.request.urlopen(link) as f:
-                xml = f.read().decode('utf-8')
-                print(link)
-                #print(xml)
