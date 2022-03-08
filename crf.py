@@ -144,16 +144,16 @@ the_code_lists = []
 
 lib = ["001_ODM_TEST.xml", "002_VS.xml", "003_ECG.xml"]
 
-# Go and find the forms. Either use the CRF link or, if not present, use a standard file of forms, see if we have a match
+# Go and find the forms. Either use the CRF link or, if not present, use a standard library of forms, see if we have a match
 for activity, links in crf_activities.items():
     print(activity)
     for link in links:
         result = None
         if link == "":
-            print("    No CRF link")
+            #print("    No CRF link")
             for file in lib:
                 xml_doc = ElementTree.parse("lib/%s" % (file))
-                print("    XML Doc", xml_doc)
+                #print("    XML Doc", xml_doc)
                 result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
                 if result != None:
                     break
