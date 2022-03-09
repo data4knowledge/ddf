@@ -17,7 +17,7 @@ ElementTree.register_namespace('odm', odm_namespace)
 # -------
 
 # Extract a form from an ODM file. Will extract based on the name of the form or will take the first found. Returns the ODM
-# structures needed to "copy" the form to another ODM file.
+# form and sets the structures needed to "copy" the form to another ODM file.
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
     forms = None
     if match:
@@ -67,7 +67,7 @@ def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups
                     basic_definitions.append(measurement_unit)
     return form
 
-# Build a blank form for inserting into an ODM file
+# Build a blank form for inserting into an ODM file. Returns the form and sets the necessary structures.
 def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
     form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
@@ -101,7 +101,8 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     the_items.append(item)
     return form
 
-# Turn a YAML BC definition into an ODM form for inclusion in an ODM file
+# Turn a YAML BC definition into an ODM form for inclusion in an ODM file. Returns the form and sets
+# the necessary structures.
 def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
     form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
@@ -154,8 +155,11 @@ with driver.session() as session:
 
     # Choose a protocol from DB
     protocol_name = "DDR"
+
+    # Clear data
     brief_title = ""
     official_title = ""
+    scientific_title = ""
 
     # Get the study titles etc
     query = """MATCH (pr:STUDY_PROTOCOL) WHERE pr.brief_title = '%s' 
@@ -165,7 +169,7 @@ with driver.session() as session:
         brief_title = record["brief_title"]
         official_title = record["official_title"]
         scientific_title = record["scientific_title"]
-    print("'%s', '%s', '%s'" % (brief_title, official_title, scientific_title))
+    #print("'%s', '%s', '%s'" % (brief_title, official_title, scientific_title))
 
     # Get the activity list and associated info
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
@@ -270,7 +274,7 @@ for code_list in the_code_lists:
 the_odm = ElementTree.ElementTree(odm)
 the_odm.write("ddf_crf.xml", xml_declaration=True, encoding='utf-8', method="xml")
 
-# Transform the XML into an HTML rendering
+# Transform the XML into an HTML rendering using a style sheet
 xslt = ElementTree.parse("crf.xsl")
 transform = ElementTree.XSLT(xslt)
 the_crf = transform(odm)
