@@ -97,6 +97,17 @@ with driver.session() as session:
 
     # Choose a protocol from DB
     protocol_name = "DDR"
+    brief_title = ""
+    official_title = ""
+
+    query = """MATCH (pr:STUDY_PROTOCOL) WHERE pr.brief_title = '%s' 
+        RETURN pr.brief_title as brief_title, pr.official_title as official_title, pr.scientific_title as scientific_title""" % (protocol_name)
+    result = session.run(query)
+    for record in result:
+        brief_title = record["brief_title"]
+        official_title = record["official_title"]
+        scientific_title = record["scientific_title"]
+    print("'%s', '%s', '%s'" % (brief_title, official_title, scientific_title))
 
     # CRF Link
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
@@ -124,11 +135,11 @@ study = ElementTree.SubElement(odm, "{%s}Study" % (odm_namespace))
 study.set("OID", "DDF_S_001")
 global_variables = ElementTree.SubElement(study, "{%s}GlobalVariables" % (odm_namespace))
 study_name = ElementTree.SubElement(global_variables, "{%s}StudyName" % (odm_namespace))
-study_name.text = "Study Name Here"
+study_name.text = brief_title
 study_description = ElementTree.SubElement(global_variables, "{%s}StudyDescription" % (odm_namespace))
-study_description.text = "Study Description Here"
+study_description.text = scientific_title
 protocol_name = ElementTree.SubElement(global_variables, "{%s}ProtocolName" % (odm_namespace))
-protocol_name.text = "Protocol Name Here"
+protocol_name.text = official_title
 basic_definitions = ElementTree.SubElement(study, "{%s}BasicDefinitions" % (odm_namespace))
 metadata_version = ElementTree.SubElement(study, "{%s}MetaDataVersion" % (odm_namespace))
 metadata_version.set("OID", "DDF_MDV_001")
