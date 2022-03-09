@@ -1,6 +1,8 @@
 # Code for generating simple Study CRF from the DDF activities list.
 # This is a truely awful piece of code. It has been thrown together to 
 # illustrate what can be done.
+#
+# Code desperately needs a refactor.
 
 import os
 import requests
@@ -28,13 +30,15 @@ def cdisc_ct(cl, cli):
     response = requests.get(api_url, headers=headers)
     body = response.json()
     return {"cl": cl, "cli": cli, "submission": body["submissionValue"], "preferred_term": body["preferredTerm"]}
-    #'conceptId': 'C28252',
-    #'definition': 'The basic SI unit of mass. It is defined as the mass of an international prototype in the form of a platinum-iridium cylinder kept at Sevres in France. It is the only basic unit still defined in terms of a material object, and also the only one with a prefix [kilo] already in place. A kilogram is equal to 1,000 grams and 2.204 622 6 pounds. (NCI)',
-    #'preferredTerm': 'Kilogram',
-    #'submissionValue': 'kg',
-    #'synonyms': [
-    #  'Kilogram'
-    #]
+    # Result returned by API is of the following form
+    #
+    # 'conceptId': 'C28252',
+    # 'definition': 'The basic SI unit of mass ... 2.204 622 6 pounds. (NCI)',
+    # 'preferredTerm': 'Kilogram',
+    # 'submissionValue': 'kg',
+    # 'synonyms': [
+    #   'Kilogram'
+    # ]
     
 # Extract a form from an ODM file. Will extract based on the name of the form or will take the first found. Returns the ODM
 # form and sets the structures needed to "copy" the form to another ODM file.
@@ -58,7 +62,7 @@ def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups
     form_ref = ElementTree.SubElement(study_event_def, "FormRef")
     form_ref.set("FormOID", form.attrib["OID"])
     form_ref.set("Mandatory", "Yes")
-    form_ref.set("OrderNumber", "1")
+    form_ref.set("OrderNumber", "%s" % (len(the_forms) + 1))
 
     item_group_refs = form.findall('{http://www.cdisc.org/ns/odm/v1.3}ItemGroupRef')
     for item_groupref in item_group_refs:
@@ -97,7 +101,7 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     form_ref = ElementTree.SubElement(study_event_def, "{%s}FormRef" % (odm_namespace))
     form_ref.set("FormOID", form.attrib["OID"])
     form_ref.set("Mandatory", "Yes")
-    form_ref.set("OrderNumber", "1")
+    form_ref.set("OrderNumber", "%s" % (len(the_forms) + 1))
     item_group_ref = ElementTree.SubElement(form, "{%s}ItemGroupRef" % (odm_namespace))
     item_group_ref.set("ItemGroupOID", "DDF_F_%s_IG" % (len(the_forms) + 1)) 
     item_group_ref.set("OrderNumber", "1") 
@@ -133,7 +137,7 @@ def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_i
     form_ref = ElementTree.SubElement(study_event_def, "{%s}FormRef" % (odm_namespace))
     form_ref.set("FormOID", form.attrib["OID"])
     form_ref.set("Mandatory", "Yes")
-    form_ref.set("OrderNumber", "1")
+    form_ref.set("OrderNumber", "%s" % (len(the_forms) + 1))
     item_group_ref = ElementTree.SubElement(form, "{%s}ItemGroupRef" % (odm_namespace))
     item_group_ref.set("ItemGroupOID", "DDF_F_%s_IG" % (len(the_forms) + 1)) 
     item_group_ref.set("OrderNumber", "1") 
