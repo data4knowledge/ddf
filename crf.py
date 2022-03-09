@@ -2,20 +2,40 @@
 # This is a truely awful piece of code. It has been thrown together to 
 # illustrate what can be done.
 
+import os
+import requests
 from neo4j import GraphDatabase
 import urllib.request
 import lxml.etree as ElementTree
 import datetime
 import yaml
 
+# Get API key. Uses an environment variable.
+API_KEY = os.getenv('CDISC_API_KEY')
+
 # Get a timestamp and set the ODM namespace.
 exported_at = datetime.datetime.now().replace(microsecond=0).isoformat()
 odm_namespace = "http://www.cdisc.org/ns/odm/v1.3"
-ElementTree.register_namespace('odm', odm_namespace)
+ElementTree.register_namespace("odm", odm_namespace)
 
 # Methods
 # -------
 
+# Get CDISC CT
+def cdisc_ct(cl, cli):
+    api_url = "https://api.library.cdisc.org/api/mdr/ct/packages/sdtmct-2014-09-26/codelists/%s/terms/%s" % (cl, cli)
+    headers =  {"Content-Type":"application/json", "api-key": API_KEY}
+    response = requests.get(api_url, headers=headers)
+    body = response.json()
+    return {"cl": cl, "cli": cli, "submission": body["submissionValue"], "preferred_term": body["preferredTerm"]}
+    #'conceptId': 'C28252',
+    #'definition': 'The basic SI unit of mass. It is defined as the mass of an international prototype in the form of a platinum-iridium cylinder kept at Sevres in France. It is the only basic unit still defined in terms of a material object, and also the only one with a prefix [kilo] already in place. A kilogram is equal to 1,000 grams and 2.204 622 6 pounds. (NCI)',
+    #'preferredTerm': 'Kilogram',
+    #'submissionValue': 'kg',
+    #'synonyms': [
+    #  'Kilogram'
+    #]
+    
 # Extract a form from an ODM file. Will extract based on the name of the form or will take the first found. Returns the ODM
 # form and sets the structures needed to "copy" the form to another ODM file.
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
@@ -104,6 +124,7 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
 # Turn a YAML BC definition into an ODM form for inclusion in an ODM file. Returns the form and sets
 # the necessary structures.
 def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
+    odm_datatype = { "CD": { "code": "text" }, "PQR": { "value": "float", "code": "text" }, "DATETIME": { "value": "date" } }
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
     form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
     form.set("Name", form_name) 
@@ -135,15 +156,51 @@ def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_i
                 item_ref.set("OrderNumber", "%s" % (index))
                 item_def = ElementTree.Element("{%s}ItemDef" % (odm_namespace))
                 item_def.set("OID", "DDF_F_%s_IG_I_%s" % (len(the_forms) + 1, index)) 
-                print("%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label']))
+                #print("%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label']))
                 item_def.set("Name", "%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label'])) 
-                item_def.set("Datatype", "Text") 
+                item_def.set("DataType", odm_datatype[cdt[":short_name"]][property[":label"]]) 
+                item_def.set("Length", "4") # Temporary 
                 question = ElementTree.SubElement(item_def, "{%s}Question" % (odm_namespace))
                 translated_text = ElementTree.SubElement(question, "{%s}TranslatedText" % (odm_namespace))
                 translated_text.attrib["{http://www.w3.org/XML/1998/namespace}lang"] = "en"
                 translated_text.text = property[':question_text']
                 the_items.append(item_def)
                 index += 1
+                if ":has_coded_value" in property and len(property[":has_coded_value"]) > 0 :
+                    cli_index = 1
+                    code_list = ElementTree.Element("{%s}CodeList" % (odm_namespace))
+                    code_list.set("OID", "DDF_F_%s_IG_I_%s_CL" % (len(the_forms) + 1, index)) 
+                    code_list.set("DataType", "text") 
+                    code_list.set("Name", "To Be Provided")
+                    code_list_ref = ElementTree.SubElement(item_def, "{%s}CodeListRef" % (odm_namespace))
+                    code_list_ref.set("CodeListOID", "DDF_F_%s_IG_I_%s_CL" % (len(the_forms) + 1, index)) 
+                    the_code_lists.append(code_list)
+                    for ct in property[":has_coded_value"]:
+                        cli_info = cdisc_ct(ct[":cl"], ct[":cli"])
+                        code_list_item = ElementTree.SubElement(code_list, "{%s}CodeListItem" % (odm_namespace))
+                        code_list_item.set("CodedValue", cli_info["submission"]) 
+                        code_list_item.set("OrderNumber", "%s" % (cli_index)) 
+                        decode = ElementTree.SubElement(code_list_item, "{%s}Decode" % (odm_namespace))
+                        translated_text = ElementTree.SubElement(decode, "{%s}TranslatedText" % (odm_namespace))
+                        translated_text.attrib["{http://www.w3.org/XML/1998/namespace}lang"] = "en"
+                        translated_text.text = cli_info['preferred_term']
+                        cli_index += 1
+                if cdt[":short_name"] == "DATETIME":
+                    item_ref = ElementTree.SubElement(item_group, "{%s}ItemRef" % (odm_namespace))
+                    item_ref.set("ItemOID", "DDF_F_%s_IG_I_%s" % (len(the_forms) + 1, index)) 
+                    item_ref.set("Mandatory", "Yes")
+                    item_ref.set("OrderNumber", "%s" % (index))
+                    item_def = ElementTree.Element("{%s}ItemDef" % (odm_namespace))
+                    item_def.set("OID", "DDF_F_%s_IG_I_%s" % (len(the_forms) + 1, index)) 
+                    #print("%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label']))
+                    item_def.set("Name", "%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label'])) 
+                    item_def.set("DataType", "time") 
+                    question = ElementTree.SubElement(item_def, "{%s}Question" % (odm_namespace))
+                    translated_text = ElementTree.SubElement(question, "{%s}TranslatedText" % (odm_namespace))
+                    translated_text.attrib["{http://www.w3.org/XML/1998/namespace}lang"] = "en"
+                    translated_text.text = ""
+                    the_items.append(item_def)
+                    index += 1
     return form
 
 # DB Read
@@ -191,7 +248,8 @@ driver.close()
 # -----------
 
 # Build the core ODM file into which all the forms will be inserted
-odm = ElementTree.Element("{%s}ODM" % (odm_namespace))
+nsmap = {None: odm_namespace}
+odm = ElementTree.Element("{%s}ODM" % (odm_namespace), nsmap=nsmap)
 odm.set("FileOID", "DDF_ODM_001") 
 odm.set("FileType", "Snapshot") 
 odm.set("Granularity", "Metadata") 
@@ -275,7 +333,11 @@ the_odm = ElementTree.ElementTree(odm)
 the_odm.write("ddf_crf.xml", xml_declaration=True, encoding='utf-8', method="xml")
 
 # Transform the XML into an HTML rendering using a style sheet
-xslt = ElementTree.parse("crf.xsl")
+xslt = ElementTree.parse("crf_1.xsl")
 transform = ElementTree.XSLT(xslt)
 the_crf = transform(odm)
-the_crf.write("ddf_crf.html", xml_declaration=True, encoding='utf-8', method="html")
+the_crf.write("ddf_crf_1.html", xml_declaration=True, encoding='utf-8', method="html")
+xslt = ElementTree.parse("crf_2.xsl")
+transform = ElementTree.XSLT(xslt)
+the_crf = transform(odm)
+the_crf.write("ddf_crf_2.html", xml_declaration=True, encoding='utf-8', method="html")
