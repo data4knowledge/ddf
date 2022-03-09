@@ -1,16 +1,23 @@
-# Code for generating simple Study CRF from the DDF activities list
+# Code for generating simple Study CRF from the DDF activities list.
+# This is a truely awful piece of code. It has been thrown together to 
+# illustrate what can be done.
 
 from neo4j import GraphDatabase
-from beautifultable import BeautifulTable
 import urllib.request
 import lxml.etree as ElementTree
 import datetime
 import yaml
 
+# Get a timestamp and set the ODM namespace.
 exported_at = datetime.datetime.now().replace(microsecond=0).isoformat()
 odm_namespace = "http://www.cdisc.org/ns/odm/v1.3"
 ElementTree.register_namespace('odm', odm_namespace)
 
+# Methods
+# -------
+
+# Extract a form from an ODM file. Will extract based on the name of the form or will take the first found. Returns the ODM
+# structures needed to "copy" the form to another ODM file.
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
     forms = None
     if match:
@@ -60,6 +67,7 @@ def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups
                     basic_definitions.append(measurement_unit)
     return form
 
+# Build a blank form for inserting into an ODM file
 def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
     form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
@@ -93,6 +101,7 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     the_items.append(item)
     return form
 
+# Turn a YAML BC definition into an ODM form for inclusion in an ODM file
 def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
     form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
     form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
@@ -136,6 +145,10 @@ def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_i
                 index += 1
     return form
 
+# DB Read
+# -------
+
+# Read Neo4j DB to get the study info
 driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 with driver.session() as session:
 
@@ -144,6 +157,7 @@ with driver.session() as session:
     brief_title = ""
     official_title = ""
 
+    # Get the study titles etc
     query = """MATCH (pr:STUDY_PROTOCOL) WHERE pr.brief_title = '%s' 
         RETURN pr.brief_title as brief_title, pr.official_title as official_title, pr.scientific_title as scientific_title""" % (protocol_name)
     result = session.run(query)
@@ -153,7 +167,7 @@ with driver.session() as session:
         scientific_title = record["scientific_title"]
     print("'%s', '%s', '%s'" % (brief_title, official_title, scientific_title))
 
-    # CRF Link
+    # Get the activity list and associated info
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
         -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY)-[]->(data:STUDY_DATA) WHERE pr.brief_title = '%s'
         WITH a.description as activity, data.ecrf_link as link
@@ -169,7 +183,10 @@ with driver.session() as session:
 
 driver.close()
 
-# Display the CRF
+# Display CRF
+# -----------
+
+# Build the core ODM file into which all the forms will be inserted
 odm = ElementTree.Element("{%s}ODM" % (odm_namespace))
 odm.set("FileOID", "DDF_ODM_001") 
 odm.set("FileType", "Snapshot") 
@@ -199,14 +216,16 @@ study_event_def.set("Name", "CRF Book")
 study_event_def.set("Repeating", "No")
 study_event_def.set("Type", "Scheduled")
 
+# Set of arrays for holding the new items
 the_forms = []
 the_item_groups = []
 the_items = []
 the_code_lists = []
 
+# Our fake library of forms in ODM format
 lib = ["001_ODM_TEST.xml", "002_VS.xml", "003_ECG.xml"]
 
-# Go and find the forms. Either use the CRF link or, if not present, use a standard library of forms, see if we have a match
+# Go and find the forms or BCs. Either use the CRF link or, if not present, use a standard library of forms, see if we have a match
 for activity, links in crf_activities.items():
     print(activity)
     for link in links:
@@ -237,7 +256,7 @@ for activity, links in crf_activities.items():
         else:
             print("    Form added")
 
-# Add the items into the ODM
+# Add the items into the core ODM
 for form in the_forms:
     metadata_version.append(form)
 for item_group in the_item_groups:
