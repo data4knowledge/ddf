@@ -5,6 +5,7 @@ from beautifultable import BeautifulTable
 import urllib.request
 import lxml.etree as ElementTree
 import datetime
+import yaml
 
 exported_at = datetime.datetime.now().replace(microsecond=0).isoformat()
 odm_namespace = "http://www.cdisc.org/ns/odm/v1.3"
@@ -92,6 +93,49 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     the_items.append(item)
     return form
 
+def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists):
+    form = ElementTree.Element("{%s}FormDef" % (odm_namespace))
+    form.set("OID", "DDF_F_%s" % (len(the_forms) + 1)) 
+    form.set("Name", form_name) 
+    form.set("Repeating", "No") 
+    the_forms.append(form)
+    form_ref = ElementTree.SubElement(study_event_def, "{%s}FormRef" % (odm_namespace))
+    form_ref.set("FormOID", form.attrib["OID"])
+    form_ref.set("Mandatory", "Yes")
+    form_ref.set("OrderNumber", "1")
+    item_group_ref = ElementTree.SubElement(form, "{%s}ItemGroupRef" % (odm_namespace))
+    item_group_ref.set("ItemGroupOID", "DDF_F_%s_IG" % (len(the_forms) + 1)) 
+    item_group_ref.set("OrderNumber", "1") 
+    item_group = ElementTree.Element("{%s}ItemGroupDef" % (odm_namespace))
+    item_group.set("OID", "DDF_F_%s_IG" % (len(the_forms) + 1)) 
+    item_group.set("Name", form_name) 
+    item_group.set("Repeating", "No")
+    the_item_groups.append(item_group)
+    index = 1
+    print(bc.keys())
+    for item in bc[':has_items']:
+        print(item.keys())
+        if item[':enabled'] == False:
+            continue
+        for cdt in item[':has_complex_datatype']:
+            for property in cdt[':has_property']:
+                item_ref = ElementTree.SubElement(item_group, "{%s}ItemRef" % (odm_namespace))
+                item_ref.set("ItemOID", "DDF_F_%s_IG_I_%s" % (len(the_forms) + 1, index)) 
+                item_ref.set("Mandatory", "Yes")
+                item_ref.set("OrderNumber", "%s" % (index))
+                item_def = ElementTree.Element("{%s}ItemDef" % (odm_namespace))
+                item_def.set("OID", "DDF_F_%s_IG_I_%s" % (len(the_forms) + 1, index)) 
+                print("%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label']))
+                item_def.set("Name", "%s.%s.%s" % (item[':label'], cdt[':short_name'], property[':label'])) 
+                item_def.set("Datatype", "Text") 
+                question = ElementTree.SubElement(item_def, "{%s}Question" % (odm_namespace))
+                translated_text = ElementTree.SubElement(question, "{%s}TranslatedText" % (odm_namespace))
+                translated_text.attrib["{http://www.w3.org/XML/1998/namespace}lang"] = "en"
+                translated_text.text = property[':question_text']
+                the_items.append(item_def)
+                index += 1
+    return form
+
 driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 with driver.session() as session:
 
@@ -168,21 +212,24 @@ for activity, links in crf_activities.items():
     for link in links:
         result = None
         if link == "":
-            #print("    No CRF link")
             for file in lib:
                 xml_doc = ElementTree.parse("lib/%s" % (file))
-                #print("    XML Doc", xml_doc)
                 result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
                 if result != None:
                     break
         else:
             print("    CRF link detected")
             with urllib.request.urlopen(link) as f:
-                xml = f.read() 
-                parser = ElementTree.XMLParser(recover=True)
-                xml_doc = ElementTree.fromstring(xml, parser)
-                print("    XML:", xml_doc)
-                result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists, False)
+                text = f.read()
+                print("    First char:", text[0])
+                if text[0] == 60:
+                    parser = ElementTree.XMLParser(recover=True)
+                    xml_doc = ElementTree.fromstring(text, parser)
+                    result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists, False)
+                else:
+                    yaml_str = text.decode("utf-8")
+                    bcs = yaml.safe_load(yaml_str)
+                    result = extract_bc(bcs[0], study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
         if result == None:
             print("    Blank form needed")
             xml_doc = ElementTree.parse('blank.xml')

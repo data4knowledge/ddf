@@ -755,7 +755,7 @@ the_nodes = {
             "key": "SD006",
             "name": "WGHT",
             "description": "Weight",
-            "ecrf_link": ""
+            "ecrf_link": "https://www.dropbox.com/s/b2mfhiri5a5z34t/weight.yaml?dl=1"
         },   
         {   
             "key": "SD007",
