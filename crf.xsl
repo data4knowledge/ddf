@@ -314,9 +314,9 @@
 							<xsl:variable name="SED_OID" select="@OID"/>
 						 	<xsl:if test="$SED_OID=$SE_OID">
 								<xsl:for-each select="odm:FormRef">
-							  		<xsl:variable name="F_OID" select="@FormOID"/>
+							 		<xsl:variable name="F_OID" select="@FormOID"/>
 							  		<xsl:variable name="FormKey" select="concat($Key, '.', $F_OID)"/>
-							  		<a>
+							 		<a>
 										<xsl:attribute name="href">
 											#<xsl:value-of select="$FormKey"/>
 										</xsl:attribute>

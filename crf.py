@@ -65,7 +65,7 @@ def blank_form(study_event_def, form_name, the_forms, the_item_groups, the_items
     form.set("Name", form_name) 
     form.set("Repeating", "No") 
     the_forms.append(form)
-    form_ref = ElementTree.SubElement(study_event_def, "FormRef")
+    form_ref = ElementTree.SubElement(study_event_def, "{%s}FormRef" % (odm_namespace))
     form_ref.set("FormOID", form.attrib["OID"])
     form_ref.set("Mandatory", "Yes")
     form_ref.set("OrderNumber", "1")
