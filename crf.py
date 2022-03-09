@@ -23,7 +23,7 @@ ElementTree.register_namespace("odm", odm_namespace)
 # Methods
 # -------
 
-# Get CDISC CT
+# Get CDISC CT Details for a code list item given Code List and Item references (C codes)
 def cdisc_ct(cl, cli):
     api_url = "https://api.library.cdisc.org/api/mdr/ct/packages/sdtmct-2014-09-26/codelists/%s/terms/%s" % (cl, cli)
     headers =  {"Content-Type":"application/json", "api-key": API_KEY}
@@ -45,14 +45,12 @@ def cdisc_ct(cl, cli):
 def extract_form(xml_doc, study_event_def, form_name, the_forms, the_item_groups, the_items, the_code_lists, match=True):
     forms = None
     if match:
-        print("    Matching Form")
+        #print("    Matching Form")
         forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef[@Name='%s']" % (form_name))
     else:
-        print("    Not Matching Form")
+        #print("    Not Matching Form")
         forms = xml_doc.findall(".//{http://www.cdisc.org/ns/odm/v1.3}FormDef")
     if not forms:
-        if not match:
-            print(xml_doc)
         print("    Form: Missing")
         return None
     else:
@@ -147,9 +145,7 @@ def extract_bc(bc, study_event_def, form_name, the_forms, the_item_groups, the_i
     item_group.set("Repeating", "No")
     the_item_groups.append(item_group)
     index = 1
-    print(bc.keys())
     for item in bc[':has_items']:
-        print(item.keys())
         if item[':enabled'] == False:
             continue
         for cdt in item[':has_complex_datatype']:
@@ -306,7 +302,6 @@ for activity, links in crf_activities.items():
             print("    CRF link detected")
             with urllib.request.urlopen(link) as f:
                 text = f.read()
-                print("    First char:", text[0])
                 if text[0] == 60:
                     parser = ElementTree.XMLParser(recover=True)
                     xml_doc = ElementTree.fromstring(text, parser)
