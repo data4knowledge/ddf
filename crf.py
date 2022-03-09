@@ -302,6 +302,8 @@ for activity, links in crf_activities.items():
             print("    CRF link detected")
             with urllib.request.urlopen(link) as f:
                 text = f.read()
+                # Now for the worst "if" statement ever written. Determine the response by the first character in the stream :)
+                # XML = "<", YAML = "-". Byte ASCII encoded at this point, hence the 60!! Truely awful but it works.
                 if text[0] == 60:
                     parser = ElementTree.XMLParser(recover=True)
                     xml_doc = ElementTree.fromstring(text, parser)
