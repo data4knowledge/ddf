@@ -319,7 +319,6 @@ for activity, links in crf_activities.items():
                     result = extract_bc(bcs[0], study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
         if result == None:
             print("    Blank form needed")
-            xml_doc = ElementTree.parse('blank.xml')
             result = blank_form(study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
         else:
             print("    Form added")
