@@ -229,10 +229,15 @@ with driver.session() as session:
     #print("'%s', '%s', '%s'" % (brief_title, official_title, scientific_title))
 
     # Get the activity list and associated info
+    #query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
+    #    -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY)-[]->(data:STUDY_DATA) WHERE pr.brief_title = '%s'
+    #    WITH a.description as activity, data.ecrf_link as link
+    #    RETURN DISTINCT activity, link""" % (protocol_name)
     query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
-        -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY)-[]->(data:STUDY_DATA) WHERE pr.brief_title = '%s'
-        WITH a.description as activity, data.ecrf_link as link
-        RETURN DISTINCT activity, link""" % (protocol_name)
+        -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY) WHERE pr.brief_title = '%s'
+        WITH a
+        OPTIONAL MATCH (a)-[]->(data:STUDY_DATA)
+        RETURN DISTINCT a.description as activity, data.ecrf_link as link""" % (protocol_name)
     result = session.run(query)
     crf_activities = {}
     for record in result:
@@ -292,14 +297,14 @@ for activity, links in crf_activities.items():
     print(activity)
     for link in links:
         result = None
-        if link == "":
+        if link == "" or link == None:
             for file in lib:
                 xml_doc = ElementTree.parse("lib/%s" % (file))
                 result = extract_form(xml_doc, study_event_def, activity, the_forms, the_item_groups, the_items, the_code_lists)
                 if result != None:
                     break
         else:
-            print("    CRF link detected")
+            print("    CRF link detected", link)
             with urllib.request.urlopen(link) as f:
                 text = f.read()
                 # Now for the worst "if" statement ever written. Determine the response by the first character in the stream :)

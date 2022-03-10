@@ -88,5 +88,21 @@ print("")
 print("Schedule of Assessmments for %s" % (protocol_name))
 print("")
 print(table)
+
+# Extra, informational output, list of Visits, Activities, the Study Data nodes and eCRF links
+query = """MATCH (pr:STUDY_PROTOCOL)<-[]-(s:STUDY)-[]->(sd:STUDY_DESIGN)-[]->(sc:STUDY_CELL)-[]->(e:STUDY_EPOCH)
+    -[]->(v:VISIT)<-[]-(wfi:WORKFLOW_ITEM)-[]->(a:ACTIVITY)-[]->(sda:STUDY_DATA) WHERE pr.brief_title = '%s'
+    WITH a.description as activity, v.name as visit, sda.description as study_data, sda.ecrf_link as ecrf_link ORDER BY v.number
+    RETURN DISTINCT activity, visit, study_data, ecrf_link""" % (protocol_name)
+result = session.run(query)
+table = BeautifulTable()
+table.columns.header = ["Visit", "Activity", "Study Data", "eCRF Link"]
+for record in result:
+    table.rows.append([record["visit"], record["activity"], record["study_data"], record["ecrf_link"]])
+table.maxwidth = 210
 print("")
 print("")
+print("Activities and eCRF Links %s" % (protocol_name))
+print("")
+print(table)
+    
