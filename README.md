@@ -17,6 +17,8 @@ Note that the crf.py program requires access to the CDISC Library for terminolog
 API_KEY = os.getenv('CDISC_API_KEY')
 ```
 
+The program also uses a local library of ODM files as well as a remote set (currently held on a dropbox installation). Some of these were taken from [the CDISC eCRF portal](https://www.cdisc.org/kb/ecrf).
+
 ## Neo4j
 The code assumes Neo4j is running locally (default setup) with username and password hardcoded as below; there is no need for a secure setup for this demonstration code. You can change this if needed.
 ```
