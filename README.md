@@ -1,8 +1,16 @@
-# TransCelerate Digitial Data Flow (DDF) - Simple Examples
+# TransCelerate Digitial Data Flow (DDF) and Unified Study Definition Model (USDM) - Prototype and Demonstration Code
+
 ## Overview
-This Github contains some simple python programs that were used to investigate and prototype the DDF USDM and, in particular, the generation of an SoA and eCRF from the model
+This Github contains some simple python programs that were used to investigate and prototype the DDF USDM and, in particular, the generation of an SoA and eCRF from the model.
+
+The project is a collaboration between Transcelerate and CDISC and more information can be found [here on the TransCelerate site](https://www.transceleratebiopharmainc.com/initiatives/digital-data-flow/) and on the [CDISC web site](https://www.cdisc.org/ddf)
+
+## Disclaimer
+Nothing in this repository should be taken as definitive or normative and does not speak for either Transcelerate or CDISC. The code here is for prototyping and demonstration purposes only and is provided as is.
+
 ## Method
 The method chosen was to place a logical representation of the USDM into a Neo4j property graph. This conversion of the USDM UML into a graph representation allowed familiarity with the model to be gained while making prototype implementation easy. The use of Neo4j also allowed the model to be visualized easily.
+
 ## Programs
 Three programs are available:
 -	ddf.py – Loads the DDF data into Neo4j
