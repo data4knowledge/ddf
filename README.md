@@ -17,4 +17,22 @@ driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 ## CRF Stylesheets
 Two CRF stylesheets are used:
 - One very old one from 15 years or more back used as part of an FDA demo on ODM. It needs throwing away! :)
-- A more modern one by Jørgen Mangor Iversen. This can be found [on Github](https://github.com/jmangori/CDISC-ODM-XML-CRF-SDTM-Annotations).
+- A more modern one by Jørgen Mangor Iversen of Leo Pharma A/S. This is currently held in a private Github repository.
+
+## Docs Directory
+In the documents directory you will find two files, they might be useful
+- graph.png - An image of the DDF schema used for this exercise
+- dashboard.json - A definitions file for NeoDash. This is a nice tool and allows you to create no code dashboards for Neo4j. You need to install Neo4j desktop but the instructions to do so are straight forward.
+
+## Setup
+Usual python setup process, pretty simple, create the virutal environment and install the dependencies.
+```
+python3 -m venv env
+source env/bin/activate
+pip install neo4j
+pip install beautifultable
+```
+You might get the warning about upgrading pip, it will tell you what to do
+```
+...ddf/env/bin/python3 -m pip install --upgrade pip
+```
