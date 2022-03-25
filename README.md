@@ -10,6 +10,13 @@ Three programs are available:
 -	crf.py – Builds an ODM version of the CRF and passes through a stylesheet to render
 
 The programs were put together quickly with the demonstration need in mind rather than efficient coding. A lot of refactoring could take place, especially on the crf.py code and the XML generation
+
+Note that the crf.py program requires access to the CDISC Library for terminology definitions. The API key is placed into an environment variable as follows
+
+```
+API_KEY = os.getenv('CDISC_API_KEY')
+```
+
 ## Neo4j
 The code assumes Neo4j is running locally with username and password hardcoded as below; there is no need for a secure setup for this demonstration code. You can change this if needed.
 ```

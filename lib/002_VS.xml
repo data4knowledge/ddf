@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ODM FileOID="002_Vital Signs" FileType="Snapshot" CreationDateTime="2021-02-12T18:08:15-07:00" ODMVersion="1.3.2" Originator="Formedix" SourceSystem="Data Acquisition Designer" SourceSystemVersion="4.8.0" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns="http://www.cdisc.org/ns/odm/v1.3">
+	<Study OID="002_Vital Signs">
+		<GlobalVariables>
+			<StudyName>Vital Signs CRF</StudyName>
+			<StudyDescription>Vital Signs CRF</StudyDescription>
+			<ProtocolName>Vital Signs CRF</ProtocolName>
+		</GlobalVariables>
+		<BasicDefinitions>
+			<MeasurementUnit OID="002_mu.mmHg" Name="mmHg">
+				<Symbol>
+					<TranslatedText>mmHg</TranslatedText>
+				</Symbol>
+			</MeasurementUnit>
+			<MeasurementUnit OID="002_mu.beats/min" Name="Beats per Minute">
+				<Symbol>
+					<TranslatedText xml:lang="en">beats/min</TranslatedText>
+				</Symbol>
+			</MeasurementUnit>
+			<MeasurementUnit OID="002_mu.breaths/min" Name="Breaths per Minute">
+				<Symbol>
+					<TranslatedText>breaths/min</TranslatedText>
+				</Symbol>
+			</MeasurementUnit>
+		</BasicDefinitions>
+		<MetaDataVersion OID="002_Vital Signs CRF" Name="Vital Signs">
+			<FormDef OID="002_VS_HORIZONTAL" Name="Vital signs" Repeating="No">
+				<Description>
+					<TranslatedText xml:lang="en">VS - Implementation Options: HorizontalGeneric</TranslatedText>
+				</Description>
+				<ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37h" Mandatory="Yes" OrderNumber="1"/>
+				<ItemGroupRef ItemGroupOID="002_CDASH_2-1_IG_37" Mandatory="Yes" OrderNumber="2"/>
+			</FormDef>
+			<ItemGroupDef OID="002_CDASH_2-1_IG_37" Name="VS - Implementation Options: HorizontalGeneric" Repeating="No" Domain="VS">
+				<Description>
+					<TranslatedText xml:lang="en">VS - Vital Signs</TranslatedText>
+				</Description>
+				<ItemRef ItemOID="002_IT.SYSBP_VSORRES" Mandatory="No" OrderNumber="1"/>
+				<ItemRef ItemOID="002_IT.SYSBP_VSORRESU" Mandatory="Yes" OrderNumber="2"/>
+				<ItemRef ItemOID="002_IT.DIABP_VSORRES" Mandatory="No" OrderNumber="3"/>
+				<ItemRef ItemOID="002_IT.DIABP_VSORRESU" Mandatory="Yes" OrderNumber="4"/>
+				<ItemRef ItemOID="002_IT.BP_VSPOS" Mandatory="No" OrderNumber="5"/>
+				<ItemRef ItemOID="002_IT.BP_VSLOC" Mandatory="No" OrderNumber="6"/>
+				<ItemRef ItemOID="002_IT.HEIGHT_VSORRES" Mandatory="No" OrderNumber="7"/>
+				<ItemRef ItemOID="002_IT.HEIGHT_VSORRESU" Mandatory="No" OrderNumber="8"/>
+				<ItemRef ItemOID="002_IT.WEIGHT_VSORRES" Mandatory="No" OrderNumber="9"/>
+				<ItemRef ItemOID="002_IT.WEIGHT_VSORRESU" Mandatory="No" OrderNumber="10"/>
+				<ItemRef ItemOID="002_IT.PULSE_VSORRES" Mandatory="No" OrderNumber="11"/>
+				<ItemRef ItemOID="002_IT.PULSE_VSORRESU" Mandatory="Yes" OrderNumber="12"/>
+				<ItemRef ItemOID="002_IT.PULSE_VSLOC" Mandatory="Yes" OrderNumber="13"/>
+				<ItemRef ItemOID="002_IT.RESP_VSORRES" Mandatory="No" OrderNumber="14"/>
+				<ItemRef ItemOID="002_IT.RESP_VSORRESU" Mandatory="Yes" OrderNumber="15"/>
+				<ItemRef ItemOID="002_IT.TEMP_VSORRES" Mandatory="No" OrderNumber="16"/>
+				<ItemRef ItemOID="002_IT.TEMP_VSORRESU" Mandatory="No" OrderNumber="17"/>
+				<ItemRef ItemOID="002_IT.TEMP_VSLOC" Mandatory="No" OrderNumber="18"/>
+			</ItemGroupDef>
+			<ItemGroupDef OID="002_CDASH_2-1_IG_37h" Name="VS - Horizontal Header" Repeating="No" Domain="VS">
+				<Description>
+					<TranslatedText xml:lang="en">VS - Vital Signs</TranslatedText>
+				</Description>
+				<ItemRef ItemOID="002_IT.VSPERF" Mandatory="No" OrderNumber="1"/>
+				<ItemRef ItemOID="002_IT.VSDAT" Mandatory="No" OrderNumber="2"/>
+			</ItemGroupDef>
+			<ItemDef OID="002_IT.PULSE_VSORRESU" Name="PULSE_VSORRESU" DataType="float" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the pulse measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Pulse Unit</TranslatedText>
+				</Question>
+				<MeasurementUnitRef MeasurementUnitOID="002_mu.beats/min"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="PULSE_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.BP_VSLOC" Name="BP_VSLOC" DataType="text" Length="20">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the anatomical location where the blood pressure measurement was taken?</TranslatedText>
+					<TranslatedText xml:lang="en">Blood Pressure Location</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C74456.LOC.BP"/>
+				<Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="BP_VSLOC" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.VSDAT" Name="VSDAT" DataType="date">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSDAT</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the date of the measurement(s)?</TranslatedText>
+					<TranslatedText xml:lang="en">Date</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] Date"/>
+				<Alias Context="completionInstructions" Name="Record date of measurements using this format (DD-MON-YYYY)."/>
+				<Alias Context="implementationNotes" Name="A single date may be collected for all the vital sign measurements when they are performed on the same date. The date of each measurement can also be collected for each measurement using a CDASH variable [VSTESTCD]_VSDAT. The date of the measurements may be determined from a collected date of visit and in such cases a separate measurement date field is not required."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. For the SDTM submission dataset, concatenate all collected CDASH DATE and TIME components and populate the SDTMIG variable VSDTC in ISO 8601 format."/>
+				<Alias Name="VSDAT" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.WEIGHT_VSORRESU" Name="WEIGHT_VSORRESU" DataType="text" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the weight measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Weight Unit</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C66770.VSRESU.WGT"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="WEIGHT_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.RESP_VSORRESU" Name="RESP_VSORRESU" DataType="float" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the Respiratory Rate Unit measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Respiratory Rate Unit</TranslatedText>
+				</Question>
+				<MeasurementUnitRef MeasurementUnitOID="002_mu.breaths/min"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="RESP_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.DIABP_VSORRES" Name="DIABP_VSORRES" DataType="float" Length="3">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the Diastolic Blood Pressure measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Diastolic Blood Pressure</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="DIABP_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.PULSE_VSORRES" Name="PULSE_VSORRES" DataType="float" Length="3">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the pulse measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Pulse</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="PULSE_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.RESP_VSORRES" Name="RESP_VSORRES" DataType="float" Length="3">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the respiratory rate measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Respiratory Rate</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="RESP_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.DIABP_VSORRESU" Name="DIABP_VSORRESU" DataType="float" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the Diastolic Blood Pressure measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Diastolic Blood Pressure Unit</TranslatedText>
+				</Question>
+				<MeasurementUnitRef MeasurementUnitOID="002_mu.mmHg"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="DIABP_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.TEMP_VSORRESU" Name="TEMP_VSORRESU" DataType="text" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the Temperature Unit measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Temperature Unit</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C66770.VSRESU.TEMP"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="TEMP_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.TEMP_VSLOC" Name="TEMP_VSLOC" DataType="text" Length="11">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the anatomical location where the temperature was taken?</TranslatedText>
+					<TranslatedText xml:lang="en">Temperature Location</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C74456.LOC.TEMP"/>
+				<Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="TEMP_VSLOC" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.HEIGHT_VSORRESU" Name="HEIGHT_VSORRESU" DataType="text" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the height measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Height Unit</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C66770.VSRESU.HGT"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="HEIGHT_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.TEMP_VSORRES" Name="TEMP_VSORRES" DataType="text" Length="5">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the temperature measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Temperature</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="TEMP_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.HEIGHT_VSORRES" Name="HEIGHT_VSORRES" DataType="text" Length="3">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the height measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Height</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="HEIGHT_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.VSPERF" Name="VSPERF" DataType="text" Length="1">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSPERF</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText xml:lang="en">Were vital signs performed?</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C66742.NY.NY"/>
+				<Alias Context="prompt" Name="Vital Signs Performed ; [VSTEST] Performed"/>
+				<Alias Context="completionInstructions" Name="Indicate if the vital signs were collected. If yes, include the appropriate details where indicated on the CRF."/>
+				<Alias Context="implementationNotes" Name="This general prompt question is used as a data management tool to verify that missing results are confirmed missing. This may be implemented for all tests collected on the same horizontal record or for each specific test. When mapped to SDTM, the value of VSPERF would apply to all tests on the same record. Use the CDASH variable [VSTESTCD]_VSPERF when implemented on a specific test basis."/>
+				<Alias Context="mappingInstructions" Name="This does not map directly to an SDTMIG variable. May be used to derive a value into the SDTM variable VSSTAT. If VSPERF=&quot;N&quot;, the value of VSSTAT will be &quot;NOT DONE&quot;. If VSPERF=&quot;Y&quot;, VSSTAT should be null. A combination of SDTMIG variables (e.g., VSCAT and VSSCAT, VSTPT) is used to indicate that multiple tests were not done. In this situation, the SDTMIG variable VSTESTCD would be populated as VSALL and an appropriate test name (VSTEST) provided. See SDTMIG v3.2 Section 4.1.5.1.2."/>
+				<Alias Name="VSPERF" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.PULSE_VSLOC" Name="PULSE_VSLOC" DataType="text" Length="20">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSLOC</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the anatomical location where the pulse measurement was taken?</TranslatedText>
+					<TranslatedText xml:lang="en">Pulse Location</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C74456.LOC.PULSE"/>
+				<Alias Context="prompt" Name="[VSTEST] Anatomical Location"/>
+				<Alias Context="completionInstructions" Name="Record or select location on body where measurement was performed, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="Collected or preprinted when the sponsor needs to identify the specific anatomical location (e.g., ARM for blood pressure). Sponsors may collect the data using a subset list of controlled terminology on the CRF. In horizontal data collection, a CDASH variable [VSTESTCD]_VSLOC may be created for each VSTESTCD and added to the CRF, if needed. LAT, DIR, and PORTOT are used to further describe the anatomical location."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="PULSE_VSLOC" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.SYSBP_VSORRESU" Name="SYSBP_VSORRESU" DataType="float" Length="4">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRESU</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the unit of the Systolic Blood Pressure measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Systolic Blood Pressure Unit</TranslatedText>
+				</Question>
+				<MeasurementUnitRef MeasurementUnitOID="002_mu.mmHg"/>
+				<Alias Context="prompt" Name="[VSTEST] Unit"/>
+				<Alias Context="completionInstructions" Name="Record or select the original unit in which these data were collected, if not preprinted on CRF."/>
+				<Alias Context="implementationNotes" Name="A single Unit field can be collected once for all measurements collected on the same horizontal record using VSUNIT. The value of VSUNIT applies to all measurements on that record when mapped to SDTM. If needed for each measurement, unit may be collected using the CDASH variable [VSTESTCD]_VSSTAT. Should be preprinted on the CRF with the associated test when possible, rather than collected in a field that requires the site to enter text."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="SYSBP_VSORRESU" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.BP_VSPOS" Name="BP_VSPOS" DataType="text" Length="20">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSPOS</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the position of the subject during the blood pressure measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Blood Pressure Position</TranslatedText>
+				</Question>
+				<CodeListRef CodeListOID="002_CL.C71148.POSITION.BP"/>
+				<Alias Context="prompt" Name="[VSTEST] Position"/>
+				<Alias Context="completionInstructions" Name="Record the position of subject at time of test (e.g. SITTING)."/>
+				<Alias Context="implementationNotes" Name="Results may be affected by whether conditions for vital signs as specified in the protocol were properly met. One common condition is the subject&apos;s position. If the protocol requires this type of information, then a CDASH variable [VSTESTCD]_VSPOS may be created for each VSTESTCD and added to the CRF, if needed."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target."/>
+				<Alias Name="BP_VSPOS" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.WEIGHT_VSORRES" Name="WEIGHT_VSORRES" DataType="text" Length="3" SDSVarName="WEIGHT">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the weight measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Weight</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="WEIGHT_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<ItemDef OID="002_IT.SYSBP_VSORRES" Name="SYSBP_VSORRES" DataType="float" Length="3">
+				<Description>
+					<TranslatedText xml:lang="en">[VSTESTCD]_VSORRES</TranslatedText>
+				</Description>
+				<Question>
+					<TranslatedText>What was the result of the Systolic Blood Pressure measurement?</TranslatedText>
+					<TranslatedText xml:lang="en">Systolic Blood Pressure</TranslatedText>
+				</Question>
+				<Alias Context="prompt" Name="[VSTEST] (Result)"/>
+				<Alias Context="completionInstructions" Name="Record the vital sign results."/>
+				<Alias Context="implementationNotes" Name="Each test may be collected using the CDASH variable [TESTCD] e.g., SYSBP or [TESTCD]_VSORRES where TESTCD is the appropriate CT for the VS test code e.g., SYSBP_VSORRES. This CDASH variable name is an example of what &quot;variable name&quot; can be used in a denormalized data structure."/>
+				<Alias Context="mappingInstructions" Name="Maps directly to the SDTMIG variable listed in the column with the heading SDTMIG Target. In addition to the SDTMIG variable VSORRES, create VSTESTCD from the CDASH variable name and determine the value of VSTEST from VSTESTCD. The CDASH prompt may also contain the VSTEST. Use appropriate CDISC Controlled Terminology for the test and test code."/>
+				<Alias Name="SYSBP_VSORRES" Context="CDASH"/>
+			</ItemDef>
+			<CodeList OID="002_CL.C66770.VSRESU.TEMP" Name="Units for Vital Signs Results Tempature" DataType="text">
+				<Description>
+					<TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="C" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Celsius</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="F" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Fahrenheit</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C66770.VSRESU.HGT" Name="Units for Vital Signs Results Height" DataType="text">
+				<Description>
+					<TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="cm" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Centimeter</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="in" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Inch</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C66742.NY.NY" Name="No Yes Response Only" DataType="text">
+				<Description>
+					<TranslatedText>A term that is used to indicate a question with permissible values of yes/no/unknown/not applicable.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="N" OrderNumber="1">
+					<Decode>
+						<TranslatedText>No</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="Y" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Yes</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C71148.POSITION.BP" Name="Position Blood Pressure " DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used with Body Position within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="PRONE" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Prone</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="SEMI-RECUMBENT" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Semi-Recumbent</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="SITTING" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Sitting</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="STANDING" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Standing</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="SUPINE" OrderNumber="5">
+					<Decode>
+						<TranslatedText>Supine</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C74456.LOC.PULSE" Name="Anatomical Location Pulse" DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used for anatomical location within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="BRACHIAL ARTERY" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Brachial Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="CAROTID ARTERY" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Carotid Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="CEREBRAL ARTERY" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Cerebral Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="DORSALIS PEDIS ARTERY" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Dorsalis Pedis Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="FEMORAL ARTERY" OrderNumber="5">
+					<Decode>
+						<TranslatedText>Femoral Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="PERIPHERAL ARTERY" OrderNumber="6">
+					<Decode>
+						<TranslatedText>Peripheral Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C66770.VSRESU.WGT" Name="Units for Vital Signs Results Weight" DataType="text">
+				<Description>
+					<TranslatedText>The unit used to record and describe the result of a test investigating a vital sign. (NCI)</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="kg" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Kilogram</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="LB" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Pound</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C74456.LOC.BP" Name="Anatomical Location Blood Pressure" DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used for anatomical location within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="BRACHIAL ARTERY" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Brachial Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="FINGER" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Finger</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="PERIPHERAL ARTERY" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Peripheral Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="RADIAL ARTERY" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Radial Artery</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+			<CodeList OID="002_CL.C74456.LOC.TEMP" Name="Anatomical Location Temperature" DataType="text">
+				<Description>
+					<TranslatedText>Terminology codelist used for anatomical location within CDISC.</TranslatedText>
+				</Description>
+				<CodeListItem CodedValue="AXILLA" OrderNumber="1">
+					<Decode>
+						<TranslatedText>Axilla</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="EAR" OrderNumber="2">
+					<Decode>
+						<TranslatedText>Ear</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="FOREHEAD" OrderNumber="3">
+					<Decode>
+						<TranslatedText>Forehead</TranslatedText>
+					</Decode>
+				</CodeListItem>
+				<CodeListItem CodedValue="ORAL CAVITY" OrderNumber="4">
+					<Decode>
+						<TranslatedText>Oral Cavity</TranslatedText>
+					</Decode>
+				</CodeListItem>
+			</CodeList>
+		</MetaDataVersion>
+	</Study>
+</ODM>
