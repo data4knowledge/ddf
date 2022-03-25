@@ -25,7 +25,7 @@ driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 ## CRF Stylesheets
 Two CRF stylesheets are used:
 - One very old one from 15 years or more back used as part of an FDA demo on ODM. It needs throwing away! :)
-- A more modern one by Jørgen Mangor Iversen of Leo Pharma A/S. This is currently held in a private Github repository.
+- A more modern one courtesy of Jørgen Mangor Iversen of Leo Pharma A/S. This is currently held in a private Github repository but a copy is included within this repository but is, of course, just a snapshot of the one used.
 
 ## Docs Directory
 In the documents directory you will find two files, they might be useful
