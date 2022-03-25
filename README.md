@@ -18,10 +18,13 @@ API_KEY = os.getenv('CDISC_API_KEY')
 ```
 
 ## Neo4j
-The code assumes Neo4j is running locally with username and password hardcoded as below; there is no need for a secure setup for this demonstration code. You can change this if needed.
+The code assumes Neo4j is running locally (default setup) with username and password hardcoded as below; there is no need for a secure setup for this demonstration code. You can change this if needed.
 ```
 driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "ddf"))
 ```
+
+It is recommended to install the Neo4j using the desktop offering. This gives you access to the normal browser tool but also over tools such as NeoDash. NeoDash is a nice tool and allows you to create no code dashboards for Neo4j. See [the Neo4j download page](https://neo4j.com/download/). 
+
 ## CRF Stylesheets
 Two CRF stylesheets are used:
 - One very old one from 15 years or more back used as part of an FDA demo on ODM. It needs throwing away! :)
@@ -30,7 +33,7 @@ Two CRF stylesheets are used:
 ## Docs Directory
 In the documents directory you will find two files, they might be useful
 - graph.png - An image of the DDF schema used for this exercise
-- dashboard.json - A definitions file for NeoDash. This is a nice tool and allows you to create no code dashboards for Neo4j. You need to install Neo4j desktop but the instructions to do so are straight forward.
+- dashboard.json - A definitions file for NeoDash. 
 
 ## Setup
 Usual python setup process, pretty simple, create the virutal environment and install the dependencies.
