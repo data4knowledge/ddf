@@ -1,4 +1,4 @@
-# TransCelerate Digitial Data Flow (DDF) and Unified Study Definition Model (USDM) - Prototype and Demonstration Code
+# TransCelerate Digital Data Flow (DDF) and Unified Study Definition Model (USDM) - Prototype and Demonstration Code
 
 ## Overview
 This Github contains some simple python programs that were used to investigate and prototype the DDF USDM and, in particular, the generation of an SoA and eCRF from the model.
